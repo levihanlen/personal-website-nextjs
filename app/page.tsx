@@ -77,10 +77,6 @@ export default function Home() {
       </div>
 */}
       <CenteredArticle className={`mt-32`}>
-        <h1>The Story of Our Future</h1>
-        {roadmap.map((val, ind) => {
-          return <RoadmapDisp roadmap={val} key={ind} />;
-        })}
         <h1>Hey! I&apos;m Levi 👋</h1>
 
         <div className="grid grid-cols-2 gap-2 sm:gap-4">
@@ -94,6 +90,56 @@ export default function Home() {
           I&apos;m an {age}-year-old in the US who loves creating businesses and
           learning.
         </p>
+        <div className="flex flex-col space-y-4 mb-16">
+          <h1 className="!m-0 text-pretty">The Story of Our Future</h1>
+          <div className="text-xl text-pretty text-dark">
+            The roadmap to utopia—and how I can help.
+          </div>
+          <div className="tracking-widest text-xs font-semibold text-dark">
+            VERSION 2 - OCT 3, 2024
+          </div>
+        </div>
+
+        <p>Improvement never happens on its own.</p>
+
+        <p>
+          Every innovation, every improvement, was made via force--via
+          consistent effort.
+        </p>
+
+        <p>
+          Never blindly assume tomorrow will be better. Because it won&apos;t be
+          unless you make it so.
+        </p>
+
+        <p>The main problems we must solve:</p>
+
+        <ul>
+          <li>Pain</li>
+          <li>Intelligence</li>
+          <li>World Peace</li>
+          <li>Poverty</li>
+          <li>Hunger</li>
+          <li>Education</li>
+          <li>Government</li>
+          <li>Human Limitations</li>
+          <li>Time</li>
+        </ul>
+
+        <p>
+          <strong>
+            If you want to use any of these ideas, go ahead! Somebody has to
+            change the world, so why not you?
+          </strong>
+        </p>
+
+        <p>The year is 2024. The clock begins.</p>
+
+        <div className="space-y-4 md:space-y-8">
+          {roadmap.map((val, ind) => {
+            return <RoadmapDisp roadmap={val} key={ind} />;
+          })}
+        </div>
         <h2>Fun Facts 🕺</h2>
         <ul>
           <li>I&apos;m a minimalist and own under 100 items.</li>
@@ -107,25 +153,6 @@ export default function Home() {
             day.
           </li>
           <li>I drink only water and eat only healthy food.</li>
-        </ul>
-        <h2>Life goals ⭐</h2>
-        <p>
-          I&apos;m not afraid of sounding foolishly ambitious. I believe in
-          setting massive goals and achieving them with massive effort.
-        </p>
-        <ul>
-          <LifeGoalPoint isDone={false}>
-            Complete mastery of myself
-          </LifeGoalPoint>
-          <LifeGoalPoint isDone={false}>
-            Brian Johnson&apos;s 2051/51 commitment
-          </LifeGoalPoint>
-          <LifeGoalPoint isDone={false}>
-            Help create immortality before the year 2090
-          </LifeGoalPoint>
-          <LifeGoalPoint isDone={false}>
-            Help make learning easy, fun, and motivating
-          </LifeGoalPoint>
         </ul>
         <h2>My heroes 🦸‍♀️</h2>
         <ul>
@@ -144,21 +171,6 @@ export default function Home() {
           <li>Isaac Newton</li>
           <li>Plato</li>
           <li>Abraham Lincoln</li>
-        </ul>
-        <h2>Bucket list 🪣</h2>
-        <ul>
-          <LifeGoalPoint isDone={false}>Publish a book</LifeGoalPoint>
-          <LifeGoalPoint isDone={false}>
-            Create a full-stack application
-          </LifeGoalPoint>
-          <LifeGoalPoint isDone={false}>
-            Make a living off my own business
-          </LifeGoalPoint>
-          <LifeGoalPoint isDone={false}>
-            100,000 Instagram followers
-          </LifeGoalPoint>
-          <LifeGoalPoint isDone={true}>Give a big speech</LifeGoalPoint>
-          <LifeGoalPoint isDone={false}>Read 1,000 books</LifeGoalPoint>
         </ul>
         <div className="pt-16"></div>
 
@@ -269,38 +281,107 @@ function RoadmapDisp({ roadmap }: { roadmap: Roadmap }) {
       </div>
       <div className="text-2xl font-semibold text-darkest">{roadmap.title}</div>
       <div className="text-dark">{roadmap.desc}</div>
-      <div className="space-y-4">
-        {roadmap.items
-          .sort(
-            (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-          )
-          .map((item, ind) => {
-            const date = new Date(item.date);
-            const timeDiffStr = getTimeDifference(date);
 
-            return (
-              <div
-                key={ind}
-                className={`ml-4 flex flex-auto justify-between items-end border-b-pt border-mediumLight ${
-                  item.done ? "" : ""
-                }`}
-              >
+      <details className="mt-4">
+        <summary className="cursor-pointer text-lg font-semibold">
+          Expand
+        </summary>
+        <div className="space-y-6 mt-4">
+          {roadmap.items
+            .sort(
+              (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+            )
+            .map((item, ind) => {
+              const date = new Date(item.date);
+              const timeDiffStr = getTimeDifference(date);
+
+              return (
                 <div
-                  className={`font-medium ${
-                    item.done ? "line-through text-mediumDark" : "text-darkest "
+                  key={ind}
+                  className={` flex flex-auto justify-between items-center border-b-pt pb-1 border-mediumLight ${
+                    item.done ? "" : ""
                   }`}
                 >
-                  {item.title}
+                  <div className=" items-center flex flex-row mr-4">
+                    <div
+                      className={` rounded-full w-4 h-4 flex-none mr-4 border-medium border-pt ${
+                        item.done ? "bg-darkest border-dark" : ""
+                      }`}
+                    />
+                    <div
+                      className={` ${
+                        item.done
+                          ? "line-through text-mediumDark"
+                          : "text-darkest "
+                      }`}
+                    >
+                      {item.title}
+                    </div>
+                  </div>
+                  <div className="text-sm text-medium flex-none">
+                    {timeDiffStr}
+                  </div>
                 </div>
-                <div className="text-sm text-medium flex-none">
-                  {timeDiffStr}
-                </div>
-              </div>
-            );
-          })}
-      </div>
+              );
+            })}
+        </div>
+      </details>
     </Card>
   );
+
+  /*
+  return (
+    <Card className="p-6 md:p-8 space-y-6 bg-white shadow-lg rounded-lg">
+      <div className="flex flex-col space-y-2">
+        <ProgressBar percent={percent} />
+        <div className="text-sm text-gray-600">
+          {percent.toFixed(0)}% Completed
+        </div>
+      </div>
+      <div className="text-3xl font-bold text-gray-800">{roadmap.title}</div>
+      <div className="text-gray-700">{roadmap.desc}</div>
+
+      <details className="mt-4">
+        <summary className="cursor-pointer text-lg font-semibold text-blue-600 hover:text-blue-800">
+          View Roadmap Items
+        </summary>
+        <div className="mt-4 space-y-4">
+          {roadmap.items
+            .sort(
+              (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+            )
+            .map((item, ind) => {
+              const date = new Date(item.date);
+              const timeDiffStr = getTimeDifference(date);
+
+              return (
+                <div
+                  key={ind}
+                  className={`flex justify-between items-center border-b pb-2 ${
+                    item.done ? "opacity-50" : ""
+                  }`}
+                >
+                  <div
+                    className={`flex items-center ${
+                      item.done ? "line-through text-gray-500" : "text-gray-800"
+                    }`}
+                  >
+                    <span
+                      className={`inline-block w-3 h-3 mr-2 rounded-full ${
+                        item.done ? "bg-green-500" : "bg-gray-300"
+                      }`}
+                    ></span>
+                    {item.title}
+                  </div>
+                  <div className="text-sm text-gray-500">{timeDiffStr}</div>
+                </div>
+              );
+            })}
+        </div>
+      </details>
+    </Card>
+  );
+  */
 }
 
 function ProjectDiv({
@@ -345,22 +426,5 @@ function SquareImg({ src }: { src: string }) {
         className="absolute m-0 w-full h-full grayscale object-cover rounded-xl"
       />
     </div>
-  );
-}
-
-function LifeGoalPoint({
-  isDone,
-  children,
-}: {
-  isDone: boolean;
-  children: React.ReactNode;
-}) {
-  return (
-    <li>
-      <span className={`${isDone ? "line-through text-medium" : ""}`}>
-        {children}
-      </span>
-      {isDone ? " Done!" : ""}
-    </li>
   );
 }
