@@ -357,7 +357,7 @@ export function CenteredArticle({
 }) {
   return (
     <div
-      className={`prose prose-sm prose-zinc !prose-invert lg:prose-base prose-headings:font-semibold prose-headings:text-darkest prose-p:text-dark w-full max-w-xl self-center px-4 ${className}`}
+      className={`prose prose-sm prose-zinc !prose-invert lg:prose-base prose-headings:font-semibold prose-headings:text-darkest prose-p:text-dark prose-li:text-dark w-full max-w-xl self-center px-4 ${className}`}
     >
       {children}
     </div>

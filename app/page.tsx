@@ -85,12 +85,55 @@ export default function Home() {
           <SquareImg src="/mePicture2.png" />
           <SquareImg src="/polaroid.png" />
         </div>
+
         <h2>About me 🕵️</h2>
-        <p>
-          I&apos;m an {age}-year-old in the US who loves creating businesses and
-          learning.
-        </p>
-        <div className="flex flex-col space-y-4 mb-16">
+        <ul>
+          <li>
+            I&apos;m an {age}-year-old in the US who loves creating businesses
+            and learning
+          </li>
+          <li>I&apos;m a minimalist and own under 100 items</li>
+          <li>I was Valedictorian of my high school class (285 people)</li>
+          <li>
+            I chose not to attend college and am instead pursuing
+            entrepreneurship
+          </li>
+          <li>
+            I love reading so much that I used to it for eight hours daily (I
+            now do one hour)
+          </li>
+          <li>I drink only water and eat only healthy food</li>
+          <li>Almost everything I own is black, white, or gray</li>
+          <li>
+            I&apos;m madly in love with{" "}
+            <a href="https://apps.ankiweb.net/" target="_blank">
+              Anki
+            </a>
+          </li>
+        </ul>
+        <h2>My heroes 🦸‍♀️</h2>
+        <ul>
+          <li>Steve Jobs</li>
+          <li>Winston Churchill</li>
+          <li>Leonardo Da Vinci</li>
+          <li>Elon Musk</li>
+          <li>Nelson Mandela</li>
+          <li>Albert Einstein</li>
+          <li>
+            <a href="https://www.heroic.us/brian-johnson" target="_blank">
+              Brian Johnson
+            </a>{" "}
+            (of Heroic company)
+          </li>
+          <li>Marie Curie</li>
+          <li>Richard Feynman</li>
+          <li>Charles Darwin</li>
+          <li>Martin Luther King Jr.</li>
+          <li>Isaac Newton</li>
+          <li>Plato</li>
+          <li>Abraham Lincoln</li>
+        </ul>
+        <div className="flex flex-col space-y-4 mb-16 mt-16">
           <h1 className="!m-0 text-pretty">The Story of Our Future</h1>
           <div className="text-xl text-pretty text-dark">
             The roadmap to utopia—and how I can help.
@@ -112,19 +155,7 @@ export default function Home() {
           unless you make it so.
         </p>
 
-        <p>The main problems we must solve:</p>
-
-        <ul>
-          <li>Pain</li>
-          <li>Intelligence</li>
-          <li>World Peace</li>
-          <li>Poverty</li>
-          <li>Hunger</li>
-          <li>Education</li>
-          <li>Government</li>
-          <li>Human Limitations</li>
-          <li>Time</li>
-        </ul>
+        <RoadmapOverview />
 
         <p>
           <strong>
@@ -133,44 +164,52 @@ export default function Home() {
           </strong>
         </p>
 
-        <p>The year is 2024. The clock begins.</p>
-
         <div className="space-y-4 md:space-y-8">
-          {roadmap.map((val, ind) => {
-            return <RoadmapDisp roadmap={val} key={ind} />;
-          })}
+          {roadmap
+            .sort((a, b) => {
+              const earliestA = a.items.reduce((earliest, current) =>
+                new Date(current.date) < new Date(earliest.date)
+                  ? current
+                  : earliest
+              );
+              const earliestB = b.items.reduce((earliest, current) =>
+                new Date(current.date) < new Date(earliest.date)
+                  ? current
+                  : earliest
+              );
+
+              return (
+                new Date(earliestA.date).getTime() -
+                new Date(earliestB.date).getTime()
+              );
+            })
+            .map((val, ind) => {
+              return <RoadmapDisp roadmap={val} key={ind} />;
+            })}
         </div>
-        <h2>Fun Facts 🕺</h2>
+        <div>A UTOPIA IS BORN</div>
+        <h2>Challenges we must overcome 🧑‍🚀</h2>
         <ul>
-          <li>I&apos;m a minimalist and own under 100 items.</li>
-          <li>I was Valedictorian of my high school class (285 people).</li>
+          <li>Doubt from others and self</li>
+          <li>Not learning enough</li>
+          <li>Too ingrained in wanting pleasure</li>
+          <li>Losing motivation</li>
+          <li>Fear of leaving the comfort zone</li>
+          <li>Not working hard enough</li>
+          <li>Doing too much busywork</li>
+          <li>Embrassment from failures</li>
+          <li>Balancing idealism with realism</li>
+          <li>Not dreaming big enough</li>
+          <li>Unforseen obstacles</li>
+          <li>Lack of collaboration</li>
+          <li>Impatience</li>
+          <li>Perfectionism</li>
+          <li>Criticism</li>
+          <li>Not adapting enough</li>
           <li>
-            I chose not to attend college and am instead pursuing
-            entrepreneurship.
+            Output dilution from trying to solve multiple problems at once
           </li>
-          <li>
-            I love reading. I read 45 minutes daily. I used to read 8 hours a
-            day.
-          </li>
-          <li>I drink only water and eat only healthy food.</li>
-        </ul>
-        <h2>My heroes 🦸‍♀️</h2>
-        <ul>
-          <li>Steve Jobs</li>
-          <li>Winston Churchill</li>
-          <li>Leonardo Da Vinci</li>
-          <li>Elon Musk</li>
-          <li>Albert Einstein</li>
-          <li>
-            <a href="https://www.heroic.us/brian-johnson" target="_blank">
-              Brian Johnson
-            </a>{" "}
-            (of Heroic company)
-          </li>
-          <li>Charles Darwin</li>
-          <li>Isaac Newton</li>
-          <li>Plato</li>
-          <li>Abraham Lincoln</li>
+          <li>Getting discouraged from failures</li>
         </ul>
         <div className="pt-16"></div>
 
@@ -226,6 +265,49 @@ export function ProgressBar({ percent }: { percent: number }) {
     </div>
   );
 }
+
+function RoadmapOverview() {
+  const sortedRoadmap = roadmap.sort((a, b) => {
+    const earliestA = a.items.reduce((earliest, current) =>
+      new Date(current.date) < new Date(earliest.date) ? current : earliest
+    );
+    const earliestB = b.items.reduce((earliest, current) =>
+      new Date(current.date) < new Date(earliest.date) ? current : earliest
+    );
+
+    return (
+      new Date(earliestA.date).getTime() - new Date(earliestB.date).getTime()
+    );
+  });
+  return (
+    <Card className="p-4 md:p-8">
+      <div className="text-darkest text-2xl font-semibold">Overview</div>
+      <p>The problems we must solve</p>
+      <ul className="">
+        {sortedRoadmap.map((val, ind) => {
+          const earliestItem = val.items.reduce((earliest, current) => {
+            return new Date(current.date) < new Date(earliest.date)
+              ? current
+              : earliest;
+          });
+
+          const latestItem = val.items.reduce((earliest, current) => {
+            return new Date(current.date) > new Date(earliest.date)
+              ? current
+              : earliest;
+          });
+          return (
+            <li key={ind}>
+              {val.title} ({new Date(earliestItem.date).getFullYear()}-
+              {new Date(latestItem.date).getFullYear()})
+            </li>
+          );
+        })}
+      </ul>
+    </Card>
+  );
+}
+
 function RoadmapDisp({ roadmap }: { roadmap: Roadmap }) {
   const total = roadmap.items.reduce(
     (acc, item) => acc + (item.done ? 1 : 0),
