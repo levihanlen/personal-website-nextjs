@@ -10,6 +10,8 @@ export interface RoadmapItem {
   done: boolean;
 }
 
+export const version = 4;
+
 export const roadmap: Roadmap[] = [
   {
     title: "Personal Mastery",
@@ -141,6 +143,11 @@ export const roadmap: Roadmap[] = [
         done: false,
       },
       {
+        date: "2030-10-31",
+        title: "Fail 10,000 times, lose money, keep going anyway",
+        done: false,
+      },
+      {
         date: "2032-01-31",
         title: "Innovate to create a robot that can do anything a human can do",
         done: false,
@@ -181,6 +188,11 @@ export const roadmap: Roadmap[] = [
       {
         date: "2035-03-31",
         title: "Create a company focused on anti-aging research and therapies",
+        done: false,
+      },
+      {
+        date: "2037-10-31",
+        title: "Fail 10,000 times, lose money, keep going anyway",
         done: false,
       },
       {
@@ -346,6 +358,12 @@ export const roadmap: Roadmap[] = [
           "Gather a team of experts in neuroscience, cognitive science, and AI",
         done: false,
       },
+
+      {
+        date: "2047-10-31",
+        title: "Fail 10,000 times, lose money, keep going anyway",
+        done: false,
+      },
       {
         date: "2049-01-31",
         title:
@@ -386,6 +404,11 @@ export const roadmap: Roadmap[] = [
         done: false,
       },
       {
+        date: "2042-10-31",
+        title: "Fail 10,000 times, lose money, keep going anyway",
+        done: false,
+      },
+      {
         date: "2044-01-31",
         title:
           "Develop non-animal food that is cheap, healthy, and can taste like anything",
@@ -421,6 +444,11 @@ export const roadmap: Roadmap[] = [
         date: "2055-02-31",
         title:
           "Gather a team of genius people in neuroscience, genetics, and technology",
+        done: false,
+      },
+      {
+        date: "2057-10-31",
+        title: "Fail 10,000 times, lose money, keep going anyway",
         done: false,
       },
       {

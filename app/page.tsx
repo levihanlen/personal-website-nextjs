@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CenteredArticle } from "./clientComponents";
-import { Roadmap } from "./utils/roadmap";
+import { Roadmap, version } from "./utils/roadmap";
 
 import { roadmap } from "./utils/roadmap";
 
@@ -116,7 +116,7 @@ export default function Home() {
             Our roadmap to utopia—and how I can help 🌲
           </h1>
           <div className="tracking-widest text-xs font-semibold text-dark">
-            VERSION 3 OF 1000 - OCT 7, 2024
+            VERSION {version} OF 1000 - OCT 7, 2024
           </div>
         </div>
 
