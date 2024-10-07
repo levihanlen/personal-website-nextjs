@@ -234,7 +234,7 @@ export default function Home() {
   );
 }
 
-export function ProgressBar({ percent }: { percent: number }) {
+function ProgressBar({ percent }: { percent: number }) {
   return (
     <div className="h-2 w-full overflow-hidden rounded-full border-pt border-darkest/10 bg-medium">
       <div className="h-full bg-darkest" style={{ width: percent + "%" }}></div>
