@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Card, CenteredArticle, PrimaryBtn } from "./clientComponents";
+import { Card, CenteredArticle } from "./clientComponents";
 import { Roadmap } from "./utils/roadmap";
 
 import { roadmap } from "./utils/roadmap";
@@ -111,11 +111,10 @@ export default function Home() {
             </a>
           </li>
         </ul>
-        <div className="flex flex-col space-y-4 mb-16 mt-16">
-          <h1 className="!m-0 text-pretty">The Story of Our Future</h1>
-          <div className="text-xl text-pretty text-dark">
-            The roadmap to utopia—and how I can help.
-          </div>
+        <div className="flex flex-col space-y-4 my-12">
+          <h1 className="!m-0 text-pretty">
+            Our roadmap to utopia—and how I can help 🌲
+          </h1>
           <div className="tracking-widest text-xs font-semibold text-dark">
             VERSION 3 OF 1000 - OCT 7, 2024
           </div>
@@ -165,11 +164,16 @@ export default function Home() {
               return <RoadmapDisp roadmap={val} key={ind} />;
             })}
         </div>
-        <div>A UTOPIA IS BORN</div>
-        <p>
-          This is the plan. Andl isten, a plan is good. But talk wont change the
-          world. Only action will. So lets get to work.
-        </p>
+        <div className="w-full flex flex-col items-center py-16">
+          <div className="text-pretty text-4xl tracking-widest font-semibold text-center">
+            A UTOPIA IS BORN
+          </div>
+          <p className="max-w-sm text-pretty text-center">
+            A plan is good, but alone it wont change the world. Only action
+            will. So let&apos;s get to work.
+          </p>
+        </div>
+        <p></p>
         <h2>Challenges we must overcome 🧑‍🚀</h2>
         <ul>
           <li>Doubt from others and self</li>
@@ -230,10 +234,6 @@ export default function Home() {
         />
          */}
       </div>
-
-      <Link href="/learn">
-        <PrimaryBtn>Browse guides</PrimaryBtn>
-      </Link>
     </>
   );
 }

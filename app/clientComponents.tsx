@@ -95,9 +95,11 @@ export function Navbar({ scrollbar = false }: { scrollbar: boolean }) {
             <Link href="/" className="block no-underline sm:hidden">
               <div className="text-darkest hover:underline">Home</div>
             </Link>
+            {/* 
             <Link href="/learn" className="no-underline">
               <div className="text-darkest hover:underline">Guides</div>
             </Link>
+            */}
           </div>
         </div>
         {scrollbar && <ScrollProgressBar2 />}
@@ -188,22 +190,22 @@ function Footer() {
       id="footer"
       className="flex w-full flex-col space-y-12 bg-light p-8 pb-32 text-sm text-dark md:flex-row md:justify-between md:space-y-0 md:text-sm"
     >
-      <div className="w-full max-w-lg flex-grow space-y-1 sm:mb-0 md:w-1/2 md:mr-8">
-        <div className="font-bold text-darkest">My Mission</div>
-        <div>
-          <p>
-            My mission is to help as many people as possible become the best
-            versions of themselves. I&apos;m committed to make this into
-            reality. I want to make a positive difference in <b>your</b> life.
-          </p>
-          <br />
-          <p>
-            As always, thanks for supporting me. I hope my projects have
-            improved your life; I spend way too much time on them.
-          </p>
-          <br />
-          <p>- Levi</p>
-        </div>
+      <div className="w-full max-w-lg flex-grow space-y-4 sm:mb-0 md:w-1/2 md:mr-8">
+        <div className="font-bold text-darkest">Our Mission</div>
+        <p>
+          Note that I said <i>our</i> mission. We, you and I, have an obligation
+          to improve the world—to help build utopia.
+        </p>
+        <p>
+          It may sound ambitious, even impossible. But with enough people and
+          enough effort, it&apos;s achievable. And we <i>will</i> make it happen
+          in our lifetime.
+        </p>
+        <p>
+          As always, thanks for supporting me. I hope my projects have improved
+          your life; I spend way too much time on them.
+        </p>
+        <p>- Levi</p>
       </div>
       <div className="flex w-full justify-between max-w-sm">
         <div className="w-auto space-y-1 sm:mb-0">
@@ -212,12 +214,6 @@ function Footer() {
             Instagram
           </FooterLink>
           <FooterLink href="https://x.com/LeviHanlen">Twitter (X)</FooterLink>
-          <FooterLink href="https://www.linkedin.com/in/levi-hanlen-571424305/">
-            LinkedIn
-          </FooterLink>
-          <FooterLink href="https://www.goodreads.com/user/show/160790823-levi-hanlen">
-            Goodreads
-          </FooterLink>
           <FooterLink href="https://github.com/levihanlen">Github</FooterLink>
         </div>
         <div className="w-auto space-y-1 sm:mb-0">
@@ -227,16 +223,13 @@ function Footer() {
               Home
             </Link>
           </div>
+          {/* 
           <div>
             <Link href="/learn" className="hover:underline">
               Guides
             </Link>
           </div>
-          <div>
-            <Link href="/about" className="hover:underline">
-              About
-            </Link>
-          </div>
+          */}
         </div>
       </div>
     </footer>
