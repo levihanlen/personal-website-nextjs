@@ -13,57 +13,102 @@ export interface RoadmapItem {
 export const roadmap: Roadmap[] = [
   {
     title: "Personal Mastery",
-    desc: "Achieve personal mastery to build a solid foundation",
+    desc: "Achieve personal mastery and gain enough money to make the other pursuits feasible",
     items: [
       {
-        date: "2024-12-31",
+        date: "2024-08-31",
         title:
           "Research extensively on personal development and mastery techniques",
         done: true,
       },
       {
-        date: "2025-12-31",
+        date: "2025-10-31",
         title: "Find a mentor who can guide and teach me",
         done: false,
       },
       {
-        date: "2026-12-31",
-        title: "Read 1,000 books to expand my knowledge base",
+        date: "2035-12-31",
+        title: "Read 1,000 books",
         done: false,
       },
       {
-        date: "2028-12-31",
-        title: "Create 200,000 Anki cards to enhance memory",
+        date: "2025-01-31",
+        title: "Create 10,000 Anki cards",
         done: false,
       },
       {
-        date: "2024-12-31",
-        title: "Practice celibacy to focus energy and discipline",
+        date: "2026-04-31",
+        title: "Create 100,000 Anki cards",
         done: false,
       },
       {
-        date: "2025-12-31",
-        title: "Publish a full-stack app to demonstrate skills",
+        date: "2028-04-31",
+        title: "Create 200,000 Anki cards",
         done: false,
       },
       {
-        date: "2025-12-31",
-        title: "Start my own business and make $100,000",
+        date: "2028-08-31",
+        title: "Become celibate to focus energy and discipline",
         done: false,
       },
       {
-        date: "2027-12-31",
+        date: "2026-01-31",
+        title: "Study and practice leadership to become great at it",
+        done: false,
+      },
+      {
+        date: "2024-11-01",
+        title: "Publish a full-stack app",
+        done: false,
+      },
+      {
+        date: "2024-04-31",
+        title: "Make $50 off a business",
+        done: true,
+      },
+      {
+        date: "2024-11-31",
+        title: "Make $100 off a business",
+        done: false,
+      },
+      {
+        date: "2025-01-31",
+        title: "Make $1,000 off a business",
+        done: false,
+      },
+      {
+        date: "2025-04-31",
+        title: "Make $10,000 off a business",
+        done: false,
+      },
+      {
+        date: "2025-08-31",
+        title: "Make $100,000 off a business",
+        done: false,
+      },
+      {
+        date: "2026-08-31",
+        title: "Make $1,000,000 off a business",
+        done: false,
+      },
+      {
+        date: "2028-04-31",
+        title: "Make $10,000,000 off a business",
+        done: false,
+      },
+      {
+        date: "2028-01-31",
         title:
           "Increase daily innovations to 560x to become the greatest iterator",
         done: false,
       },
       {
-        date: "2029-12-31",
+        date: "2029-06-31",
         title: "Achieve complete mastery of desire, emotions, and willpower",
         done: false,
       },
       {
-        date: "2025-12-31",
+        date: "2026-06-31",
         title: "Have effectively perfect morals",
         done: false,
       },
@@ -211,45 +256,59 @@ export const roadmap: Roadmap[] = [
     ],
   },
   {
-    title: "Education & Knowledge",
+    title: "Knowledge",
     desc: "Create a global, open-access education system with AI teachers",
     items: [
       {
-        date: "2024-12-31",
+        date: "2025-05-31",
         title:
-          "Research extensively on global education systems and AI technology",
+          "Research extensively on gamification, learning, global education systems, and AI technology",
         done: false,
       },
       {
-        date: "2025-12-31",
-        title:
-          "Gather a team of super smart people in education, AI, and neuroscience",
+        date: "2025-06-31",
+        title: "Find a co-founder for an education business",
         done: false,
       },
       {
-        date: "2026-12-31",
+        date: "2025-07-31",
         title: "Create a company to develop AI-powered education platforms",
         done: false,
       },
       {
-        date: "2028-12-31",
-        title: "Develop AI teachers that provide personalized education",
+        date: "2025-08-31",
+        title: "Ship an MVP education platform",
+        done: false,
+      },
+      {
+        date: "2025-10-31",
+        title: "Fail 10,000 times, lose money, keep going anyway",
+        done: false,
+      },
+      {
+        date: "2025-12-31",
+        title: "Do extensive research and development to refine",
+        done: false,
+      },
+      {
+        date: "2026-01-31",
+        title: "License the app to one education system",
+        done: false,
+      },
+      {
+        date: "2027-12-31",
+        title: "License the app to a foreign education system",
+        done: false,
+      },
+      {
+        date: "2029-12-31",
+        title:
+          "Keep the team light but self-sufficient enough to where I am not integral",
         done: false,
       },
       {
         date: "2030-12-31",
-        title: "Launch a global, open-access education system",
-        done: false,
-      },
-      {
-        date: "2032-12-31",
-        title:
-          "Ensure accessibility by translating content into multiple languages",
-        done: false,
-      },
-      {
-        date: "2035-12-31",
-        title: "Develop instant knowledge acquisition technologies",
+        title: "Scale up the app a ton",
         done: false,
       },
     ],
@@ -372,50 +431,6 @@ export const roadmap: Roadmap[] = [
     ],
   },
   {
-    title: "Disease",
-    desc: "Eradicate diseases through advanced medical research and technology",
-    items: [
-      {
-        date: "2000-12-31",
-        title:
-          "Research extensively on curing diseases and improving healthcare",
-        done: false,
-      },
-      {
-        date: "2025-12-31",
-        title:
-          "Gather a team of super smart people in medicine, genetics, and biotechnology",
-        done: false,
-      },
-      {
-        date: "2027-12-31",
-        title:
-          "Develop advanced medical technologies for early detection and treatment",
-        done: false,
-      },
-      {
-        date: "2029-12-31",
-        title: "Create gene therapies to cure genetic diseases",
-        done: false,
-      },
-      {
-        date: "2031-12-31",
-        title: "Conduct clinical trials to validate new treatments",
-        done: false,
-      },
-      {
-        date: "2033-12-31",
-        title: "Obtain regulatory approvals for widespread use",
-        done: false,
-      },
-      {
-        date: "2035-12-31",
-        title: "Distribute cures globally, focusing on accessibility",
-        done: false,
-      },
-    ],
-  },
-  {
     title: "Human Limitations",
     desc: "Overcome human biological and cognitive limitations",
     items: [
@@ -465,7 +480,7 @@ export const roadmap: Roadmap[] = [
     ],
   },
   {
-    title: "The Limitation of Time",
+    title: "Time",
     desc: "Develop technologies to alter time perception and revisit past experiences",
     items: [
       {

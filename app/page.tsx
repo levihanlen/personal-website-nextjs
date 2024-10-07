@@ -81,9 +81,9 @@ export default function Home() {
 
         <div className="grid grid-cols-2 gap-2 sm:gap-4">
           <SquareImg src="/mePicture.webp" />
-          <SquareImg src="/gradPic.png" />
-          <SquareImg src="/mePicture2.png" />
-          <SquareImg src="/polaroid.png" />
+          <SquareImg src="/gradPic.jpeg" />
+          <SquareImg src="/barcelona.jpg" />
+          <SquareImg src="/polaroid.jpeg" />
         </div>
 
         <h2>About me 🕵️</h2>
@@ -92,8 +92,8 @@ export default function Home() {
             I&apos;m an {age}-year-old in the US who loves creating businesses
             and learning
           </li>
-          <li>I&apos;m a minimalist and own under 100 items</li>
-          <li>I was Valedictorian of my high school class (285 people)</li>
+          <li>I&apos;m a minimalist with under 100 items</li>
+          <li>I was Valedictorian of my high school class</li>
           <li>
             I chose not to attend college and am instead pursuing
             entrepreneurship
@@ -110,28 +110,6 @@ export default function Home() {
               Anki
             </a>
           </li>
-        </ul>
-        <h2>My heroes 🦸‍♀️</h2>
-        <ul>
-          <li>Steve Jobs</li>
-          <li>Winston Churchill</li>
-          <li>Leonardo Da Vinci</li>
-          <li>Elon Musk</li>
-          <li>Nelson Mandela</li>
-          <li>Albert Einstein</li>
-          <li>
-            <a href="https://www.heroic.us/brian-johnson" target="_blank">
-              Brian Johnson
-            </a>{" "}
-            (of Heroic company)
-          </li>
-          <li>Marie Curie</li>
-          <li>Richard Feynman</li>
-          <li>Charles Darwin</li>
-          <li>Martin Luther King Jr.</li>
-          <li>Isaac Newton</li>
-          <li>Plato</li>
-          <li>Abraham Lincoln</li>
         </ul>
         <div className="flex flex-col space-y-4 mb-16 mt-16">
           <h1 className="!m-0 text-pretty">The Story of Our Future</h1>
@@ -196,20 +174,18 @@ export default function Home() {
           <li>Losing motivation</li>
           <li>Fear of leaving the comfort zone</li>
           <li>Not working hard enough</li>
-          <li>Doing too much busywork</li>
+          <li>Too much busywork</li>
           <li>Embrassment from failures</li>
           <li>Balancing idealism with realism</li>
-          <li>Not dreaming big enough</li>
           <li>Unforseen obstacles</li>
           <li>Lack of collaboration</li>
           <li>Impatience</li>
           <li>Perfectionism</li>
           <li>Criticism</li>
           <li>Not adapting enough</li>
-          <li>
-            Output dilution from trying to solve multiple problems at once
-          </li>
-          <li>Getting discouraged from failures</li>
+          <li>Output dilution from doing too much at once</li>
+          <li>Discouragement from failures</li>
+          <li>Trying to do all the work</li>
         </ul>
         <div className="pt-16"></div>
 
@@ -283,7 +259,7 @@ function RoadmapOverview() {
     <Card className="p-4 md:p-8">
       <div className="text-darkest text-2xl font-semibold">Overview</div>
       <p>The problems we must solve</p>
-      <ul className="">
+      <div className="space-y-4">
         {sortedRoadmap.map((val, ind) => {
           const earliestItem = val.items.reduce((earliest, current) => {
             return new Date(current.date) < new Date(earliest.date)
@@ -297,13 +273,18 @@ function RoadmapOverview() {
               : earliest;
           });
           return (
-            <li key={ind}>
-              {val.title} ({new Date(earliestItem.date).getFullYear()}-
-              {new Date(latestItem.date).getFullYear()})
-            </li>
+            <CardRow key={ind} className="justify-between space-x-4">
+              <a className="" href={`#${val.title}`}>
+                {val.title}
+              </a>
+              <div className="flex-none text-xs text-dark">
+                {new Date(earliestItem.date).getFullYear()} -{" "}
+                {new Date(latestItem.date).getFullYear()}
+              </div>
+            </CardRow>
           );
         })}
-      </ul>
+      </div>
     </Card>
   );
 }
@@ -357,7 +338,7 @@ function RoadmapDisp({ roadmap }: { roadmap: Roadmap }) {
 
   return (
     <Card className="p-6 md:p-8 space-y-6">
-      <div className="flex flex-col space-y-1">
+      <div className="flex flex-col space-y-1" id={roadmap.title}>
         <ProgressBar percent={percent} />
         <div className="text-xs text-dark">{percent.toFixed(0)}%</div>
       </div>
@@ -378,12 +359,7 @@ function RoadmapDisp({ roadmap }: { roadmap: Roadmap }) {
               const timeDiffStr = getTimeDifference(date);
 
               return (
-                <div
-                  key={ind}
-                  className={` flex flex-auto justify-between items-center border-b-pt pb-1 border-mediumLight ${
-                    item.done ? "" : ""
-                  }`}
-                >
+                <CardRow key={ind} className={item.done ? "" : ""}>
                   <div className=" items-center flex flex-row mr-4">
                     <div
                       className={` rounded-full w-4 h-4 flex-none mr-4 border-medium border-pt ${
@@ -403,67 +379,29 @@ function RoadmapDisp({ roadmap }: { roadmap: Roadmap }) {
                   <div className="text-sm text-medium flex-none">
                     {timeDiffStr}
                   </div>
-                </div>
+                </CardRow>
               );
             })}
         </div>
       </details>
     </Card>
   );
+}
 
-  /*
+function CardRow({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <Card className="p-6 md:p-8 space-y-6 bg-white shadow-lg rounded-lg">
-      <div className="flex flex-col space-y-2">
-        <ProgressBar percent={percent} />
-        <div className="text-sm text-gray-600">
-          {percent.toFixed(0)}% Completed
-        </div>
-      </div>
-      <div className="text-3xl font-bold text-gray-800">{roadmap.title}</div>
-      <div className="text-gray-700">{roadmap.desc}</div>
-
-      <details className="mt-4">
-        <summary className="cursor-pointer text-lg font-semibold text-blue-600 hover:text-blue-800">
-          View Roadmap Items
-        </summary>
-        <div className="mt-4 space-y-4">
-          {roadmap.items
-            .sort(
-              (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-            )
-            .map((item, ind) => {
-              const date = new Date(item.date);
-              const timeDiffStr = getTimeDifference(date);
-
-              return (
-                <div
-                  key={ind}
-                  className={`flex justify-between items-center border-b pb-2 ${
-                    item.done ? "opacity-50" : ""
-                  }`}
-                >
-                  <div
-                    className={`flex items-center ${
-                      item.done ? "line-through text-gray-500" : "text-gray-800"
-                    }`}
-                  >
-                    <span
-                      className={`inline-block w-3 h-3 mr-2 rounded-full ${
-                        item.done ? "bg-green-500" : "bg-gray-300"
-                      }`}
-                    ></span>
-                    {item.title}
-                  </div>
-                  <div className="text-sm text-gray-500">{timeDiffStr}</div>
-                </div>
-              );
-            })}
-        </div>
-      </details>
-    </Card>
+    <div
+      className={` flex flex-auto justify-between items-center border-b-pt pb-1 border-mediumLight ${className}`}
+    >
+      {children}
+    </div>
   );
-  */
 }
 
 function ProjectDiv({
