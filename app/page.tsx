@@ -117,15 +117,15 @@ export default function Home() {
             The roadmap to utopia—and how I can help.
           </div>
           <div className="tracking-widest text-xs font-semibold text-dark">
-            VERSION 2 - OCT 3, 2024
+            VERSION 3 OF 1000 - OCT 7, 2024
           </div>
         </div>
 
         <p>Improvement never happens on its own.</p>
 
         <p>
-          Every innovation, every improvement, was made via force--via
-          consistent effort.
+          Every innovation, every improvement, was made via force—via consistent
+          effort.
         </p>
 
         <p>
@@ -166,6 +166,10 @@ export default function Home() {
             })}
         </div>
         <div>A UTOPIA IS BORN</div>
+        <p>
+          This is the plan. Andl isten, a plan is good. But talk wont change the
+          world. Only action will. So lets get to work.
+        </p>
         <h2>Challenges we must overcome 🧑‍🚀</h2>
         <ul>
           <li>Doubt from others and self</li>

@@ -119,45 +119,45 @@ export const roadmap: Roadmap[] = [
     desc: "Eradicate poverty through developing AGI robots and implementing UBI",
     items: [
       {
-        date: "2024-12-31",
+        date: "2028-12-01",
         title:
           "Research extensively on poverty eradication strategies and AGI robots",
         done: false,
       },
       {
-        date: "2025-12-31",
-        title: "Gather a team of super smart people in AI and robotics",
+        date: "2029-01-31",
+        title: "Gather a team of genius people in AI and robotics",
         done: false,
       },
       {
-        date: "2026-12-31",
+        date: "2029-02-31",
         title: "Create a company focused on developing AGI robots",
         done: false,
       },
       {
-        date: "2027-12-31",
+        date: "2029-07-31",
         title:
           "Use existing research to develop a robot matching current capabilities",
         done: false,
       },
       {
-        date: "2029-12-31",
+        date: "2032-01-31",
         title: "Innovate to create a robot that can do anything a human can do",
         done: false,
       },
       {
-        date: "2031-12-31",
+        date: "2035-01-31",
         title: "Reduce the cost to make the robot cheaper than $5,000",
         done: false,
       },
       {
-        date: "2033-12-31",
+        date: "2039-01-31",
         title:
           "Establish Universal Basic Income (UBI) for first-world countries",
         done: false,
       },
       {
-        date: "2035-12-31",
+        date: "2043-01-31",
         title: "Expand UBI to all other countries",
         done: false,
       },
@@ -168,39 +168,33 @@ export const roadmap: Roadmap[] = [
     desc: "Achieve biological immortality through anti-aging research and therapies",
     items: [
       {
-        date: "2024-12-31",
+        date: "2035-01-31",
         title:
           "Research extensively on biological immortality and anti-aging technologies",
         done: false,
       },
       {
-        date: "2025-12-31",
-        title:
-          "Gather a team of super smart people in biotechnology and genetics",
+        date: "2035-02-31",
+        title: "Gather a team of genius people in biotechnology and genetics",
         done: false,
       },
       {
-        date: "2026-12-31",
+        date: "2035-03-31",
         title: "Create a company focused on anti-aging research and therapies",
         done: false,
       },
       {
-        date: "2028-12-31",
-        title: "Develop gene therapies targeting aging processes in cells",
+        date: "2039-01-31",
+        title: "Expand the human life at a rate proportional to time",
         done: false,
       },
       {
-        date: "2030-12-31",
-        title: "Conduct clinical trials for anti-aging treatments",
-        done: false,
-      },
-      {
-        date: "2032-12-31",
+        date: "2039-06-31",
         title: "Obtain regulatory approvals for anti-aging therapies",
         done: false,
       },
       {
-        date: "2035-12-31",
+        date: "2046-01-31",
         title: "Make treatments affordable and accessible globally",
         done: false,
       },
@@ -211,45 +205,40 @@ export const roadmap: Roadmap[] = [
     desc: "Optimize governmental systems for fairness and efficiency",
     items: [
       {
-        date: "2024-12-31",
+        date: "2061-01-31",
         title:
           "Research extensively on governmental systems and optimization methods",
         done: false,
       },
       {
-        date: "2025-12-31",
+        date: "2061-02-31",
         title:
           "Gather a team of experts in political science, economics, and data analysis",
         done: false,
       },
       {
-        date: "2026-12-31",
+        date: "2062-01-31",
         title:
           "Build a strong public profile through community service and leadership roles",
         done: false,
       },
       {
-        date: "2028-12-31",
-        title: "Run for local office to gain political experience",
-        done: false,
-      },
-      {
-        date: "2036-12-31",
+        date: "2063-06-31",
         title: "Run for president as an Independent candidate",
         done: false,
       },
       {
-        date: "2040-12-31",
+        date: "2064-11-31",
         title: "Win the presidency and implement data-driven policies",
         done: false,
       },
       {
-        date: "2042-12-31",
+        date: "2066-01-31",
         title: "Optimize the US government to an extreme extent",
         done: false,
       },
       {
-        date: "2045-12-31",
+        date: "2068-12-31",
         title: "Reform global governance systems for fairness and efficiency",
         done: false,
       },
@@ -301,7 +290,7 @@ export const roadmap: Roadmap[] = [
         done: false,
       },
       {
-        date: "2029-12-31",
+        date: "2028-12-31",
         title:
           "Keep the team light but self-sufficient enough to where I am not integral",
         done: false,
@@ -318,36 +307,26 @@ export const roadmap: Roadmap[] = [
     desc: "Promote global peace by addressing the root causes of hatred and war",
     items: [
       {
-        date: "2024-12-31",
+        date: "2040-01-31",
         title: "Research extensively on the root causes of hatred and war",
         done: false,
       },
       {
-        date: "2025-12-31",
+        date: "2040-01-31",
         title:
           "Gather a team of experts in psychology, sociology, and international relations",
         done: false,
       },
       {
-        date: "2026-12-31",
+        date: "2040-06-31",
         title:
           "Develop educational programs promoting empathy and cultural understanding",
         done: false,
       },
       {
-        date: "2028-12-31",
+        date: "2041-01-31",
         title:
-          "Implement global peace initiatives through international organizations",
-        done: false,
-      },
-      {
-        date: "2030-12-31",
-        title: "Facilitate dialogues between conflicting parties worldwide",
-        done: false,
-      },
-      {
-        date: "2035-12-31",
-        title: "Promote disarmament and conflict resolution strategies",
+          "To be determined. (This one's difficult to plan for. I'll finish it soon)",
         done: false,
       },
     ],
@@ -357,34 +336,34 @@ export const roadmap: Roadmap[] = [
     desc: "Enhance human intelligence through safe and ethical methods",
     items: [
       {
-        date: "2024-12-31",
+        date: "2045-01-31",
         title: "Research extensively on enhancing human intelligence",
         done: false,
       },
       {
-        date: "2025-12-31",
+        date: "2045-02-31",
         title:
           "Gather a team of experts in neuroscience, cognitive science, and AI",
         done: false,
       },
       {
-        date: "2027-12-31",
+        date: "2049-01-31",
         title:
           "Develop cognitive enhancement technologies that are safe and ethical",
         done: false,
       },
       {
-        date: "2029-12-31",
+        date: "2050-01-31",
         title: "Create brain-computer interfaces to augment human intelligence",
         done: false,
       },
       {
-        date: "2031-12-31",
+        date: "2053-01-31",
         title: "Conduct trials to ensure safety and effectiveness",
         done: false,
       },
       {
-        date: "2036-12-31",
+        date: "2060-01-31",
         title: "Make intelligence enhancement accessible to all",
         done: false,
       },
@@ -392,40 +371,39 @@ export const roadmap: Roadmap[] = [
   },
   {
     title: "Hunger",
-    desc: "Eliminate hunger by developing affordable, tasty vegan food",
+    desc: "Eliminate hunger by developing affordable, tasty non-animal food",
     items: [
       {
-        date: "2024-12-31",
+        date: "2040-01-31",
         title:
           "Research extensively on sustainable food production and plant-based alternatives",
         done: false,
       },
       {
-        date: "2025-12-31",
+        date: "2040-01-31",
         title:
           "Gather a team of experts in food science, agriculture, and biotechnology",
         done: false,
       },
       {
-        date: "2027-12-31",
+        date: "2044-01-31",
         title:
-          "Develop vegan food that is cheap, healthy, and can taste like anything",
+          "Develop non-animal food that is cheap, healthy, and can taste like anything",
         done: false,
       },
       {
-        date: "2029-12-31",
+        date: "2045-01-31",
         title: "Scale production to reduce costs and increase availability",
         done: false,
       },
       {
-        date: "2030-12-31",
+        date: "2047-01-31",
         title: "Partner with governments and NGOs to distribute food globally",
         done: false,
       },
       {
-        date: "2032-12-31",
-        title:
-          "Eliminate hunger by making affordable vegan food globally available",
+        date: "2050-01-31",
+        title: "Eliminate hunger by making affordable food globally available",
         done: false,
       },
     ],
@@ -435,86 +413,45 @@ export const roadmap: Roadmap[] = [
     desc: "Overcome human biological and cognitive limitations",
     items: [
       {
-        date: "2024-12-31",
+        date: "2055-01-31",
         title: "Research extensively on overcoming human limitations",
         done: false,
       },
       {
-        date: "2025-12-31",
+        date: "2055-02-31",
         title:
-          "Gather a team of super smart people in neuroscience, genetics, and technology",
+          "Gather a team of genius people in neuroscience, genetics, and technology",
         done: false,
       },
       {
-        date: "2027-12-31",
+        date: "2059-01-31",
         title: "Develop technologies for perfect memory enhancement",
         done: false,
       },
       {
-        date: "2028-12-31",
+        date: "2065-01-31",
         title:
-          "Create solutions to defeat disabilities through prosthetics and gene therapy",
+          "Develop technologies to alter subjective time perception safely via brain chip",
         done: false,
       },
       {
-        date: "2029-12-31",
-        title: "Work on methods to increase IQ safely",
-        done: false,
-      },
-      {
-        date: "2030-12-31",
-        title: "Develop techniques to decrease the tendency to anger",
-        done: false,
-      },
-      {
-        date: "2032-12-31",
-        title:
-          "Eliminate non-helpful pain through advanced medical interventions",
-        done: false,
-      },
-      {
-        date: "2033-12-31",
-        title: "Break down language barriers with universal translators",
-        done: false,
-      },
-    ],
-  },
-  {
-    title: "Time",
-    desc: "Develop technologies to alter time perception and revisit past experiences",
-    items: [
-      {
-        date: "2024-12-31",
-        title:
-          "Research extensively on time perception and cognitive experience",
-        done: false,
-      },
-      {
-        date: "2025-12-31",
-        title:
-          "Gather a team of experts in neuroscience, physics, and technology",
-        done: false,
-      },
-      {
-        date: "2027-12-31",
-        title:
-          "Develop technologies to alter subjective time perception safely",
-        done: false,
-      },
-      {
-        date: "2029-12-31",
+        date: "2067-01-31",
         title: "Create methods to record and revisit past experiences",
         done: false,
       },
       {
-        date: "2030-12-31",
-        title:
-          "Ensure ethical guidelines are in place for time perception technologies",
+        date: "2061-01-31",
+        title: "Create solutions to defeat disabilities brain chips",
         done: false,
       },
       {
-        date: "2040-12-31",
-        title: "Implement time perception technologies for public use",
+        date: "2063-01-31",
+        title: "Eliminate non-helpful pain through brain chips",
+        done: false,
+      },
+      {
+        date: "2065-01-31",
+        title: "Remove language barriers with universal translators",
         done: false,
       },
     ],
