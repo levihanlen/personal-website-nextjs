@@ -10,7 +10,55 @@ export interface RoadmapItem {
   done: boolean;
 }
 
-export const version = 4;
+export const version = 5;
+
+/*
+
+  {
+    title: "Government",
+    desc: "Optimize governmental systems for fairness and efficiency",
+    items: [
+      {
+        date: "2061-01-31",
+        title:
+          "Research extensively on governmental systems and optimization methods",
+        done: false,
+      },
+      {
+        date: "2061-02-31",
+        title:
+          "Gather a team of experts in political science, economics, and data analysis",
+        done: false,
+      },
+      {
+        date: "2062-01-31",
+        title:
+          "Build a strong public profile through community service and leadership roles",
+        done: false,
+      },
+      {
+        date: "2063-06-31",
+        title: "Run for president as an Independent candidate",
+        done: false,
+      },
+      {
+        date: "2064-11-31",
+        title: "Win the presidency and implement data-driven policies",
+        done: false,
+      },
+      {
+        date: "2066-01-31",
+        title: "Optimize the US government to an extreme extent",
+        done: false,
+      },
+      {
+        date: "2068-12-31",
+        title: "Reform global governance systems for fairness and efficiency",
+        done: false,
+      },
+    ],
+  },
+*/
 
 export const roadmap: Roadmap[] = [
   {
@@ -208,50 +256,6 @@ export const roadmap: Roadmap[] = [
       {
         date: "2046-01-31",
         title: "Make treatments affordable and accessible globally",
-        done: false,
-      },
-    ],
-  },
-  {
-    title: "Government",
-    desc: "Optimize governmental systems for fairness and efficiency",
-    items: [
-      {
-        date: "2061-01-31",
-        title:
-          "Research extensively on governmental systems and optimization methods",
-        done: false,
-      },
-      {
-        date: "2061-02-31",
-        title:
-          "Gather a team of experts in political science, economics, and data analysis",
-        done: false,
-      },
-      {
-        date: "2062-01-31",
-        title:
-          "Build a strong public profile through community service and leadership roles",
-        done: false,
-      },
-      {
-        date: "2063-06-31",
-        title: "Run for president as an Independent candidate",
-        done: false,
-      },
-      {
-        date: "2064-11-31",
-        title: "Win the presidency and implement data-driven policies",
-        done: false,
-      },
-      {
-        date: "2066-01-31",
-        title: "Optimize the US government to an extreme extent",
-        done: false,
-      },
-      {
-        date: "2068-12-31",
-        title: "Reform global governance systems for fairness and efficiency",
         done: false,
       },
     ],
