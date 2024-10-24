@@ -236,6 +236,7 @@ export default function Home() {
       </div>
     </>
   );
+  // <GenerateWallpaperButton />
 }
 
 function ProgressBar({ percent }: { percent: number }) {
