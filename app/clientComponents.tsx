@@ -152,13 +152,14 @@ export function PageLayout({
   children: React.ReactNode;
   className?: string;
 }) {
+  //  <Navbar scrollbar={scrollbar} />
+  console.log(scrollbar);
   return (
     <div
       className={`flex min-h-full w-full flex-col justify-start ${className} bg-gridX bg-right-top md:bg-gridXBig`}
       style={{ backgroundSize: "100% auto" }}
       {...props}
     >
-      <Navbar scrollbar={scrollbar} />
       <main className="flex h-full w-full flex-col items-center pb-32">
         {children}
       </main>
