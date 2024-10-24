@@ -10,7 +10,7 @@ export interface RoadmapItem {
   done: boolean;
 }
 
-export const version = 5;
+export const version = 9;
 
 /*
 
@@ -74,11 +74,6 @@ export const roadmap: Roadmap[] = [
       {
         date: "2025-10-31",
         title: "Find a mentor who can guide and teach me",
-        done: false,
-      },
-      {
-        date: "2035-12-31",
-        title: "Read 1,000 books",
         done: false,
       },
       {
@@ -219,8 +214,8 @@ export const roadmap: Roadmap[] = [
     ],
   },
   {
-    title: "Immortality",
-    desc: "Achieve biological immortality through anti-aging research and therapies",
+    title: "Longer lifespan",
+    desc: "Allow humans to live as long as they wish",
     items: [
       {
         date: "2035-01-31",

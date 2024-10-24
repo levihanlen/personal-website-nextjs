@@ -194,7 +194,7 @@ function Footer() {
         <div className="font-bold text-darkest">Our Mission</div>
         <p>
           Note that I said <i>our</i> mission. We, you and I, have an obligation
-          to improve the world—to help build utopia.
+          to improve the world—to help build a better world.
         </p>
         <p>
           It may sound ambitious, even impossible. But with enough people and

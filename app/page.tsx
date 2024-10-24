@@ -113,7 +113,7 @@ export default function Home() {
         </ul>
         <div className="flex flex-col space-y-4 my-12">
           <h1 className="!m-0 text-pretty">
-            Our roadmap to utopia—and how I can help 🌲
+            Our roadmap to a better world—and how I can help 🌲
           </h1>
           <div className="tracking-widest text-xs font-semibold text-dark">
             VERSION {version} OF 1000 - OCT 7, 2024
@@ -166,7 +166,7 @@ export default function Home() {
         </div>
         <div className="w-full flex flex-col items-center py-16">
           <div className="text-pretty text-4xl tracking-widest font-semibold text-center">
-            A UTOPIA IS BORN
+            A NEW WORLD IS BORN
           </div>
           <p className="max-w-sm text-pretty text-center">
             A plan is good, but alone it wont change the world. Only action
@@ -194,6 +194,7 @@ export default function Home() {
           <li>Output dilution from doing too much at once</li>
           <li>Discouragement from failures</li>
           <li>Trying to do all the work</li>
+          <li>Underestimating how hard it will be</li>
         </ul>
         <div className="pt-16"></div>
 
@@ -207,7 +208,7 @@ export default function Home() {
           img="url('writerush-mockup.png')"
         />
         <ProjectDiv
-          heading="MythScape"
+          heading="Hanlen's Simulator"
           img="url('mythscape-mockup.png')"
           desc="Procedural text-based game"
           href="https://game.levihanlen.com/"
