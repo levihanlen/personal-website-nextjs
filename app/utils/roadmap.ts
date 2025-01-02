@@ -12,54 +12,6 @@ export interface RoadmapItem {
 
 export const version = 9;
 
-/*
-
-  {
-    title: "Government",
-    desc: "Optimize governmental systems for fairness and efficiency",
-    items: [
-      {
-        date: "2061-01-31",
-        title:
-          "Research extensively on governmental systems and optimization methods",
-        done: false,
-      },
-      {
-        date: "2061-02-31",
-        title:
-          "Gather a team of experts in political science, economics, and data analysis",
-        done: false,
-      },
-      {
-        date: "2062-01-31",
-        title:
-          "Build a strong public profile through community service and leadership roles",
-        done: false,
-      },
-      {
-        date: "2063-06-31",
-        title: "Run for president as an Independent candidate",
-        done: false,
-      },
-      {
-        date: "2064-11-31",
-        title: "Win the presidency and implement data-driven policies",
-        done: false,
-      },
-      {
-        date: "2066-01-31",
-        title: "Optimize the US government to an extreme extent",
-        done: false,
-      },
-      {
-        date: "2068-12-31",
-        title: "Reform global governance systems for fairness and efficiency",
-        done: false,
-      },
-    ],
-  },
-*/
-
 export const roadmap: Roadmap[] = [
   {
     title: "Personal Mastery",
@@ -87,11 +39,6 @@ export const roadmap: Roadmap[] = [
         done: false,
       },
       {
-        date: "2028-04-31",
-        title: "Create 200,000 Anki cards",
-        done: false,
-      },
-      {
         date: "2028-08-31",
         title: "Become celibate to focus energy and discipline",
         done: false,
@@ -102,9 +49,9 @@ export const roadmap: Roadmap[] = [
         done: false,
       },
       {
-        date: "2024-11-01",
+        date: "2024-12-14",
         title: "Publish a full-stack app",
-        done: false,
+        done: true,
       },
       {
         date: "2024-04-31",
@@ -112,12 +59,12 @@ export const roadmap: Roadmap[] = [
         done: true,
       },
       {
-        date: "2024-11-31",
+        date: "2025-01-31",
         title: "Make $100 off a business",
         done: false,
       },
       {
-        date: "2025-01-31",
+        date: "2025-02-31",
         title: "Make $1,000 off a business",
         done: false,
       },
@@ -143,8 +90,7 @@ export const roadmap: Roadmap[] = [
       },
       {
         date: "2028-01-31",
-        title:
-          "Increase daily innovations to 560x to become the greatest iterator",
+        title: "Increase daily innovations to 560x",
         done: false,
       },
       {
