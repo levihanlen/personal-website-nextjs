@@ -202,6 +202,12 @@ export default function Home() {
       </CenteredArticle>
       <div className="pt-16 px-4 md:px-8 lg:px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full gap-4">
         <ProjectDiv
+          heading="Varu AI"
+          desc="AI-generated stories"
+          href="https://www.varu.us/"
+          img="url('varu.png')"
+        />
+        <ProjectDiv
           heading="WriteRush"
           desc="Software that makes writing fun, fast, and easy"
           href="https://www.writerush.net/"
@@ -423,7 +429,7 @@ function ProjectDiv({
 }) {
   return (
     <div className="mb-16 group">
-      <Link href={href} className="" rel="noopener noreferrer" target="_blank">
+      <Link href={href} className="" target="_blank">
         <div
           style={{
             backgroundImage: img,
