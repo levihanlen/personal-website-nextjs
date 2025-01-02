@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CenteredArticle } from "./clientComponents";
@@ -323,19 +325,19 @@ function RoadmapDisp({ roadmap }: { roadmap: Roadmap }) {
 
     let timeStr = "";
     if (diff >= msInYear) {
-      const years = Math.floor(diff / msInYear);
+      const years = Math.round(diff / msInYear);
       timeStr = `${years} year${years > 1 ? "s" : ""}`;
     } else if (diff >= msInMonth) {
-      const months = Math.floor(diff / msInMonth);
+      const months = Math.round(diff / msInMonth);
       timeStr = `${months} month${months > 1 ? "s" : ""}`;
     } else if (diff >= msInDay) {
-      const days = Math.floor(diff / msInDay);
+      const days = Math.round(diff / msInDay);
       timeStr = `${days} day${days > 1 ? "s" : ""}`;
     } else if (diff >= msInHour) {
-      const hours = Math.floor(diff / msInHour);
+      const hours = Math.round(diff / msInHour);
       timeStr = `${hours} hour${hours > 1 ? "s" : ""}`;
     } else if (diff >= msInMinute) {
-      const minutes = Math.floor(diff / msInMinute);
+      const minutes = Math.round(diff / msInMinute);
       timeStr = `${minutes} minute${minutes > 1 ? "s" : ""}`;
     } else {
       timeStr = "just now";
