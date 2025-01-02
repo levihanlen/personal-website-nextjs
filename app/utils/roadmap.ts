@@ -10,7 +10,7 @@ export interface RoadmapItem {
   done: boolean;
 }
 
-export const version = 9;
+export const version = 10;
 
 export const roadmap: Roadmap[] = [
   {

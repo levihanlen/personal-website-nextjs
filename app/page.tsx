@@ -116,7 +116,7 @@ export default function Home() {
             Our roadmap to a better world—and how I can help 🌲
           </h1>
           <div className="tracking-widest text-xs font-semibold text-dark">
-            VERSION {version} OF 1000 - OCT 7, 2024
+            VERSION {version} OF 1000
           </div>
         </div>
 
