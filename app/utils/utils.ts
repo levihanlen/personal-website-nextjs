@@ -17,3 +17,11 @@ export function gradient(url: string) {
 export function capitalize(str: string) {
   return str[0].toUpperCase() + str.slice(1);
 }
+
+export function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]+/g, "");
+}

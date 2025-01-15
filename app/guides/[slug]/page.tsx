@@ -13,6 +13,7 @@ import { DisplayPill } from "@/app/comp/Primitives";
 import { SocialShare } from "@/app/comp/SocialShare";
 import { RandomGuides } from "../comp/RandomGuides";
 import { GuideType } from "@/app/utils/types";
+import { slugify } from "@/app/utils/utils";
 
 export async function generateStaticParams() {
   const files = fs.readdirSync(path.join("guides"));
@@ -41,16 +42,6 @@ function getPost({ slug }: { slug: string }) {
   };
 }
 
-// same slugify function as above, or import it from the same place
-function slugify(text: string) {
-  return text
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, "-")
-    .replace(/[^\w-]+/g, "");
-}
-
-// Example: override the h2 and h3
 function H2({ children }: { children: React.ReactNode }) {
   const text = String(children);
   return <h2 id={slugify(text)}>{children}</h2>;
@@ -66,11 +57,8 @@ export default function Post({ params }: { params: { slug: string } }) {
 
   console.log("in there");
   const timeToRead = Math.max(Math.round(props.content.length / 5 / 250), 1);
-  // # of characters / 5 letters per word (including space)
-  // to find estimated time of writing, do * 15
 
   const componentsForMDX = {
-    // Our custom heading components
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     h2: (props: any) => <H2 {...props} />,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -129,7 +117,6 @@ export default function Post({ params }: { params: { slug: string } }) {
   );
 }
 
-// Asynchronously generate metadata for a post
 export async function generateMetadata({
   params,
 }: {
