@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { PageLayout } from "./clientComponents";
 import { Libre_Franklin } from "next/font/google";
+import { PageLayout } from "./comp/PageLayout";
 const libreFranklin = Libre_Franklin({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

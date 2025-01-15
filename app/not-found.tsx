@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { PrimaryBtn } from "./clientComponents";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { PrimaryBtn } from "./comp/Primitives";
 
 export default function NotFound() {
   const [image, setImage] = useState("");

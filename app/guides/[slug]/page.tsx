@@ -4,19 +4,18 @@ import matter from "gray-matter";
 import React from "react";
 
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { Article, CenteredArticle, DisplayPill } from "@/app/clientComponents";
-import {
-  ArticleType,
-  AuthorSection,
-  RandomArticles,
-  SocialShare,
-  Tag,
-} from "../clientComponents";
 import { HiMiniCheckBadge } from "react-icons/hi2";
 import { TableOfContents } from "../toc";
+import { Tag } from "@/app/blog/comp/TagSelector";
+import { AuthorSection } from "@/app/comp/AuthorSection";
+import { Article, CenteredArticle } from "@/app/comp/PageLayout";
+import { DisplayPill } from "@/app/comp/Primitives";
+import { SocialShare } from "@/app/comp/SocialShare";
+import { RandomGuides } from "../comp/RandomGuides";
+import { GuideType } from "@/app/utils/types";
 
 export async function generateStaticParams() {
-  const files = fs.readdirSync(path.join("articles"));
+  const files = fs.readdirSync(path.join("guides"));
 
   const paths = files.map((filename) => ({
     slug: filename.replace(".mdx", ""),
@@ -28,7 +27,7 @@ export async function generateStaticParams() {
 // Function to get post data by slug
 function getPost({ slug }: { slug: string }) {
   const markdownFile = fs.readFileSync(
-    path.join("articles", slug + ".mdx"),
+    path.join("guides", slug + ".mdx"),
     "utf-8"
   );
 
@@ -145,14 +144,6 @@ export async function generateMetadata({
 }
 
 export function Example({ children }: { children: React.ReactNode }) {
-  /*
-  const enhancedChildren = React.Children.map(children, (child) =>
-    React.isValidElement(child)
-      ? React.cloneElement(child, { className: "!m-0 !p-0" })
-      : child
-  );
-  */
-
   return (
     <div className="mb-4 flex flex-col space-y-2 rounded-lg bg-light p-4">
       <div className="mb-2 text-xs tracking-widest text-dark">EXAMPLE</div>
@@ -163,7 +154,7 @@ export function Example({ children }: { children: React.ReactNode }) {
 
 export function EndCardArticle() {
   // I copied the below code from page.js of /learn. This is to get the "articles" list
-  const articleDir = "articles";
+  const articleDir = "guides";
   const files = fs.readdirSync(path.join(articleDir));
   const articles = files.map((filename) => {
     const fileContent = fs.readFileSync(
@@ -175,7 +166,7 @@ export function EndCardArticle() {
       meta: frontMatter,
       slug: filename.replace(".mdx", ""),
     };
-  }) as ArticleType[];
+  }) as GuideType[];
   // code ends here.
   return (
     <div className="mt-16 flex w-full flex-col items-center px-4 md:px-16">
@@ -190,7 +181,7 @@ export function EndCardArticle() {
             Keep reading to improve!
           </p>
         </CenteredArticle>
-        <RandomArticles articles={articles} />
+        <RandomGuides articles={articles} />
       </div>
     </div>
   );

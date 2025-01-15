@@ -1,12 +1,12 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { GuideType } from "../utils/types";
-import { GuideCard } from "./comp/GuideCard";
+import { BlogType } from "../utils/types";
+import { TagSelectorPage } from "./comp/TagSelector";
 
 export default function Home() {
   // 1) Set articles directory
-  const articleDir = "guides";
+  const articleDir = "blog";
 
   // 2) Find all files in the article directory
   const files = fs.readdirSync(path.join(articleDir));
@@ -27,14 +27,7 @@ export default function Home() {
       meta: frontMatter,
       slug: filename.replace(".mdx", ""),
     };
-  }) as GuideType[];
+  }) as BlogType[];
 
-  console.log(articles);
-  return (
-    <div>
-      {articles.map((val) => {
-        return <GuideCard article={val} key={val.slug} />;
-      })}
-    </div>
-  );
+  return <TagSelectorPage articles={articles} />;
 }

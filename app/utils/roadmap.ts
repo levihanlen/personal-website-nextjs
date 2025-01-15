@@ -1,14 +1,4 @@
-export interface Roadmap {
-  title: string;
-  desc: string;
-  items: RoadmapItem[];
-}
-
-export interface RoadmapItem {
-  date: string;
-  title: string;
-  done: boolean;
-}
+import { Roadmap } from "./types";
 
 export const version = 10;
 
