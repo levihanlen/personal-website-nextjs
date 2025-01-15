@@ -10,28 +10,91 @@ ul {
   @apply text-dark;
 }
 
-::-webkit-scrollbar {
-  @apply w-2;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-none;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-medium;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply hover:bg-dark;
-}
-
 ::-moz-selection {
   @apply bg-dark text-lightest;
 }
 
 ::selection {
   @apply bg-dark text-lightest;
+}
+
+.lh-fg {
+  @apply bg-light shadow-sm;
+}
+
+.lh-border {
+  @apply border-pt border-light;
+}
+
+.lh-card {
+  @apply lh-fg  lh-round;
+}
+
+.lh-float {
+  @apply lh-border lh-round bg-lightest shadow-md;
+}
+
+.lh-btn-h {
+  @apply h-9;
+}
+
+.lh-btn-w {
+  @apply w-9;
+}
+
+.lh-md-btn-h {
+  @apply md:h-9;
+}
+
+.lh-text-base {
+  @apply text-sm;
+}
+
+.lh-flex-center {
+  @apply flex items-center justify-center;
+}
+
+.lh-round {
+  @apply rounded-xl;
+}
+
+.lh-bold {
+  @apply font-medium;
+}
+
+.lh-btn-text {
+  @apply lh-bold text-sm text-darkest;
+}
+
+.lh-btn-base {
+  @apply lh-fg lh-btn-h lh-flex-center lh-round lh-btn-text;
+}
+
+.lh-icon-size {
+  @apply text-lg;
+}
+
+.lh-dash-border {
+  @apply border-pt border-dashed border-light;
+}
+
+.lh-disabled {
+  @apply cursor-not-allowed opacity-50;
+}
+
+.lh-blur {
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  /* @apply backdrop-blur-2xl; */
+}
+
+.lh-interactive {
+  /* @apply transition-transform hover:scale-105; */
+  @apply cursor-pointer transition-all hover:opacity-50;
+}
+
+.lh-t-shadow {
+  text-shadow: 0 2px 10px black;
 }
 
 .transition-colorsNoBorder {

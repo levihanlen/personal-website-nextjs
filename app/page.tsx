@@ -1,18 +1,14 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CenteredArticle } from "./clientComponents";
 import { Roadmap, version } from "./utils/roadmap";
 
 import { roadmap } from "./utils/roadmap";
-
-// import { RandomArticles } from "./learn/clientComponents";
-/*
-import fs from "fs";
+import { ArticleType, RandomArticles } from "./guides/clientComponents";
 import path from "path";
+import fs from "fs";
 import matter from "gray-matter";
-*/
+
 export default function Home() {
   const today = new Date();
   const bDay = new Date("2006-05-23");
@@ -24,7 +20,7 @@ export default function Home() {
   if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
     age--;
   }
-  /*
+
   const articleDir = "articles";
   const files = fs.readdirSync(path.join(articleDir));
   const articles = files.map((filename) => {
@@ -37,35 +33,14 @@ export default function Home() {
       meta: frontMatter,
       slug: filename.replace(".mdx", ""),
     };
-  });
-  */
+  }) as ArticleType[];
 
   // const imageUrl = "/header-images/neuron.jpg";
   // const background = `linear-gradient(hsla(120, 0%, 0%, 0.8), hsla(120, 0%, 0%, 0.8)), url(${imageUrl})`;
   return (
     <>
-      {/* 
-      <div
-        style={{ backgroundImage: background }}
-        className="relative w-full bg-white bg-cover bg-center bg-no-repeat text-left"
-      >
-        <div className="relative flex h-[70vh] w-full flex-row items-center justify-center p-4 text-left">
-          <div className="flex flex-col items-start space-y-4 w-full max-w-lg">
-            <h1 className="text-5xl font-bold text-darkest">
-              <span className="text-dark">Chasing </span>
-              <GradientHeading>Infinity</GradientHeading>
-            </h1>
-            <p className=" text-pretty text-dark">
-              I have a mission to improve the world and myself.
-            </p>
-            <Link href="/learn">
-              <PrimaryBtn>Browse guides</PrimaryBtn>
-            </Link>
-          </div>
-        </div>
-      </div>
       <div className="px-4 pt-8 w-full flex items-center justify-center">
-        <div className="w-full border-pt border-medium/30 max-w-3xl space-y-4 rounded-2xl p-4 pt-8 sm:p-8 lg:p-12 bg-light flex flex-col items-center justify-center">
+        <div className="w-full  max-w-3xl space-y-4 lh-card p-4 pt-8 sm:p-8 lg:p-12 bg-light flex flex-col items-center justify-center">
           <h2 className="text-center text-2xl font-semibold">
             {articles.length} high-quality guides
           </h2>
@@ -77,15 +52,15 @@ export default function Home() {
           <RandomArticles articles={articles} />
         </div>
       </div>
-*/}
+
       <CenteredArticle className={`mt-32`}>
         <h1>Hey! I&apos;m Levi 👋</h1>
 
         <div className="grid grid-cols-2 gap-2 sm:gap-4">
-          <SquareImg src="/mePicture.webp" />
+          <SquareImg src="/blinds.jpg" />
           <SquareImg src="/gradPic.jpeg" />
-          <SquareImg src="/barcelona.jpg" />
-          <SquareImg src="/polaroid.jpeg" />
+          <SquareImg src="/barcelona.jpeg" />
+          <SquareImg src="/golf.jpeg" />
         </div>
 
         <h2>About me 🕵️</h2>
@@ -207,17 +182,17 @@ export default function Home() {
           heading="Varu AI"
           desc="AI-generated stories"
           href="https://www.varu.us/"
-          img="url('varu.png')"
+          img="url('/varu.png')"
         />
         <ProjectDiv
           heading="WriteRush"
           desc="Software that makes writing fun, fast, and easy"
           href="https://www.writerush.net/"
-          img="url('writerush-mockup.png')"
+          img="url('/writerush-mockup.png')"
         />
         <ProjectDiv
           heading="Hanlen's Simulator"
-          img="url('mythscape-mockup.png')"
+          img="url('/mythscape-mockup.png')"
           desc="Procedural text-based game"
           href="https://game.levihanlen.com/"
         />
@@ -225,23 +200,14 @@ export default function Home() {
           heading="LeviHanlen Instagram"
           desc="Life hacks, business ideas, productivity tips, wisdom, and more"
           href="https://www.instagram.com/levihanlen/"
-          img="url('levihanlen-ig-mockup.png')"
+          img="url('/levihanlen-ig-mockup.png')"
         />
         <ProjectDiv
           heading="WriteRush Instagram"
-          desc="Actionable advice for fiction writing (19,000+ followers)"
+          desc="Actionable advice for fiction writing (20K+ followers)"
           href="https://www.instagram.com/writerushofficial/"
-          img="url('writerush-ig-mockup.png')"
+          img="url('/writerush-ig-mockup.png')"
         />
-        {/*
-        <ProjectDiv
-          heading="ImaginationRPG"
-          desc="A game playable entirely in your head"
-          href="https://levihanlen.itch.io/imaginationrpg"
-          cta="Open ImaginationRPG"
-          img="url('imaginationrpg-mockup.png')"
-        />
-         */}
       </div>
     </>
   );
@@ -250,7 +216,7 @@ export default function Home() {
 
 function ProgressBar({ percent }: { percent: number }) {
   return (
-    <div className="h-2 w-full overflow-hidden rounded-full border-pt border-darkest/10 bg-medium">
+    <div className="h-2 w-full overflow-hidden rounded-full lh-fg bg-medium">
       <div className="h-full bg-darkest" style={{ width: percent + "%" }}></div>
     </div>
   );
@@ -376,21 +342,19 @@ function RoadmapDisp({ roadmap }: { roadmap: Roadmap }) {
                 <CardRow key={ind} className={item.done ? "" : ""}>
                   <div className=" items-center flex flex-row mr-4">
                     <div
-                      className={` rounded-full w-4 h-4 flex-none mr-4 border-medium border-pt ${
+                      className={` rounded-full w-4 h-4 flex-none mr-4 lh-border ${
                         item.done ? "bg-darkest border-dark" : ""
                       }`}
                     />
                     <div
                       className={` ${
-                        item.done
-                          ? "line-through text-mediumDark"
-                          : "text-darkest "
+                        item.done ? "line-through text-dark" : "text-darkest "
                       }`}
                     >
                       {item.title}
                     </div>
                   </div>
-                  <div className="text-sm text-medium flex-none">
+                  <div className="text-sm text-dark flex-none">
                     {timeDiffStr}
                   </div>
                 </CardRow>
@@ -411,7 +375,7 @@ function CardRow({
 }) {
   return (
     <div
-      className={` flex flex-auto justify-between items-center border-b-pt pb-1 border-mediumLight ${className}`}
+      className={` flex flex-auto justify-between items-center border-b-pt pb-1 border-light ${className}`}
     >
       {children}
     </div>

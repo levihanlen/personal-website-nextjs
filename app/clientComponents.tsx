@@ -2,10 +2,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
+import { HiMiniBars3 } from "react-icons/hi2";
 
-// import { ScrollProgressBar } from ".//learn/clientComponents.js";
-
-const cardClassName = `overflow-hidden rounded-2xl bg-light shadow-md border-pt border-mediumLight`;
 export function Card({
   children,
   className = "",
@@ -17,7 +15,7 @@ export function Card({
   style?: React.CSSProperties;
 }) {
   return (
-    <div className={`${cardClassName} ${className}`} style={style} {...props}>
+    <div className={`lh-card ${className}`} style={style} {...props}>
       {children}
     </div>
   );
@@ -68,7 +66,7 @@ export function Navbar({ scrollbar = false }: { scrollbar: boolean }) {
         >
           <Link
             href="/"
-            className="hidden no-underline sm:flex sm:items-center"
+            className="hidden no-underline sm:flex sm:items-center group"
           >
             <Image
               alt="Logo image"
@@ -77,15 +75,12 @@ export function Navbar({ scrollbar = false }: { scrollbar: boolean }) {
               height="20"
               className="mr-2"
             ></Image>
-            <div className="text-darkest">Levi Hanlen</div>
+            <div className="text-darkest group-hover:underline">
+              Levi Hanlen
+            </div>
           </Link>
-          <button
-            className="material-icons block text-2xl sm:hidden"
-            onClick={toggleMenu}
-            aria-hidden="true"
-            aria-label="menu button"
-          >
-            menu
+          <button className="text-2xl sm:hidden" onClick={toggleMenu}>
+            <HiMiniBars3 />
           </button>
           <div
             className={`flex-col items-end space-y-4 sm:flex-row sm:space-x-6 sm:space-y-0 ${
@@ -95,11 +90,9 @@ export function Navbar({ scrollbar = false }: { scrollbar: boolean }) {
             <Link href="/" className="block no-underline sm:hidden">
               <div className="text-darkest hover:underline">Home</div>
             </Link>
-            {/* 
-            <Link href="/learn" className="no-underline">
+            <Link href="/guides" className="no-underline">
               <div className="text-darkest hover:underline">Guides</div>
             </Link>
-            */}
           </div>
         </div>
         {scrollbar && <ScrollProgressBar2 />}
@@ -135,7 +128,7 @@ export function ScrollProgressBar2() {
   return (
     <div className="h-0.5 w-full overflow-hidden">
       <div
-        className="h-full bg-medium/50"
+        className="h-full bg-light"
         style={{ width: `${scrollProgress}%` }}
       />
     </div>
@@ -156,10 +149,11 @@ export function PageLayout({
   console.log(scrollbar);
   return (
     <div
-      className={`flex min-h-full w-full flex-col justify-start ${className} bg-gridX bg-right-top md:bg-gridXBig`}
+      className={`flex min-h-full w-full flex-col justify-start ${className} `} //bg-gridX bg-right-top md:bg-gridXBig
       style={{ backgroundSize: "100% auto" }}
       {...props}
     >
+      <Navbar scrollbar={scrollbar} />
       <main className="flex h-full w-full flex-col items-center pb-32">
         {children}
       </main>
@@ -189,7 +183,7 @@ function Footer() {
   return (
     <footer
       id="footer"
-      className="flex w-full flex-col space-y-12 bg-light p-8 pb-32 text-sm text-dark md:flex-row md:justify-between md:space-y-0 md:text-sm"
+      className="flex w-full flex-col space-y-12 lh-fg p-8 pb-32 text-sm text-dark md:flex-row md:justify-between md:space-y-0 md:text-sm"
     >
       <div className="w-full max-w-lg flex-grow space-y-4 sm:mb-0 md:w-1/2 md:mr-8">
         <div className="font-bold text-darkest">Our Mission</div>
@@ -224,13 +218,12 @@ function Footer() {
               Home
             </Link>
           </div>
-          {/* 
+
           <div>
-            <Link href="/learn" className="hover:underline">
+            <Link href="/guides" className="hover:underline">
               Guides
             </Link>
           </div>
-          */}
         </div>
       </div>
     </footer>
@@ -249,7 +242,7 @@ export function PrimaryBtn({
 }) {
   return (
     <button
-      className={`${className} rounded-xl bg-darkest bg-cover px-4 py-2 font-semibold text-lightest hover:bg-darkest/70 hover:opacity-70`}
+      className={`${className} lh-round bg-darkest bg-cover px-4 py-2 font-semibold text-lightest hover:bg-darkest/70 hover:opacity-70`}
       style={{ backgroundImage: "url('aurora.jpg')" }}
       onClick={onClick} // directly pass onClick here
       {...props}
@@ -283,49 +276,6 @@ export function SecondaryBtn({
   );
 }
 
-export function InlineBtnLink({
-  children,
-  href,
-}: {
-  children: React.ReactNode;
-  href: string;
-}) {
-  return (
-    <Link href={href} className="" rel="noopener noreferrer" target="_blank">
-      <InlineBtn>{children}</InlineBtn>
-    </Link>
-  );
-}
-export function InlineBtnLinkInternal({
-  children,
-  href,
-}: {
-  children: React.ReactNode;
-  href: string;
-}) {
-  return (
-    <Link href={href} className="">
-      <InlineBtn>{children}</InlineBtn>
-    </Link>
-  );
-}
-
-export function InlineBtn({
-  children,
-  ...props
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      className="rounded-md border-pt border-darkest/20 bg-light px-1.5 font-medium text-darkest hover:bg-medium/50"
-      {...props}
-    >
-      {children}
-    </button>
-  );
-}
-
 export function Article({
   children,
   className,
@@ -335,7 +285,7 @@ export function Article({
 }) {
   return (
     <div
-      className={`prose prose-sm prose-zinc lg:prose-base prose-headings:font-semibold prose-strong:text-darkest prose-ol:text-dark prose-ul:text-dark prose-headings:text-darkest prose-blockquote:text-dark prose-p:text-dark !w-[576px] max-w-full flex-grow-0 self-center px-4 md:ml-8 md:min-w-[576px] md:self-start lg:ml-32 ${className}`}
+      className={`prose prose-sm prose-headings:font-semibold prose-strong:text-darkest prose-ol:text-dark prose-ul:text-dark prose-headings:text-darkest prose-blockquote:text-dark prose-p:text-dark !w-[576px] max-w-full flex-grow-0 self-center px-4 md:ml-8 md:min-w-[576px] md:self-start lg:ml-32 ${className}`}
     >
       {children}
     </div>
@@ -388,56 +338,33 @@ export function DisplayPill({
 }) {
   return (
     <div
-      className={`rounded-full border-pt border-medium bg-gradient-to-b from-lightest to-light px-3 py-1.5 text-sm font-semibold tracking-widest text-dark ${className}`}
+      className={`rounded-full lh-fg px-3 py-1.5 text-sm font-semibold tracking-widest text-dark ${className}`}
     >
       {children}
     </div>
   );
 }
 
-export function Avatar({
-  src,
-  size = 16,
-  className,
-  ...props
-}: {
-  src: string;
-  size?: number;
-  className?: string;
-}) {
-  /*
-  
+export function Avatar({ src, size = 16 }: { src: string; size?: number }) {
+  return (
     <Image
       src={src}
       width={size}
       height={size}
-      alt="avatar image"
-      className={`rounded-full border-pt border-darkest/20 ${className}`}
-      {...props}
+      alt="Image"
+      className=" h-12 w-12 rounded-full border-pt border-darkest/20 "
     />
-    */
-  return (
-    <div
-      className={`relative  ${className}`}
-      style={{ aspectRatio: "1 / 1", width: size + "px", height: size + "px" }}
-      {...props}
-    >
-      <Image
-        src={src}
-        width={size}
-        height={size}
-        sizes="100vw"
-        alt="Image"
-        className="absolute h-full w-full rounded-full border-pt border-darkest/20 object-cover"
-      />
-    </div>
   );
 }
 
-export function shuffleArray(array: unknown[]) {
+export function shuffleArray<T>(array: T[]) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
   return array;
+}
+
+export function gradient(url: string) {
+  return `linear-gradient(hsla(120, 0%, 0%, 0.7), hsla(120, 0%, 0%, 0.7)), url(${url})`;
 }
