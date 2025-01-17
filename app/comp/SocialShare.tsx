@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import {
   FaEnvelope,
   FaFacebook,
@@ -28,11 +29,12 @@ export function SocialShare() {
   );
   */
 
-  const url = typeof window !== "undefined" ? window.location.href : "";
-  const encodedUrl = encodeURIComponent(
-    typeof window !== "undefined" ? window.location.href : ""
-  );
+  const pathname = usePathname();
+  // const url = typeof window !== "undefined" ? window.location.href : "";
+  const url = "levihanlen.com" + pathname;
+  const encodedUrl = encodeURIComponent(url);
 
+  console.log(url, encodedUrl);
   const summary = "Thought you might like this";
   const encodedTitle = encodeURIComponent("Cool article");
   const encodedSummary = encodeURIComponent(summary);
