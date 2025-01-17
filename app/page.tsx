@@ -38,20 +38,6 @@ export default function Home() {
   // const background = `linear-gradient(hsla(120, 0%, 0%, 0.8), hsla(120, 0%, 0%, 0.8)), url(${imageUrl})`;
   return (
     <>
-      <div className="px-4 pt-8 w-full flex items-center justify-center">
-        <div className="w-full  max-w-3xl space-y-4 lh-card p-4 pt-8 sm:p-8 lg:p-12 bg-light flex flex-col items-center justify-center">
-          <h2 className="text-center text-2xl font-semibold">
-            {articles.length} high-quality guides
-          </h2>
-          <p className="text-center text-dark w-full -1/2">
-            Guides to enhance your productivity, wisdom, and overall well-being
-            with proven strategies to achieve your goals and lead a more
-            fulfilling life.
-          </p>
-          <RandomGuides articles={articles} />
-        </div>
-      </div>
-
       <CenteredArticle className={`mt-32`}>
         <h1>Hey! I&apos;m Levi 👋</h1>
         <div className="grid grid-cols-2 gap-2 sm:gap-4">
@@ -85,12 +71,20 @@ export default function Home() {
             </a>
           </li>
         </ul>
+
+        <div className="w-full space-y-4 p-8 lh-card  flex flex-col items-center justify-center">
+          <h2 className="text-center text-2xl font-semibold !my-0">
+            {articles.length} high-quality guides
+          </h2>
+          <RandomGuides articles={articles} />
+          <Link href="/guides" className="lh-btn-primary px-4">
+            Browse all guides
+          </Link>
+        </div>
         <div className="flex flex-col space-y-4 my-12">
-          <h1 className="!m-0 text-pretty">
-            Our roadmap to a better world—and how I can help 🌲
-          </h1>
+          <h1 className="!m-0 text-pretty">My goals 🌲</h1>
           <div className="tracking-widest text-xs font-semibold text-dark">
-            VERSION 12 OF 1000
+            VERSION 13 OF 1000
           </div>
         </div>
         <p>Improvement never happens on its own.</p>
@@ -145,10 +139,6 @@ export default function Home() {
           </strong>
         </p>
 
-        <p>
-          A plan is good, but alone it wont change the world. Only action will.
-          So let&apos;s get to work.
-        </p>
         <h2>Challenges we must overcome 🧑‍🚀</h2>
         <ul>
           <li>Doubt from others and self</li>
@@ -174,7 +164,7 @@ export default function Home() {
         <div className="pt-16"></div>
         <h1>My work 🎯</h1>
       </CenteredArticle>
-      <div className="pt-16 px-4 md:px-8 lg:px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full gap-4">
+      <div className="pt-16 px-4 lh-pl lh-pr grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full gap-4">
         <ProjectDiv
           heading="Varu AI"
           desc="AI-generated stories"

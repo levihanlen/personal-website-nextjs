@@ -18,8 +18,28 @@ ul {
   @apply bg-dark text-lightest;
 }
 
+.lh-pr {
+  @apply md:pr-8 lg:pr-32 pr-4;
+}
+
+.lh-pl {
+  @apply md:pl-8 lg:pl-32 pl-4;
+}
+
+.lh-mr {
+  @apply md:mr-8 lg:mr-32;
+}
+
+.lh-ml {
+  @apply md:ml-8 lg:ml-32;
+}
+
+.lh-fg-without-color {
+  @apply shadow-sm;
+}
+
 .lh-fg {
-  @apply bg-light shadow-sm;
+  @apply bg-light lh-fg-without-color;
 }
 
 .lh-border {
@@ -63,11 +83,23 @@ ul {
 }
 
 .lh-btn-text {
-  @apply lh-bold text-sm text-darkest;
+  @apply lh-bold text-sm;
+}
+
+.lh-btn-primary {
+  @apply text-darkest lh-btn-base bg-darkest;
+}
+
+.lh-btn-primary {
+  @apply text-lightest lh-btn-base bg-darkest;
+}
+
+.lh-btn-secondary {
+  @apply text-darkest lh-btn-base bg-light;
 }
 
 .lh-btn-base {
-  @apply lh-fg lh-btn-h lh-flex-center lh-round lh-btn-text;
+  @apply lh-fg-without-color lh-btn-h lh-flex-center lh-round lh-btn-text no-underline lh-interactive;
 }
 
 .lh-icon-size {

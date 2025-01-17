@@ -4,12 +4,10 @@ import matter from "gray-matter";
 import React from "react";
 import { AuthorSection } from "@/app/comp/AuthorSection";
 import { Article, CenteredArticle } from "@/app/comp/PageLayout";
-import { DisplayPill } from "@/app/comp/Primitives";
-import { SocialShare } from "@/app/comp/SocialShare";
+import { ShareBtns } from "@/app/comp/SocialShare";
 import { RandomGuides } from "@/app/guides/comp/RandomGuides";
 import { GuideType } from "@/app/utils/types";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { HiMiniCheckBadge } from "react-icons/hi2";
 import { Tag } from "../comp/TagSelector";
 
 export async function generateStaticParams() {
@@ -44,31 +42,22 @@ export default function Post({ params }: { params: { slug: string } }) {
   // const timeToRead = Math.max(Math.round(props.content.length / 5 / 250), 1);
   return (
     <>
-      <div className="flex w-full flex-row justify-center">
-        <Article className="mt-16">
-          <h1 className="!mb-4">{props.frontMatter.title}</h1>
-          <div className="flex flex-row flex-wrap items-start justify-start text-sm text-dark md:text-base">
-            {props.frontMatter.tags.map((tag: string, index: number) => (
-              <Tag tag={tag} key={index.toString()} />
-            ))}
+      <Article
+        className="mt-32"
+        right={
+          <div className="flex flex-col lh-card p-4 gap-4">
+            <ShareBtns />
           </div>
-          <MDXRemote {...{ source: props.content }} />
-        </Article>
-        <div className="sticky top-14 hidden w-full flex-grow self-start p-4 md:flex lg:p-8">
-          <div className="flex w-full flex-col items-start gap-4">
-            <div className="text-xs font-semibold tracking-widest text-dark">
-              SHARE
-            </div>
-            <div className="flex w-full max-w-40 flex-row items-center justify-between">
-              <SocialShare
-                title={props.frontMatter.title}
-                summary="Check out this great article!"
-                url={typeof window !== "undefined" ? window.location.href : ""}
-              />
-            </div>
-          </div>
+        }
+      >
+        <h1 className="!mb-4">{props.frontMatter.title}</h1>
+        <div className="flex flex-row flex-wrap items-start justify-start text-sm text-dark md:text-base">
+          {props.frontMatter.tags.map((tag: string, index: number) => (
+            <Tag tag={tag} key={index.toString()} />
+          ))}
         </div>
-      </div>
+        <MDXRemote {...{ source: props.content }} />
+      </Article>
       <EndCardArticle />
       <AuthorSection />
     </>
@@ -88,16 +77,7 @@ export async function generateMetadata({
   };
 }
 
-export function Example({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="mb-4 flex flex-col space-y-2 rounded-lg bg-light p-4">
-      <div className="mb-2 text-xs tracking-widest text-dark">EXAMPLE</div>
-      <div className="!m-0 !p-0 text-dark">{children}</div>
-    </div>
-  );
-}
-
-export function EndCardArticle() {
+function EndCardArticle() {
   // I copied the below code from page.js of /learn. This is to get the "articles" list
   const articleDir = "guides";
   const files = fs.readdirSync(path.join(articleDir));
@@ -116,15 +96,8 @@ export function EndCardArticle() {
   return (
     <div className="mt-16 flex w-full flex-col items-center px-4 md:px-16">
       <div className="flex w-full flex-col items-center  lh-card px-8 sm:px-12 py-16">
-        <DisplayPill className="inline-flex flex-row items-center space-x-2">
-          <span>GUIDE COMPLETE</span>
-          <HiMiniCheckBadge className="lh-icon-size" />
-        </DisplayPill>
         <CenteredArticle className="my-4 text-pretty text-center">
-          <p className="">
-            Amazing news! You&apos;re now 1% smarter after reading this guide.
-            Keep reading to improve!
-          </p>
+          <p className="">Check out the guides on these topics:</p>
         </CenteredArticle>
         <RandomGuides articles={articles} />
       </div>

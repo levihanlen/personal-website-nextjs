@@ -36,7 +36,7 @@ export function Navbar() {
         className={`${scrolled} fixed transition-colorsNoBorder left-0 top-0 z-30 w-full`}
       >
         <div
-          className={`transition-colorsNoBorder flex w-full flex-row items-start justify-between px-8 py-3 sm:items-center text-base`}
+          className={`transition-colorsNoBorder flex w-full flex-row items-start justify-between lh-pl lh-pr py-3 sm:items-center text-base`}
         >
           <Link
             href="/"
@@ -115,7 +115,7 @@ function Footer() {
   return (
     <footer
       id="footer"
-      className="flex w-full flex-col space-y-12 lh-fg p-8 pb-32 text-sm text-dark md:flex-row md:justify-between md:space-y-0 md:text-sm"
+      className="flex w-full flex-col space-y-12 lh-fg p-8 pb-32  lh-pl lh-pr text-sm text-dark md:flex-row md:justify-between md:space-y-0 md:text-sm"
     >
       <div className="w-full max-w-lg flex-grow space-y-4 sm:mb-0 md:w-1/2 md:mr-8">
         <div className="font-bold text-darkest">Our Mission</div>
@@ -152,7 +152,7 @@ function Footer() {
   );
 }
 
-export function Article({
+export function OldArticle({
   children,
   className,
 }: {
@@ -161,9 +161,32 @@ export function Article({
 }) {
   return (
     <div
-      className={`prose prose-sm prose-headings:font-semibold prose-strong:text-darkest prose-ol:text-dark prose-ul:text-dark prose-headings:text-darkest prose-blockquote:text-dark prose-p:text-dark !w-[576px] max-w-full flex-grow-0 self-center px-4 md:ml-8 md:min-w-[576px] md:self-start lg:ml-32 ${className}`}
+      className={`prose prose-sm prose-headings:font-semibold prose-strong:text-darkest prose-ol:text-dark prose-ul:text-dark prose-headings:text-darkest prose-blockquote:text-dark prose-p:text-dark !w-[576px] max-w-full flex-grow-0 self-center px-4 sm:px-0 lh-ml md:min-w-[576px] md:self-start ${className}`}
     >
       {children}
+    </div>
+  );
+}
+
+export function Article({
+  children,
+  className,
+  right,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  right?: React.ReactNode;
+}) {
+  return (
+    <div className="flex w-full flex-row justify-center">
+      <div
+        className={`prose prose-sm prose-headings:font-semibold prose-strong:text-darkest prose-ol:text-dark prose-ul:text-dark prose-headings:text-darkest prose-blockquote:text-dark prose-p:text-dark !w-[576px] max-w-full flex-grow-0 self-center px-4 sm:px-0 lh-ml md:min-w-[576px] md:self-start ${className}`}
+      >
+        {children}
+      </div>
+      <div className="sticky top-14 hidden w-full flex-grow self-start p-4 md:flex  lh-pr">
+        <div className="flex w-full flex-col items-end ">{right}</div>
+      </div>
     </div>
   );
 }

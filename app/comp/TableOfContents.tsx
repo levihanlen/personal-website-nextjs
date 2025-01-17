@@ -50,7 +50,7 @@ export function TableOfContents({ content }: TableOfContentsProps) {
           <div
             key={heading.slug}
             // Simple left padding to show nesting for subheadings
-            className="text-sm  text-dark lh-interactive"
+            className="text-sm  text-dark  lh-interactive"
             style={{ paddingLeft: (heading.level - 2) * 12 }}
           >
             <a href={`#${heading.slug}`}>{heading.text}</a>

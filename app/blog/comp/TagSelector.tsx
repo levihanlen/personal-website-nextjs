@@ -111,12 +111,12 @@ export function TagSelectorContent({ articles }: { articles: BlogType[] }) {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <div className="w-full pt-32">
-        <div className="hidden px-12 py-4 text-dark md:block">
+      <div className="w-full pt-32 lh-pl lh-pr">
+        <div className="hidden py-4 text-dark md:block">
           Read {articles.length} blogs
         </div>
-        <div className="relative flex w-full flex-col border-light px-4 md:flex-row md:items-start  md:border-y-pt">
-          <div className="left-0 top-0 flex flex-col md:sticky md:flex md:w-1/3  md:border-light md:p-4 md:pt-16">
+        <div className="relative flex w-full flex-col border-light md:flex-row md:items-start  md:border-y-pt">
+          <div className="left-0 top-0 flex flex-col md:sticky md:flex md:w-1/3  md:border-light md:pt-16">
             <div className="relative mb-8 flex lh-card lh-interactive flex-row items-center overflow-hidden text-dark ">
               <span className="mr-2 pl-4 absolute lh-icon-size">
                 <HiMiniMagnifyingGlass />
@@ -128,7 +128,7 @@ export function TagSelectorContent({ articles }: { articles: BlogType[] }) {
                 onChange={handleSearchChange}
               ></input>
             </div>
-            <div className="pb-4 pl-4 text-xs tracking-widest text-dark">
+            <div className="pb-4 text-xs tracking-widest text-dark">
               FILTERS
             </div>
             <div className="flex flex-col md:w-full">
@@ -194,7 +194,7 @@ export function Tag({ key, tag }: { key: string; tag: string }) {
     <button
       key={key}
       onClick={() => handleButtonClick(tag)}
-      className="mr-1 text-primary underline cursor-pointer hover:text-darkest"
+      className="mr-1 text-darkest underline lh-interactive"
     >
       #{tag}
     </button>

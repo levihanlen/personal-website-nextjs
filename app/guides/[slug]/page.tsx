@@ -5,15 +5,14 @@ import React from "react";
 
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { HiMiniCheckBadge } from "react-icons/hi2";
-import { TableOfContents } from "../toc";
-import { Tag } from "@/app/blog/comp/TagSelector";
+import { TableOfContents } from "../../comp/TableOfContents";
 import { AuthorSection } from "@/app/comp/AuthorSection";
 import { Article, CenteredArticle } from "@/app/comp/PageLayout";
 import { DisplayPill } from "@/app/comp/Primitives";
-import { SocialShare } from "@/app/comp/SocialShare";
+import { ShareBtns } from "@/app/comp/SocialShare";
 import { RandomGuides } from "../comp/RandomGuides";
 import { GuideType } from "@/app/utils/types";
-import { slugify } from "@/app/utils/utils";
+import { gradient, slugify } from "@/app/utils/utils";
 
 export async function generateStaticParams() {
   const files = fs.readdirSync(path.join("guides"));
@@ -67,7 +66,7 @@ export default function Post({ params }: { params: { slug: string } }) {
   };
 
   const imageUrl = props.frontMatter.bg || "/header-images/wealth.jpg";
-  const background = `linear-gradient(hsla(120, 0%, 0%, 0.8), hsla(120, 0%, 0%, 0.8)), url(${imageUrl})`;
+  const background = gradient(imageUrl);
   return (
     <>
       <div
@@ -79,38 +78,30 @@ export default function Post({ params }: { params: { slug: string } }) {
           <div className="w-full max-w-xl space-y-2">
             <div className="text-dark">{timeToRead}-minute read</div>
 
-            <div className="flex flex-row flex-wrap items-start justify-start text-sm text-dark md:text-base">
-              {props.frontMatter.tags.map((tag: string, index: number) => (
-                <Tag tag={tag} key={index.toString()} />
+            <div className="flex flex-row flex-wrap items-start justify-start text-sm text-dark">
+              {props.frontMatter.desc.map((tag: string, index: number) => (
+                <div className="mr-2" key={index.toString()}>
+                  {tag}
+                </div>
               ))}
             </div>
           </div>
         </Article>
       </div>
-      <div className="flex w-full flex-row justify-center">
-        <Article className="mt-8">
-          <MDXRemote
-            {...{ source: props.content }}
-            components={componentsForMDX}
-          />
-        </Article>
-        <div className="sticky top-14 hidden w-full flex-grow self-start p-4 md:flex lg:p-8">
-          <div className="flex w-full flex-col items-start gap-4">
-            <div className="text-xs font-semibold tracking-widest text-dark">
-              SHARE
-            </div>
-            <div className="flex w-full max-w-40 flex-row items-center justify-between">
-              <SocialShare
-                title={props.frontMatter.title}
-                summary="Check out this great article!"
-                url={typeof window !== "undefined" ? window.location.href : ""}
-              />
-            </div>
-
+      <Article
+        className="mt-8"
+        right={
+          <div className="flex flex-col lh-card p-4 gap-4">
+            <ShareBtns />
             <TableOfContents content={props.content} />
           </div>
-        </div>
-      </div>
+        }
+      >
+        <MDXRemote
+          {...{ source: props.content }}
+          components={componentsForMDX}
+        />
+      </Article>
       <EndCardArticle />
       <AuthorSection />
     </>
@@ -130,16 +121,7 @@ export async function generateMetadata({
   };
 }
 
-export function Example({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="mb-4 flex flex-col space-y-2 rounded-lg bg-light p-4">
-      <div className="mb-2 text-xs tracking-widest text-dark">EXAMPLE</div>
-      <div className="!m-0 !p-0 text-dark">{children}</div>
-    </div>
-  );
-}
-
-export function EndCardArticle() {
+function EndCardArticle() {
   // I copied the below code from page.js of /learn. This is to get the "articles" list
   const articleDir = "guides";
   const files = fs.readdirSync(path.join(articleDir));
