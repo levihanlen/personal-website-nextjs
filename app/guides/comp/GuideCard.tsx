@@ -35,7 +35,7 @@ export function GuideCard({
   return (
     <Link
       style={{ backgroundImage: background }}
-      className={`lh-card  lh-interactive outline outline-light no-underline flex w-full bg-no-repeat bg-cover bg-center grayscale  flex-grow flex-col space-y-2 p-4 lg:p-6 ${className}`}
+      className={`lh-card  lh-interactive border border-dark no-underline flex w-full bg-no-repeat bg-cover bg-center grayscale  flex-grow flex-col space-y-2 p-4 lg:p-6 ${className}`}
       onClick={() => handleArticleClick(article.slug)}
       href={"/guides/" + article.slug}
     >

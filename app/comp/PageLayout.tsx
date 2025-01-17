@@ -183,7 +183,7 @@ export function Article({
   return (
     <div className="flex w-full flex-row justify-center">
       <div
-        className={`prose prose-sm prose-headings:font-semibold prose-strong:text-darkest prose-ol:text-dark prose-ul:text-dark prose-headings:text-darkest prose-blockquote:text-dark prose-p:text-dark !w-[576px] max-w-full flex-grow-0 self-center px-4 sm:px-0 lh-ml md:min-w-[576px] md:self-start ${className}`}
+        className={`prose prose-sm lg:prose-base prose-headings:font-semibold prose-strong:text-darkest prose-ol:text-dark prose-ul:text-dark prose-headings:text-darkest prose-blockquote:text-dark prose-p:text-dark !w-[576px] max-w-full flex-grow-0 self-center px-4 sm:px-0 lh-ml md:min-w-[576px] md:self-start ${className}`}
       >
         {children}
       </div>
