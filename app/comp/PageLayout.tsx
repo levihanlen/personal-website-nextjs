@@ -111,41 +111,44 @@ export function PageLayout({
 }
 
 function Footer() {
-  const year = new Date().getFullYear();
   return (
     <footer
       id="footer"
-      className="flex w-full flex-col space-y-12 lh-fg p-8 pb-32  lh-pl lh-pr text-sm text-dark md:flex-row md:justify-between md:space-y-0 md:text-sm"
+      className="flex w-full flex-col  lh-fg p-4 pt-8 pb-32 items-center text-sm text-dark"
     >
-      <div className="w-full max-w-lg flex-grow space-y-4 sm:mb-0 md:w-1/2 md:mr-8">
-        <div className="font-bold text-darkest">Our Mission</div>
-        <p>
-          Note that I said <i>our</i> mission. We, you and I, have an obligation
-          to improve the world.
-        </p>
-        <p>
-          It may sound ambitious, even impossible. But with enough people and
-          enough effort, it&apos;s achievable. And we <i>will</i> make it happen
-          in our lifetime.
-        </p>
-        <p>
-          As always, thanks for supporting me. I hope my projects have improved
-          your life; I spend way too much time on them.
-        </p>
-        <p>- Levi</p>
-      </div>
-      <div className="flex w-full justify-between max-w-sm">
-        <div className="w-auto flex flex-col space-y-1 sm:mb-0">
-          <div className="font-bold text-darkest">Social</div>
-          <ALink href="https://www.instagram.com/levihanlen/">Instagram</ALink>
-          <ALink href="https://x.com/LeviHanlen">Twitter (X)</ALink>
-          <ALink href="https://github.com/levihanlen">Github</ALink>
+      <div className="flex flex-col gap-12">
+        <div className="w-full max-w-lg flex-grow space-y-4">
+          <div className="font-bold text-center text-darkest">Our Mission</div>
+          <p>
+            Note that I said <i>our</i> mission. We, you and I, have an
+            obligation to improve the world.
+          </p>
+          <p>
+            It may sound ambitious, even impossible. But with enough people and
+            enough effort, it&apos;s achievable. And we <i>will</i> make it
+            happen in our lifetime.
+          </p>
+          <p>
+            As always, thanks for supporting me. I hope my projects have
+            improved your life; I spend way too much time on them.
+          </p>
+          <p>- Levi</p>
         </div>
-        <div className="w-auto flex flex-col space-y-1 sm:mb-0">
-          <div className="font-bold text-darkest">Levi Hanlen ©{year}</div>
-          <ALink href="/">Home</ALink>
-          <ALink href="/guides">Guides</ALink>
-          <ALink href="/blog">Blog</ALink>
+        <div className="flex w-full justify-between ">
+          <div className="w-auto flex flex-col space-y-1">
+            <div className="font-bold text-darkest">My social links</div>
+            <ALink href="https://www.instagram.com/levihanlen/">
+              Instagram
+            </ALink>
+            <ALink href="https://x.com/LeviHanlen">Twitter (X)</ALink>
+            <ALink href="https://github.com/levihanlen">Github</ALink>
+          </div>
+          <div className=" flex flex-col space-y-1 text-right">
+            <div className="font-bold text-darkest ">Levi Hanlen</div>
+            <ALink href="/">Home</ALink>
+            <ALink href="/guides">Guides</ALink>
+            <ALink href="/blog">Blog</ALink>
+          </div>
         </div>
       </div>
     </footer>
