@@ -14,18 +14,23 @@ export function ShareBtns() {
         SHARE
       </div>
       <div className="flex w-full max-w-40 gap-2 flex-row items-center justify-between">
-        <SocialShare
-          url={typeof window !== "undefined" ? window.location.href : ""}
-        />
+        <SocialShare />
       </div>
     </>
   );
 }
 
-export function SocialShare({ url }: { url: string }) {
+export function SocialShare() {
   // Ensure URL is encoded properly
+  /*
   const encodedUrl = encodeURIComponent(
     url || typeof window !== "undefined" ? window.location.href : ""
+  );
+  */
+
+  const url = typeof window !== "undefined" ? window.location.href : "";
+  const encodedUrl = encodeURIComponent(
+    typeof window !== "undefined" ? window.location.href : ""
   );
 
   const summary = "Thought you might like this";
