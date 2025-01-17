@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { HiMiniBars3 } from "react-icons/hi2";
 
@@ -33,40 +32,27 @@ export function Navbar() {
   return (
     <div className="flex flex-col">
       <nav
-        className={`${scrolled} fixed transition-colorsNoBorder left-0 top-0 z-30 w-full`}
+        className={`${scrolled} fixed  left-0 top-0 z-30 w-full flex w-full flex-row items-start justify-between lh-pl lh-pr py-2 sm:items-center text-base`}
       >
-        <div
-          className={`transition-colorsNoBorder flex w-full flex-row items-start justify-between lh-pl lh-pr py-3 sm:items-center text-base`}
+        <div className="hidden sm:block">
+          <ALink href="/">Levi Hanlen</ALink>
+        </div>
+        <button
+          className="lh-btn-secondary lh-icon-size sm:hidden"
+          onClick={toggleMenu}
         >
-          <Link
-            href="/"
-            className="hidden no-underline sm:flex sm:items-center group"
-          >
-            <Image
-              alt="Logo image"
-              src="/faviconImg.png"
-              width="20"
-              height="20"
-              className="mr-2"
-            ></Image>
-            <div className="text-darkest group-hover:underline">
-              Levi Hanlen
-            </div>
-          </Link>
-          <button className="text-2xl sm:hidden" onClick={toggleMenu}>
-            <HiMiniBars3 />
-          </button>
-          <div
-            className={`flex-col items-end space-y-4 sm:flex-row sm:space-x-6 sm:space-y-0 ${
-              menuOpen ? "flex" : "hidden"
-            } text-lg sm:flex sm:text-base`}
-          >
-            <Link href="/" className="block no-underline sm:hidden">
-              <div className="text-darkest hover:underline">Home</div>
-            </Link>
-            <ALink href="/guides">Guides</ALink>
-            <ALink href="/blog">Blog</ALink>
+          <HiMiniBars3 />
+        </button>
+        <div
+          className={`flex-col items-end space-y-4 sm:flex-row sm:space-x-6 sm:space-y-0 ${
+            menuOpen ? "flex" : "hidden"
+          } text-lg sm:flex sm:text-base`}
+        >
+          <div className="sm:hidden block">
+            <ALink href="/">Home</ALink>
           </div>
+          <ALink href="/guides">Guides</ALink>
+          <ALink href="/blog">Blog</ALink>
         </div>
       </nav>
     </div>
@@ -81,7 +67,7 @@ export function ALink({
   href: string;
 }) {
   return (
-    <Link href={href} className="underline lh-interactive text-darkest">
+    <Link href={href} className="lh-btn-secondary">
       {children}
     </Link>
   );

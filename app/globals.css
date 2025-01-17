@@ -86,16 +86,16 @@ ul {
   @apply lh-bold text-sm;
 }
 
-.lh-btn-primary {
-  @apply text-darkest lh-btn-base bg-darkest px-4;
+.lh-btn-horz-p {
+  @apply px-4;
 }
 
 .lh-btn-primary {
-  @apply text-lightest lh-btn-base bg-darkest px-4;
+  @apply text-lightest lh-btn-base bg-darkest lh-btn-horz-p;
 }
 
 .lh-btn-secondary {
-  @apply text-darkest lh-btn-base bg-light;
+  @apply text-darkest lh-btn-base bg-light lh-btn-horz-p;
 }
 
 .lh-btn-base {
