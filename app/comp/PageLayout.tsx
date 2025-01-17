@@ -35,7 +35,7 @@ export function Navbar() {
         className={`${scrolled} fixed  left-0 top-0 z-30 w-full flex w-full flex-row items-start justify-between lh-pl lh-pr py-2 sm:items-center text-base`}
       >
         <div className="hidden sm:block">
-          <ALink href="/">Levi Hanlen</ALink>
+          <NavBtn href="/">Levi Hanlen</NavBtn>
         </div>
         <button
           className="lh-btn-secondary lh-icon-size sm:hidden"
@@ -49,13 +49,27 @@ export function Navbar() {
           } text-lg sm:flex sm:text-base`}
         >
           <div className="sm:hidden block">
-            <ALink href="/">Home</ALink>
+            <NavBtn href="/">Home</NavBtn>
           </div>
-          <ALink href="/guides">Guides</ALink>
-          <ALink href="/blog">Blog</ALink>
+          <NavBtn href="/guides">Guides</NavBtn>
+          <NavBtn href="/blog">Blog</NavBtn>
         </div>
       </nav>
     </div>
+  );
+}
+
+export function NavBtn({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) {
+  return (
+    <Link href={href} className="lh-btn-secondary">
+      {children}
+    </Link>
   );
 }
 
@@ -67,7 +81,7 @@ export function ALink({
   href: string;
 }) {
   return (
-    <Link href={href} className="lh-btn-secondary">
+    <Link href={href} className="lh-interactive underline">
       {children}
     </Link>
   );
