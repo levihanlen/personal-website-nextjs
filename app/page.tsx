@@ -1,11 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { roadmap, version } from "./utils/roadmap";
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
-import { RoadmapOverview, RoadmapDisp } from "./comp/Roadmap";
 import { GuideType } from "./utils/types";
 import { RandomGuides } from "./guides/comp/RandomGuides";
 import { CenteredArticle } from "./comp/PageLayout";
@@ -56,14 +54,12 @@ export default function Home() {
 
       <CenteredArticle className={`mt-32`}>
         <h1>Hey! I&apos;m Levi 👋</h1>
-
         <div className="grid grid-cols-2 gap-2 sm:gap-4">
           <SquareImg src="/blinds.jpg" />
           <SquareImg src="/gradPic.jpeg" />
           <SquareImg src="/barcelona.jpeg" />
           <SquareImg src="/golf.jpeg" />
         </div>
-
         <h2>About me 🕵️</h2>
         <ul>
           <li>
@@ -94,24 +90,54 @@ export default function Home() {
             Our roadmap to a better world—and how I can help 🌲
           </h1>
           <div className="tracking-widest text-xs font-semibold text-dark">
-            VERSION {version} OF 1000
+            VERSION 12 OF 1000
           </div>
         </div>
-
         <p>Improvement never happens on its own.</p>
-
         <p>
           Every innovation, every improvement, was made via force—via consistent
           effort.
         </p>
-
         <p>
           Never blindly assume tomorrow will be better. Because it won&apos;t be
           unless you make it so.
         </p>
-
-        <RoadmapOverview />
-
+        <h2>Goals specific to me 🧐</h2>
+        <div className="flex flex-col gap-2">
+          <Goal date="2025-06">10K anki cards</Goal>
+          <Goal date="2025-03">Make $1000 off a business</Goal>
+          <Goal date="2025-06">
+            Be able to fully sustain myself with income
+          </Goal>
+          <Goal date="2028">560x daily improvements</Goal>
+          <Goal date="2029">Master all desire, emotions, and willpower</Goal>
+        </div>
+        <h2>Goals anyone can (and should) help with 🌍</h2>
+        <div className="flex flex-col gap-2">
+          <Goal date="2026" years={15}>
+            Create a great global, free education system
+          </Goal>
+          <Goal date="2030" years={20}>
+            Remove poverty by developing AGI robots
+          </Goal>
+          <Goal date="2035" years={50}>
+            Longer lifespan
+          </Goal>
+          <Goal date="2050" years={50}>
+            World peace
+          </Goal>
+          <Goal date="2060" years={50}>
+            Complete brain-computer interface
+          </Goal>
+        </div>
+        <p>The general method for this is as follows:</p>
+        <ul>
+          <li>Research a lot</li>
+          <li>Gather a team of smart people</li>
+          <li>Experiment and fail 10,000 times</li>
+          <li>Make an expensive, janky working version</li>
+          <li>Innovate a ton, make it cheaper, improve it</li>
+        </ul>
         <p>
           <strong>
             If you want to use any of these ideas, go ahead! Somebody has to
@@ -119,39 +145,10 @@ export default function Home() {
           </strong>
         </p>
 
-        <div className="space-y-4 md:space-y-8">
-          {roadmap
-            .sort((a, b) => {
-              const earliestA = a.items.reduce((earliest, current) =>
-                new Date(current.date) < new Date(earliest.date)
-                  ? current
-                  : earliest
-              );
-              const earliestB = b.items.reduce((earliest, current) =>
-                new Date(current.date) < new Date(earliest.date)
-                  ? current
-                  : earliest
-              );
-
-              return (
-                new Date(earliestA.date).getTime() -
-                new Date(earliestB.date).getTime()
-              );
-            })
-            .map((val, ind) => {
-              return <RoadmapDisp roadmap={val} key={ind} />;
-            })}
-        </div>
-        <div className="w-full flex flex-col items-center py-16">
-          <div className="text-pretty text-4xl tracking-widest font-semibold text-center">
-            A NEW WORLD IS BORN
-          </div>
-          <p className="max-w-sm text-pretty text-center">
-            A plan is good, but alone it wont change the world. Only action
-            will. So let&apos;s get to work.
-          </p>
-        </div>
-        <p></p>
+        <p>
+          A plan is good, but alone it wont change the world. Only action will.
+          So let&apos;s get to work.
+        </p>
         <h2>Challenges we must overcome 🧑‍🚀</h2>
         <ul>
           <li>Doubt from others and self</li>
@@ -175,7 +172,6 @@ export default function Home() {
           <li>Underestimating how hard it will be</li>
         </ul>
         <div className="pt-16"></div>
-
         <h1>My work 🎯</h1>
       </CenteredArticle>
       <div className="pt-16 px-4 md:px-8 lg:px-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full gap-4">
@@ -213,6 +209,77 @@ export default function Home() {
     </>
   );
   // <GenerateWallpaperButton />
+}
+
+const isValidYear = (date: string): boolean => /^\d{4}$/.test(date);
+const isValidYearMonth = (date: string): boolean =>
+  /^\d{4}-(0[1-9]|1[0-2])$/.test(date);
+
+const MONTH_NAMES: { [key: string]: string } = {
+  "01": "Jan",
+  "02": "Feb",
+  "03": "Mar",
+  "04": "Apr",
+  "05": "May",
+  "06": "Jun",
+  "07": "Jul",
+  "08": "Aug",
+  "09": "Sep",
+  "10": "Oct",
+  "11": "Nov",
+  "12": "Dec",
+};
+
+// Function to format the date string
+const formatDate = (year: string, month: string): string => {
+  if (month) {
+    const monthName = MONTH_NAMES[month];
+    return `${monthName} ${year}`;
+  }
+  return year;
+};
+
+function Goal({
+  children,
+  years,
+  done,
+  date,
+}: {
+  children: React.ReactNode;
+  years?: number;
+  done?: boolean;
+  date: string;
+}) {
+  const validateDate = (date: string): boolean => {
+    return isValidYear(date) || isValidYearMonth(date);
+  };
+
+  if (!validateDate(date)) {
+    console.error(
+      `Invalid date format: "${date}". Expected "YYYY" or "YYYY-MM".`
+    );
+    return null;
+  }
+
+  // eslint-disable-next-line prefer-const
+  let [year, month] = date.split("-");
+
+  const initialYear = year;
+
+  const isStart = years !== undefined;
+  if (isStart) {
+    year = (Number(year) + years).toString();
+  }
+
+  const formattedDate = formatDate(year, month);
+  return (
+    <div className={`lh-card text-dark p-4 ${done ? "opacity-50" : ""}`}>
+      <div>
+        <span className="text-darkest">{children}</span>
+      </div>
+      <div>{isStart ? initialYear + " - " + year : formattedDate}</div>
+    </div>
+  );
 }
 
 function ProjectDiv({
