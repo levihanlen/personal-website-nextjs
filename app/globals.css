@@ -87,11 +87,11 @@ ul {
 }
 
 .lh-btn-primary {
-  @apply text-darkest lh-btn-base bg-darkest;
+  @apply text-darkest lh-btn-base bg-darkest px-4;
 }
 
 .lh-btn-primary {
-  @apply text-lightest lh-btn-base bg-darkest;
+  @apply text-lightest lh-btn-base bg-darkest px-4;
 }
 
 .lh-btn-secondary {

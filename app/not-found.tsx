@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { PrimaryBtn } from "./comp/Primitives";
 
 export default function NotFound() {
   const [image, setImage] = useState("");
@@ -28,7 +27,7 @@ export default function NotFound() {
           Oops! I couldn&apos;t find that page for you.
         </p>
         <Link href="/">
-          <PrimaryBtn>Return Home</PrimaryBtn>
+          <button className="lh-btn-primary">Return Home</button>
         </Link>
       </div>
     </div>
