@@ -25,26 +25,6 @@ export async function generateStaticParams() {
   return paths;
 }
 
-// Function to get post data by slug
-
-/*
-function getPost({ slug }: { slug: string }) {
-  const markdownFile = fs.readFileSync(
-    path.join("guides", slug + ".mdx"),
-    "utf-8"
-  );
-
-  const { data: frontMatter, content } = matter(markdownFile);
-
-  console.log("in there");
-  return {
-    frontMatter,
-    slug,
-    content,
-  };
-}
-  */
-
 function getPost({ slug }: { slug: string }) {
   const postPath = path.join("guides", `${slug}.mdx`);
 
