@@ -13,6 +13,7 @@ import { ShareBtns } from "@/app/comp/SocialShare";
 import { RandomGuides } from "../comp/RandomGuides";
 import { GuideType } from "@/app/utils/types";
 import { gradient, slugify } from "@/app/utils/utils";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   const files = fs.readdirSync(path.join("guides"));
@@ -25,6 +26,8 @@ export async function generateStaticParams() {
 }
 
 // Function to get post data by slug
+
+/*
 function getPost({ slug }: { slug: string }) {
   const markdownFile = fs.readFileSync(
     path.join("guides", slug + ".mdx"),
@@ -34,6 +37,26 @@ function getPost({ slug }: { slug: string }) {
   const { data: frontMatter, content } = matter(markdownFile);
 
   console.log("in there");
+  return {
+    frontMatter,
+    slug,
+    content,
+  };
+}
+  */
+
+function getPost({ slug }: { slug: string }) {
+  const postPath = path.join("guides", `${slug}.mdx`);
+
+  // Check if the file exists
+  if (!fs.existsSync(postPath)) {
+    notFound();
+  }
+
+  // Read and parse the markdown file
+  const markdownFile = fs.readFileSync(postPath, "utf-8");
+  const { data: frontMatter, content } = matter(markdownFile);
+
   return {
     frontMatter,
     slug,
