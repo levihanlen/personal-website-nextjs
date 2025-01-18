@@ -9,6 +9,7 @@ import { RandomGuides } from "@/app/guides/comp/RandomGuides";
 import { GuideType } from "@/app/utils/types";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Tag } from "../comp/TagSelector";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   const files = fs.readdirSync(path.join("blog"));
@@ -20,13 +21,16 @@ export async function generateStaticParams() {
   return paths;
 }
 
-// Function to get post data by slug
 function getPost({ slug }: { slug: string }) {
-  const markdownFile = fs.readFileSync(
-    path.join("blog", slug + ".mdx"),
-    "utf-8"
-  );
+  const postPath = path.join("blog", `${slug}.mdx`);
 
+  // Check if the file exists
+  if (!fs.existsSync(postPath)) {
+    notFound();
+  }
+
+  // Read and parse the markdown file
+  const markdownFile = fs.readFileSync(postPath, "utf-8");
   const { data: frontMatter, content } = matter(markdownFile);
 
   return {
