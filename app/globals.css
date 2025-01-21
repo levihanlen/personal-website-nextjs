@@ -18,6 +18,14 @@ ul {
   @apply bg-dark text-lightest;
 }
 
+h2,
+h3,
+h4,
+h5,
+h6 {
+  scroll-margin-top: 80px;
+}
+
 .lh-pr {
   @apply md:pr-8 lg:pr-32 pr-4;
 }
@@ -34,12 +42,12 @@ ul {
   @apply md:ml-8 lg:ml-32;
 }
 
-.lh-fg-without-color {
+.lh-fg-no-color {
   @apply shadow-sm;
 }
 
 .lh-fg {
-  @apply bg-light lh-fg-without-color;
+  @apply bg-light lh-fg-no-color;
 }
 
 .lh-border {
@@ -99,7 +107,7 @@ ul {
 }
 
 .lh-btn-base {
-  @apply lh-fg-without-color lh-btn-h lh-flex-center lh-round lh-btn-text no-underline lh-interactive;
+  @apply lh-fg-no-color lh-btn-h lh-flex-center lh-round lh-btn-text no-underline lh-interactive;
 }
 
 .lh-icon-size {
