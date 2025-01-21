@@ -7,6 +7,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useMemo, useState } from "react";
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 import { BlogCard } from "./BlogCard";
+import { RadioCircle } from "@/app/comp/Primitives";
 
 export function TagSelectorPage({ articles }: { articles: BlogType[] }) {
   return (
@@ -99,6 +100,9 @@ export function TagSelectorContent({ articles }: { articles: BlogType[] }) {
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    if (!searchParams) {
+      return;
+    }
     const urlTag = searchParams.get("tag") || null;
     if (selectedTag !== urlTag) {
       if (urlTag === null || urlTag === "null") {
@@ -138,21 +142,9 @@ export function TagSelectorContent({ articles }: { articles: BlogType[] }) {
                     handleSetTag(tag);
                   }}
                   key={tag}
-                  className={`flex w-full lh-interactive flex-row items-center px-4 py-2 text-left  md:border-0`}
+                  className={`flex w-full lh-interactive flex-row items-center px-4 py-2 text-left  md:border-0 gap-2`}
                 >
-                  <div
-                    className={`${
-                      tag == selectedTag
-                        ? "border-0 bg-gradient-to-b from-darkest to-darkest"
-                        : "transparent lh-border"
-                    } mr-4 flex h-4 w-4 items-center justify-center rounded-full border-pt `}
-                  >
-                    <div
-                      className={`${
-                        tag == selectedTag ? "bg-lightest" : "bg-transparent"
-                      } h-2 w-2 rounded-full`}
-                    />
-                  </div>
+                  <RadioCircle checked={tag === selectedTag} />
                   <div>{capitalize(tag)}</div>
                 </button>
               ))}
