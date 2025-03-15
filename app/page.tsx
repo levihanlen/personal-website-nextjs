@@ -43,7 +43,7 @@ export default function Home() {
         <div className="grid grid-cols-2 gap-2 sm:gap-4">
           <SquareImg src="/barcelona.jpeg" />
           <SquareImg src="/golf.jpeg" />
-          <SquareImg src="/suit.png" />
+          <SquareImg src="/suits.png" />
           <SquareImg src="/polaroid.jpeg" />
         </div>
         <h2>About me 🕵️</h2>
