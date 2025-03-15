@@ -35,7 +35,7 @@ export function GuideCard({
   return (
     <Link
       style={{ backgroundImage: background }}
-      className={`lh-card  lh-interactive border border-dark no-underline flex w-full bg-no-repeat bg-cover bg-center grayscale  flex-grow flex-col space-y-2 p-4 lg:p-6 ${className}`}
+      className={`lh-card  lh-interactive border border-dark no-underline flex w-full bg-no-repeat bg-cover bg-center grayscale  flex-grow flex-col space-y-2 p-4 md:p-6 ${className}`}
       onClick={() => handleArticleClick(article.slug)}
       href={"/guides/" + article.slug}
     >
@@ -45,9 +45,13 @@ export function GuideCard({
         </div>{" "}
         {read && <HiMiniCheckCircle className="lh-icon-size text-dark" />}
       </div>
-      <div className="text-xs text-dark">
+      <div className="text-sm text-dark flex flex-col gap-1">
         {article.meta.desc.map((val) => {
-          return <div key={val}>{val}</div>;
+          return (
+            <div className="list-disc" key={val}>
+              {val}
+            </div>
+          );
         })}
       </div>
     </Link>

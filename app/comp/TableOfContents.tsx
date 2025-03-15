@@ -99,7 +99,7 @@ export function TableOfContents({ content }: TableOfContentsProps) {
           return (
             <Link
               key={heading.slug}
-              className={`text-sm text-dark transition-none lh-interactive lh-fg-no-color lh-round p-2 flex flex-row gap-2 items-center ${
+              className={`text-xs text-dark transition-none lh-interactive lh-fg-no-color rounded-full p-1 flex flex-row gap-2 items-center ${
                 isActive ? "bg-light" : ""
               }`}
               style={{ marginLeft: (heading.level - 2) * 12 }}

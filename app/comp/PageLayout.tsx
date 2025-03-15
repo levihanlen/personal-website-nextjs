@@ -182,11 +182,11 @@ export function Article({
 }) {
   return (
     <div className="flex w-full flex-row justify-center">
-      <div
-        className={`prose prose-sm lg:prose-base prose-headings:font-semibold prose-strong:text-darkest prose-ol:text-dark prose-ul:text-dark prose-headings:text-darkest prose-blockquote:text-dark prose-p:text-dark !w-[576px] max-w-full flex-grow-0 self-center px-4 sm:px-0 lh-ml md:min-w-[576px] md:self-start ${className}`}
+      <article
+        className={`prose prose-gray prose-a:text-darkest prose-sm prose-pre:bg-light prose-pre:rounded-lg lg:prose-base prose-headings:font-semibold prose-strong:text-darkest prose-ol:text-dark prose-ul:text-dark prose-headings:text-darkest prose-blockquote:text-dark prose-p:text-dark !w-[576px] max-w-full flex-grow-0 self-center px-4 sm:px-0 lh-ml md:min-w-[576px] md:self-start ${className}`}
       >
         {children}
-      </div>
+      </article>
       <div className="sticky top-14 hidden w-full flex-grow self-start p-4 md:flex  lh-pr">
         <div className="flex w-full flex-col items-end ">{right}</div>
       </div>

@@ -14,6 +14,7 @@ import { RandomGuides } from "../comp/RandomGuides";
 import { GuideType } from "@/app/utils/types";
 import { gradient, slugify } from "@/app/utils/utils";
 import { notFound } from "next/navigation";
+import { GuidePromise } from "@/app/comp/GuidePromise";
 
 export async function generateStaticParams() {
   const files = fs.readdirSync(path.join("guides"));
@@ -65,8 +66,21 @@ export default function Post({ params }: { params: { slug: string } }) {
     h2: (props: any) => <H2 {...props} />,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     h3: (props: any) => <H3 {...props} />,
-    // plus anything else you like
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // pre: (props: any) => <CodeBlock {...props} />,
   };
+
+  /*
+
+            <div className="flex flex-row flex-wrap items-start justify-start text-sm text-dark">
+              {props.frontMatter.desc.map((tag: string, index: number) => (
+                <div className="mr-2" key={index.toString()}>
+                  {tag}
+                </div>
+              ))}
+            </div>
+*/
 
   const imageUrl = props.frontMatter.bg || "/header-images/wealth.jpg";
   const background = gradient(imageUrl);
@@ -80,14 +94,6 @@ export default function Post({ params }: { params: { slug: string } }) {
           <h1 className="!mb-4">{props.frontMatter.title}</h1>
           <div className="w-full max-w-xl space-y-2">
             <div className="text-dark">{timeToRead}-minute read</div>
-
-            <div className="flex flex-row flex-wrap items-start justify-start text-sm text-dark">
-              {props.frontMatter.desc.map((tag: string, index: number) => (
-                <div className="mr-2" key={index.toString()}>
-                  {tag}
-                </div>
-              ))}
-            </div>
           </div>
         </Article>
       </div>
@@ -100,6 +106,7 @@ export default function Post({ params }: { params: { slug: string } }) {
           </div>
         }
       >
+        <GuidePromise data={props.frontMatter.desc} />
         <MDXRemote
           {...{ source: props.content }}
           components={componentsForMDX}
