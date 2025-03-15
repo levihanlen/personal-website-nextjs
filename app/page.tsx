@@ -41,10 +41,10 @@ export default function Home() {
       <CenteredArticle className={`mt-32`}>
         <h1>Hey! I&apos;m Levi 👋</h1>
         <div className="grid grid-cols-2 gap-2 sm:gap-4">
-          <SquareImg src="/blinds.jpg" />
-          <SquareImg src="/gradPic.jpeg" />
           <SquareImg src="/barcelona.jpeg" />
           <SquareImg src="/golf.jpeg" />
+          <SquareImg src="/suit.png" />
+          <SquareImg src="/polaroid.jpeg" />
         </div>
         <h2>About me 🕵️</h2>
         <ul>
