@@ -63,7 +63,7 @@ export default function Home() {
             now do one hour)
           </li>
           <li>I drink only water and eat only healthy food</li>
-          <li>I&apos;m celibate by choice</li>
+          {/* <li>I&apos;m celibate by choice</li> */}
           <li>I&apos;m writing down every memory I&apos;ve ever had</li>
           <li>Almost everything I own is black, white, or gray</li>
           <li>
