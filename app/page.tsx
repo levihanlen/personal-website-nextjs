@@ -288,7 +288,7 @@ function ProjectDiv({
             backgroundImage: img,
             aspectRatio: "1 / 1",
           }}
-          className="w-full bg-cover bg-no-repeat bg-center rounded-xl group-hover:scale-105 transition-transform"
+          className="lh-border w-full bg-cover bg-no-repeat bg-center rounded-xl group-hover:scale-105 transition-transform"
         />
         <div className="mt-4 space-y-4 text-center px-4 text-pretty">
           <h2 className="text-darkest text-2xl font-semibold">{heading}</h2>
