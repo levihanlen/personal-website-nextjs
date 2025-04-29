@@ -100,8 +100,8 @@ export default function Home() {
         </p>
         <h2>Goals specific to me 🧐</h2>
         <div className="flex flex-col gap-2">
-          <Goal date="2025-06">10K anki cards</Goal>
-          <Goal date="2025-03">Make $1000 off a business</Goal>
+          <Goal date="2025-08">10K anki cards</Goal>
+          <Goal date="2025-05">Make $1000 off a business</Goal>
           <Goal date="2025-06">
             Be able to fully sustain myself with income
           </Goal>
@@ -110,22 +110,17 @@ export default function Home() {
         </div>
         <h2>Goals anyone can (and should) help with 🌍</h2>
         <div className="flex flex-col gap-2">
+          <Goal date="2024" years={10}>
+            Help create AGI
+          </Goal>
           <Goal date="2026" years={15}>
             Create a great global, free education system
           </Goal>
-          <Goal date="2030" years={20}>
-            Remove poverty by developing AGI robots
-          </Goal>
-          <Goal date="2035" years={50}>
-            Longer lifespan
-          </Goal>
-          <Goal date="2050" years={50}>
-            World peace
-          </Goal>
-          <Goal date="2060" years={50}>
-            Complete brain-computer interface
-          </Goal>
         </div>
+        <p>
+          Other goals that will be solved after AGI/ASI: longer lifespan, world
+          peace, complete brain-computer interface.
+        </p>
         <p>The general method for this is as follows:</p>
         <ul>
           <li>Research a lot</li>
