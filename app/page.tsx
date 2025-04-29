@@ -164,7 +164,7 @@ export default function Home() {
       <div className="pt-16 px-4 lh-pl lh-pr grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full gap-4">
         <ProjectDiv
           heading="Varu AI"
-          desc="AI-generated stories"
+          desc="AI platform that can generate an entire book series"
           href="https://www.varu.us/"
           img="url('/varu.png')"
         />
