@@ -100,13 +100,13 @@ export default function Home() {
         </p>
         <h2>Goals specific to me 🧐</h2>
         <div className="flex flex-col gap-2">
-          <Goal date="2025-08">10K anki cards</Goal>
-          <Goal date="2025-05">Make $1000 off a business</Goal>
-          <Goal date="2025-06">
-            Be able to fully sustain myself with income
+          <Goal date="2025-12">10K anki cards</Goal>
+          {/* <Goal date="2025-05">Make $1000 off a business</Goal> */}
+          <Goal date="2025-10">
+            Be able to fully sustain myself with self-made income
           </Goal>
-          <Goal date="2028">560x daily improvements</Goal>
-          <Goal date="2029">Master all desire, emotions, and willpower</Goal>
+          {/* <Goal date="2028">560x daily improvements</Goal> */}
+          <Goal date="2028">Master all desire, emotions, and willpower</Goal>
         </div>
         <h2>Goals anyone can (and should) help with 🌍</h2>
         <div className="flex flex-col gap-2">
