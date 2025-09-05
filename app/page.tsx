@@ -160,26 +160,39 @@ export default function Home() {
         </ul>
         <div className="pt-16"></div>
         <h1>My work 🎯</h1>
+        <p>
+          The main project I&apos;m working on is WriteRush. Check it out by
+          clicking the button below!
+        </p>
       </CenteredArticle>
-      <div className="pt-16 px-4 lh-pl lh-pr grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full gap-4">
-        <ProjectDiv
-          heading="Varu AI"
-          desc="AI platform that can generate an entire book series"
-          href="https://www.varu.us/"
-          img="url('/varu.png')"
-        />
+      <div className="mt-16 max-w-sm">
         <ProjectDiv
           heading="WriteRush"
           desc="Software that makes writing fun, fast, and easy"
           href="https://www.writerush.net/"
-          img="url('/writerush-mockup.png')"
+          img="/writerush-mockup.png"
         />
-        <ProjectDiv
+      </div>
+      <div className="pt-16 px-4 lh-pl lh-pr grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full gap-4">
+        {/* <ProjectDiv
+          heading="Varu AI"
+          desc="AI platform that can generate an entire book series"
+          href="https://www.varu.us/"
+          img="url('/varu.png')"
+        /> */}
+        {/* <ProjectDiv
+          heading="WriteRush"
+          desc="Software that makes writing fun, fast, and easy"
+          href="https://www.writerush.net/"
+          img="/writerush-mockup.png"
+        /> */}
+        {/* <ProjectDiv
           heading="Hanlen's Simulator"
-          img="url('/mythscape-mockup.png')"
+          img="/mythscape-mockup.png"
           desc="Procedural text-based game"
           href="https://game.levihanlen.com/"
-        />
+        /> */}
+        {/*
         <ProjectDiv
           heading="LeviHanlen Instagram"
           desc="Life hacks, business ideas, productivity tips, wisdom, and more"
@@ -191,7 +204,7 @@ export default function Home() {
           desc="Actionable advice for fiction writing (20K+ followers)"
           href="https://www.instagram.com/writerushofficial/"
           img="url('/writerush-ig-mockup.png')"
-        />
+        /> */}
       </div>
     </>
   );
@@ -283,13 +296,22 @@ function ProjectDiv({
   return (
     <div className="mb-16 group">
       <Link href={href} className="" target="_blank">
-        <div
+        <div className="lh-border rounded-xl w-full aspect-square relative overflow-hidden">
+          <Image
+            src={img}
+            alt={heading}
+            width={500}
+            height={500}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+          />
+        </div>
+        {/* <div
           style={{
             backgroundImage: img,
             aspectRatio: "1 / 1",
           }}
           className="lh-border w-full bg-cover bg-no-repeat bg-center rounded-xl group-hover:scale-105 transition-transform"
-        />
+        /> */}
         <div className="mt-4 space-y-4 text-center px-4 text-pretty">
           <h2 className="text-darkest text-2xl font-semibold">{heading}</h2>
           <p className="text-dark">{desc}</p>
