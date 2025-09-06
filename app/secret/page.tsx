@@ -7,19 +7,26 @@ import { sortKnowledgeGraphNodes } from "../utils/knowledge/sort";
 export default function Secret() {
   const graph = buildKnowledgeGraph(testNodes);
   const sortedGraph = sortKnowledgeGraphNodes(graph);
+  const length = sortedGraph.length;
   const totalDependencies = sortedGraph.reduce(
-    (sum, node) => sum + node.allDependencies.length,
+    (sum, node) => sum + node.directDependents.length,
     0
   );
   return (
-    <div className="lh-pl lh-pr mt-32">
-      {sortedGraph.length} nodes, {totalDependencies} connections
+    <>
       <KnowledgeGraphChart nodes={sortedGraph} />
-      <div className="lh-prose-editor text-dark max-w-[50ch]">
-        {sortedGraph.map((node) => (
-          <KnowledgeNodeItem node={node} key={node.text} />
-        ))}
+      <div className="lh-pl lh-pr mt-32">
+        <div className="lh-prose-editor text-dark max-w-[50ch]">
+          <p>
+            <strong>
+              {length} nodes, {totalDependencies + length} value
+            </strong>
+          </p>
+          {sortedGraph.map((node) => (
+            <KnowledgeNodeItem node={node} key={node.text} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

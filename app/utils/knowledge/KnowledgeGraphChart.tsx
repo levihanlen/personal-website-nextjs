@@ -43,11 +43,10 @@ type Edge = {
 };
 
 const NODE_RADIUS = 6;
-const H_SPACING = 160;
-const V_SPACING = 64;
-const GROUP_GAP = 80;
 const PADDING_X = 24;
 const PADDING_Y = 24;
+const MIN_WIDTH = 640;
+const BASE_SIZE = 480;
 
 function getChildrenForDirection(
   n: KnowledgeGraphNode,
@@ -64,73 +63,135 @@ function getChildrenForDirection(
   return resolved;
 }
 
-function buildGroupLayout(
-  root: KnowledgeGraphNode,
+type Network = {
+  nodeIds: string[];
+  nodesById: Map<string, KnowledgeGraphNode>;
+  edges: Edge[];
+};
+
+function buildNetwork(
+  roots: KnowledgeGraphNode[],
   indexByText: Map<string, KnowledgeGraphNode>,
   direction: "dependents" | "dependencies",
   maxDepth?: number
-): { nodes: PositionedNode[]; edges: Edge[]; width: number; height: number } {
-  const visited = new Set<string>();
-  const queue: Array<{ node: KnowledgeGraphNode; depth: number }> = [
-    { node: root, depth: 0 },
-  ];
-  const levels: Map<number, KnowledgeGraphNode[]> = new Map();
-  const parentToChildren: Array<{
-    parent: KnowledgeGraphNode;
-    child: KnowledgeGraphNode;
-  }> = [];
-
+): Network {
+  const included = new Set<string>();
+  const edges: Edge[] = [];
+  const edgeSet = new Set<string>();
+  const queue: Array<{ node: KnowledgeGraphNode; depth: number }> = [];
+  for (const r of roots) queue.push({ node: r, depth: 0 });
   while (queue.length > 0) {
     const { node, depth } = queue.shift() as {
       node: KnowledgeGraphNode;
       depth: number;
     };
-    if (visited.has(node.text)) continue;
-    visited.add(node.text);
-    if (!levels.has(depth)) levels.set(depth, []);
-    (levels.get(depth) as KnowledgeGraphNode[]).push(node);
+    if (!included.has(node.text)) included.add(node.text);
     if (maxDepth !== undefined && depth >= maxDepth) continue;
     const children = getChildrenForDirection(node, indexByText, direction);
     for (const child of children) {
-      parentToChildren.push({ parent: node, child });
-      if (!visited.has(child.text))
+      const key = `${node.text}|${child.text}`;
+      if (!edgeSet.has(key)) {
+        edges.push({ fromId: node.text, toId: child.text });
+        edgeSet.add(key);
+      }
+      if (!included.has(child.text))
         queue.push({ node: child, depth: depth + 1 });
     }
   }
-
-  const depthKeys = Array.from(levels.keys()).sort((a, b) => a - b);
-  const width = depthKeys.length * H_SPACING;
-  let maxPerLevel = 1;
-  for (const d of depthKeys) {
-    const arr = levels.get(d) as KnowledgeGraphNode[];
-    if (arr.length > maxPerLevel) maxPerLevel = arr.length;
+  const nodesById = new Map<string, KnowledgeGraphNode>();
+  for (const id of included) {
+    const ref = indexByText.get(id);
+    if (ref) nodesById.set(id, ref);
   }
-  const height = Math.max(1, maxPerLevel) * V_SPACING;
+  const nodeIds = Array.from(nodesById.keys());
+  return { nodeIds, nodesById, edges };
+}
 
-  const positioned: PositionedNode[] = [];
-  const idForNode = new Map<string, string>();
-  for (const d of depthKeys) {
-    const arr = (levels.get(d) as KnowledgeGraphNode[]).slice();
-    arr.sort(byImportanceDesc);
-    const count = arr.length;
-    for (let i = 0; i < arr.length; i += 1) {
-      const n = arr[i];
-      const x = d * H_SPACING;
-      const y = (i + 1) * (height / (count + 1));
-      const id = `${root.text}|${n.text}`;
-      idForNode.set(n.text, id);
-      positioned.push({ id, node: n, x, y });
+type Position = { x: number; y: number; vx: number; vy: number };
+
+function runForceLayout(network: Network): {
+  width: number;
+  height: number;
+  positions: Map<string, { x: number; y: number }>;
+} {
+  const n = network.nodeIds.length;
+  const width =
+    Math.max(MIN_WIDTH, Math.floor(Math.sqrt(n + 1)) * 160) + PADDING_X * 2;
+  const height =
+    Math.max(BASE_SIZE, Math.floor(Math.sqrt(n + 1)) * 120) + PADDING_Y * 2;
+  const centerX = width / 2;
+  const centerY = height / 2;
+  const linkDistance = 96;
+  const chargeStrength = -6000;
+  const springStrength = 0.02;
+  const centeringStrength = 0.01;
+  const damping = 0.85;
+  const iterations = Math.min(600, 100 + n * 20);
+  const positions = new Map<string, Position>();
+  for (const id of network.nodeIds) {
+    const rx = PADDING_X + Math.random() * (width - PADDING_X * 2);
+    const ry = PADDING_Y + Math.random() * (height - PADDING_Y * 2);
+    positions.set(id, { x: rx, y: ry, vx: 0, vy: 0 });
+  }
+  for (let k = 0; k < iterations; k += 1) {
+    for (let i = 0; i < network.nodeIds.length; i += 1) {
+      const idA = network.nodeIds[i];
+      const a = positions.get(idA) as Position;
+      for (let j = i + 1; j < network.nodeIds.length; j += 1) {
+        const idB = network.nodeIds[j];
+        const b = positions.get(idB) as Position;
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+        const dist2 = dx * dx + dy * dy + 0.01;
+        const force = chargeStrength / dist2;
+        const invDist = 1 / Math.sqrt(dist2);
+        const fx = dx * invDist * force;
+        const fy = dy * invDist * force;
+        a.vx += fx;
+        a.vy += fy;
+        b.vx -= fx;
+        b.vy -= fy;
+      }
+    }
+    for (const e of network.edges) {
+      const a = positions.get(e.fromId) as Position;
+      const b = positions.get(e.toId) as Position;
+      const dx = b.x - a.x;
+      const dy = b.y - a.y;
+      const dist = Math.max(0.01, Math.sqrt(dx * dx + dy * dy));
+      const delta = dist - linkDistance;
+      const force = springStrength * delta;
+      const ux = dx / dist;
+      const uy = dy / dist;
+      const fx = force * ux;
+      const fy = force * uy;
+      a.vx += fx;
+      a.vy += fy;
+      b.vx -= fx;
+      b.vy -= fy;
+    }
+    for (const id of network.nodeIds) {
+      const p = positions.get(id) as Position;
+      const dx = centerX - p.x;
+      const dy = centerY - p.y;
+      p.vx += dx * centeringStrength;
+      p.vy += dy * centeringStrength;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vx *= damping;
+      p.vy *= damping;
+      if (p.x < PADDING_X) p.x = PADDING_X;
+      if (p.x > width - PADDING_X) p.x = width - PADDING_X;
+      if (p.y < PADDING_Y) p.y = PADDING_Y;
+      if (p.y > height - PADDING_Y) p.y = height - PADDING_Y;
     }
   }
-
-  const edges: Edge[] = [];
-  for (const { parent, child } of parentToChildren) {
-    const fromId = idForNode.get(parent.text) as string;
-    const toId = idForNode.get(child.text) as string;
-    if (fromId && toId) edges.push({ fromId, toId });
+  const final = new Map<string, { x: number; y: number }>();
+  for (const id of network.nodeIds) {
+    const p = positions.get(id) as Position;
+    final.set(id, { x: p.x, y: p.y });
   }
-
-  return { nodes: positioned, edges, width, height };
+  return { width, height, positions: final };
 }
 
 function KnowledgeGraphChart({
@@ -155,42 +216,15 @@ function KnowledgeGraphChart({
   );
 
   const layout = useMemo(() => {
-    const groups = roots.map((r) =>
-      buildGroupLayout(r, indexByText, direction, maxDepth)
-    );
-    const svgWidth = Math.max(0, ...groups.map((g) => g.width)) + PADDING_X * 2;
-    const svgHeight =
-      groups.reduce(
-        (acc, g, i) => acc + g.height + (i > 0 ? GROUP_GAP : 0),
-        0
-      ) +
-      PADDING_Y * 2;
-
-    const allNodes: PositionedNode[] = [];
-    const allEdges: Edge[] = [];
-    let yOffset = PADDING_Y;
-    for (const g of groups) {
-      const nodeMap = new Map<string, { x: number; y: number }>();
-      for (const pn of g.nodes) {
-        const x = pn.x + PADDING_X;
-        const y = pn.y + yOffset;
-        allNodes.push({ ...pn, x, y });
-        nodeMap.set(pn.id, { x, y });
-      }
-      for (const e of g.edges) {
-        const from = nodeMap.get(e.fromId);
-        const to = nodeMap.get(e.toId);
-        if (from && to) allEdges.push({ fromId: e.fromId, toId: e.toId });
-      }
-      yOffset += g.height + GROUP_GAP;
-    }
-
-    return {
-      width: svgWidth,
-      height: Math.max(PADDING_Y * 2, svgHeight),
-      nodes: allNodes,
-      edges: allEdges,
-    };
+    const network = buildNetwork(roots, indexByText, direction, maxDepth);
+    const sim = runForceLayout(network);
+    const nodes: PositionedNode[] = network.nodeIds.map((id) => {
+      const pos = sim.positions.get(id) as { x: number; y: number };
+      const node = network.nodesById.get(id) as KnowledgeGraphNode;
+      return { id, node, x: pos.x, y: pos.y };
+    });
+    const edges: Edge[] = network.edges;
+    return { width: sim.width, height: sim.height, nodes, edges };
   }, [roots, indexByText, direction, maxDepth]);
 
   const coordsById = useMemo(() => {
