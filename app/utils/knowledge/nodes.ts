@@ -1,20 +1,58 @@
 import { newNode } from "./create";
 import { KnowledgeNode } from "./types";
 
+const WRITING_NODES: KnowledgeNode[] = [];
+
+const LEARNING_NODES: KnowledgeNode[] = [
+  newNode({
+    t: `a knowledge node is the smallest unit of knowledge`,
+    a: ["knowledge node", "knowledge nodes"],
+  }),
+  newNode({
+    t: `an [[anki]] card should represent one [[knowledge node]]`,
+  }),
+  newNode({
+    t: `understanding is a web of interconnected [[knowledge nodes]]`,
+    a: ["understanding"],
+  }),
+  newNode({
+    t: `valuable [[knowledge nodes]] {{change behavior}}`,
+    ex: [
+      `authors emphasize actionable insight because {{valuable [[knowledge nodes]] change behavior}}`,
+    ],
+  }),
+  newNode({
+    t: `a [[knowledge node]] is recalled from a cue`,
+    why: [],
+    ex: [
+      `for the [[knowledge node]] of "the mitochondria is the powerhouse of the cell", the cue is "mitochondria"`,
+    ],
+  }),
+
+  newNode({
+    t: `the difficulty of a [[knowledge node]] is determined by its number of {{c1::dependencies}}`,
+  }),
+  newNode({
+    t: `the importance of a [[knowledge node]] is determined by the number of other nodes that {{c1::depend on it}}`,
+  }),
+
+  newNode({
+    t: `a [[mental model]] is a [[knowledge node]] with high [[importance]] and low [[difficulty]]`,
+    a: ["mental model", "mental models"],
+  }),
+  newNode({
+    t: `the best learning path is by ordering [[knowledge nodes]] from least to most difficulty`,
+  }),
+];
+
 const testNodes: KnowledgeNode[] = [
+  ...LEARNING_NODES,
   newNode({
     a: ["rayleigh scattering equation"],
     t: `[[rayleigh scattering]] equation is "{{c1::intensity of scattering}} is {{c2::proportional to}} {{c3::([[frequency]] ^ 4)}}"`,
     ex: [
       `if you {{c1::double}} the [[wavelength]], the [[rayleigh scattering]] {{c2::decreases by a factor of 16 (2^4)}}`,
       `if you {{c1::half the}} [[wavelength]], the [[rayleigh scattering]] {{c2::increases by a factor of 16 (2^4)}}`,
-    ],
-  }),
-
-  newNode({
-    t: `valuable [[knowledge nodes]] {{change behavior}}`,
-    ex: [
-      `authors emphasize actionable insight because {{valuable [[knowledge nodes]] change behavior}}`,
     ],
   }),
   newNode({

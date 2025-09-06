@@ -2,16 +2,28 @@ import { KnowledgeGraphNode } from "./types";
 import { formatKnowledgeText } from "./format";
 
 function KnowledgeNodeItem({ node }: { node: KnowledgeGraphNode }) {
+  const difficulty = node.allDependencies.length;
+  const importance = node.allDependents.length;
   return (
     <>
-      <p dangerouslySetInnerHTML={{ __html: formatKnowledgeText(node.text) }} />
+      <p>
+        <span
+          dangerouslySetInnerHTML={{ __html: formatKnowledgeText(node.text) }}
+        />
+        <span className="text-xs lh-card px-2 py-1 ml-2 text-medium">
+          {difficulty}, {importance},{" "}
+          {((importance + 1) / (difficulty + 1)).toFixed(2)}
+        </span>
+      </p>
 
       <ul>
-        <li>
+        {/* <li>
           Difficulty: {node.allDependencies.length} - Importance:{" "}
           {node.allDependents.length}
           <br />
-          {/* {node.allDependencies.map((dep) => (
+        </li> */}
+
+        {/* {node.allDependencies.map((dep) => (
             <div
               key={dep.text}
               dangerouslySetInnerHTML={{
@@ -19,7 +31,6 @@ function KnowledgeNodeItem({ node }: { node: KnowledgeGraphNode }) {
               }}
             />
           ))} */}
-        </li>
 
         {node.whyNodes && node.whyNodes.length > 0 && (
           <>

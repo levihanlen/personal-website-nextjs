@@ -9,6 +9,7 @@ export default function Secret() {
   const sortedGraph = sortKnowledgeGraphNodes(graph);
   return (
     <div className="lh-pl lh-pr mt-32">
+      {sortedGraph.length} nodes
       <KnowledgeGraphChart nodes={sortedGraph} />
       <div className="lh-prose-editor text-dark max-w-[50ch]">
         {sortedGraph.map((node) => (
