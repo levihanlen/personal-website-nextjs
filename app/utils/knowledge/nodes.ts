@@ -274,13 +274,13 @@ const PHYS_NODES: KnowledgeNode[] = [
   }),
   newNode({
     t: "{{c1::[[energy]]}} is measured in {{c2::[[Joules]]}}",
-    a: ["energy"],
     ex: [
       "lifting a {{c1::small apple (100g)}} {{c2::one meter straight up}} costs {{c3::~1 [[Joule]]}}",
     ],
   }),
   newNode({
-    t: "{{c1::[[energy]]}} is {{c2::the capacity to cause change}}",
+    t: "{{c1::energy}} is {{c2::the capacity to cause change}}",
+    a: ["energy"],
   }),
   newNode({
     t: "if you were to turn the [[sun]] off and shine a really bright white narrow flashlight into the sky, it would {{c1::look blue}} because {{c2::of [[rayleigh scattering]]}}",
