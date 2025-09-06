@@ -3,6 +3,7 @@ interface KnowledgeNode {
   text: string;
   whyNodes?: KnowledgeNode[];
   exampleNodes?: KnowledgeNode[];
+  notes?: string[];
 }
 
 interface KnowledgeGraphNode extends KnowledgeNode {

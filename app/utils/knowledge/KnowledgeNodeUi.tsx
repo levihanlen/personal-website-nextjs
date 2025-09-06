@@ -32,6 +32,14 @@ function KnowledgeNodeItem({ node }: { node: KnowledgeGraphNode }) {
             />
           ))} */}
 
+        {node.notes && node.notes.length > 0 && (
+          <>
+            {node.notes.map((note, index) => (
+              <li key={index}>{note}</li>
+            ))}
+          </>
+        )}
+
         {node.whyNodes && node.whyNodes.length > 0 && (
           <>
             {node.whyNodes.map((whyNode, index) => (
