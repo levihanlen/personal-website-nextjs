@@ -153,9 +153,6 @@ const PHYS_NODES: KnowledgeNode[] = [
     a: ["atmosphere"],
   }),
   newNode({
-    t: "if an object is red, that means {{c1::it's reflecting red, not absorbing}}",
-  }),
-  newNode({
     t: "the {{c1::[[lens]]}} in the eye {{c2::focuses the light onto the [[retina]]}}",
     a: ["lens"],
   }),
@@ -302,7 +299,7 @@ const PHYS_NODES: KnowledgeNode[] = [
 ];
 
 const testNodes: KnowledgeNode[] = [
-  // ...LEARNING_NODES,
+  ...LEARNING_NODES,
   ...PHYS_NODES,
   // newNode({
   //   a: ["rayleigh scattering equation"],
