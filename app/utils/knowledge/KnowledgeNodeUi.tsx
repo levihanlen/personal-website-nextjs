@@ -1,17 +1,15 @@
-import { KnowledgeNode } from "./types";
-import { formatKnowledgeText } from "./get";
-import { countTotalDependencies, countTotalDependents } from "./dependencies";
-import { testNodes } from "./nodes";
+import { KnowledgeGraphNode } from "./types";
+import { formatKnowledgeText } from "./format";
 
-function KnowledgeNodeItem({ node }: { node: KnowledgeNode }) {
+function KnowledgeNodeItem({ node }: { node: KnowledgeGraphNode }) {
   return (
     <>
       <p dangerouslySetInnerHTML={{ __html: formatKnowledgeText(node.text) }} />
 
       <ul>
         <li>
-          Difficulty: {countTotalDependencies(node, testNodes)} - Importance:{" "}
-          {countTotalDependents(node, testNodes)}
+          Difficulty: {node.allDependencies.length} - Importance:{" "}
+          {node.allDependents.length}
         </li>
 
         {node.whyNodes && node.whyNodes.length > 0 && (
@@ -40,6 +38,7 @@ function KnowledgeNodeItem({ node }: { node: KnowledgeNode }) {
           </>
         )}
       </ul>
+      <hr />
     </>
   );
 }

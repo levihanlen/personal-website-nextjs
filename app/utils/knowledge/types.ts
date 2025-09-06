@@ -5,4 +5,11 @@ interface KnowledgeNode {
   exampleNodes?: KnowledgeNode[];
 }
 
-export type { KnowledgeNode };
+interface KnowledgeGraphNode extends KnowledgeNode {
+  directDependencies: KnowledgeNode[];
+  allDependencies: KnowledgeNode[];
+  directDependents: KnowledgeNode[];
+  allDependents: KnowledgeNode[];
+}
+
+export type { KnowledgeNode, KnowledgeGraphNode };

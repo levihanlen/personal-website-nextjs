@@ -36,13 +36,13 @@ const testNodes: KnowledgeNode[] = [
   ),
   newNode(
     ["T", "period"],
-    `[[period]] is "{{c1::time for one complete cycle of a [[wave]]}}"`,
+    `period is "{{c1::time for one complete cycle of a [[wave]]}}"`,
     [],
     []
   ),
   newNode(
     ["rayleigh scattering"],
-    `[[rayleigh scattering]] is "{{c1::scattering of [[photons]] by [[atoms]] much smaller than the [[wavelength]] of the [[photon]]}}"`,
+    `rayleigh scattering is "{{c1::scattering of [[photons]] by [[atoms]] much smaller than the [[wavelength]] of the [[photon]]}}"`,
     [],
     []
   ),
