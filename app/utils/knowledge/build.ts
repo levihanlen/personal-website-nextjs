@@ -2,18 +2,28 @@ import { KnowledgeGraphNode, KnowledgeNode } from "./types";
 
 function buildAliasMap(nodes: KnowledgeNode[]): Map<string, KnowledgeNode> {
   const map = new Map<string, KnowledgeNode>();
+
+  // First pass: register each node’s declared aliases
   for (const node of nodes) {
     if (node.aliases) {
       for (const alias of node.aliases) {
-        map.set(alias.toLowerCase(), node);
+        const key = alias.toLowerCase();
+        if (!map.has(key)) map.set(key, node); // keep first owner of alias
       }
     }
+  }
+
+  // Second pass: register [[links]] that already resolve to an existing alias
+  for (const node of nodes) {
     const regex = /\[\[(.*?)\]\]/g;
     let match: RegExpExecArray | null;
     while ((match = regex.exec(node.text)) !== null) {
-      map.set(match[1].toLowerCase(), node);
+      const key = match[1].toLowerCase();
+      if (!map.has(key)) continue; // only keep links that map to a known alias
+      // map has the correct owner already – no need to overwrite
     }
   }
+
   return map;
 }
 
