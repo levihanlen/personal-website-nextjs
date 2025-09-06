@@ -1,44 +1,41 @@
 import { KnowledgeNode } from "./types";
 import { formatKnowledgeText } from "./get";
-import { Article } from "@/app/comp/PageLayout";
 
-function KnowledgeNodeUi({ node }: { node: KnowledgeNode }) {
+function KnowledgeNodeItem({ node }: { node: KnowledgeNode }) {
   return (
-    <Article>
+    <>
       <p
         className="text"
         dangerouslySetInnerHTML={{ __html: formatKnowledgeText(node.text) }}
       />
 
       {node.whyNodes && node.whyNodes.length > 0 && (
-        <>
-          <strong>Why:</strong>
+        <ul>
           {node.whyNodes.map((whyNode, index) => (
-            <p
+            <li
               key={index}
               dangerouslySetInnerHTML={{
                 __html: formatKnowledgeText(whyNode.text),
               }}
             />
           ))}
-        </>
+        </ul>
       )}
 
       {node.exampleNodes && node.exampleNodes.length > 0 && (
-        <>
-          <strong>Examples:</strong>
+        <ul>
           {node.exampleNodes.map((exampleNode, index) => (
-            <p
+            <li
               key={index}
               dangerouslySetInnerHTML={{
                 __html: formatKnowledgeText(exampleNode.text),
               }}
             />
           ))}
-        </>
+        </ul>
       )}
-    </Article>
+    </>
   );
 }
 
-export { KnowledgeNodeUi };
+export { KnowledgeNodeItem };

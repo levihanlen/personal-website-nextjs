@@ -143,3 +143,113 @@ h6 {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
+
+.lh-prose-editor {
+  * {
+    @apply mb-[1em];
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-darkest lh-bold tracking-tight mt-[1em] leading-tight;
+  }
+
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child,
+  h6:first-child {
+    @apply mt-0;
+  }
+
+  /* b,
+  strong {
+    @apply text-darkest lh-bold;
+  } */
+
+  b,
+  strong {
+    @apply text-darkest font-bold;
+  }
+
+  h1 {
+    @apply text-[2em];
+  }
+
+  h2 {
+    @apply text-[1.67em];
+  }
+
+  h3 {
+    @apply text-[1.33em];
+  }
+
+  p,
+  li {
+    @apply leading-relaxed;
+  }
+
+  /* p,
+  ol,
+  img,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul {
+    @apply mb-6;
+  } */
+
+  img {
+    @apply lh-round;
+  }
+
+  em {
+    @apply italic;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  li,
+  ul ul,
+  ul ol,
+  ol ul,
+  ol ol,
+  li p {
+    @apply my-[0.5em];
+  }
+
+  ul,
+  ol {
+    /* ps is padding start. means it works with rtl */
+    @apply ps-[1.5em] list-outside;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+  pre {
+    @apply lh-card max-w-full overflow-x-auto p-4 break-words whitespace-pre-wrap;
+  }
+
+  code {
+    @apply font-mono;
+  }
+
+  a {
+    @apply text-darkest underline;
+  }
+
+  blockquote {
+    @apply border-dark border-l-[0.125em] pl-[1em];
+  }
+}

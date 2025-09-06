@@ -20,6 +20,7 @@ module.exports = {
         primary: "hsl(120, 0%, 100%)",
         darkest: "hsl(120, 0%, 85%)",
         dark: "hsl(120, 0%, 70%)",
+        medium: "hsl(120, 0%, 40%)",
         light: "hsl(120, 0%, 100%, 10%)",
         lightest: "hsl(120, 0%, 4.5%)",
         white: "hsl(120, 0%, 3%)",
