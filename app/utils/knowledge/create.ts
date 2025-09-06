@@ -1,16 +1,18 @@
 import { KnowledgeNode } from "./types";
 
-function newNode(
-  aliases: string[] | null,
-  text: string,
-  whyNodes?: string[],
-  exampleNodes?: string[]
-): KnowledgeNode {
+interface NewNodeProps {
+  a?: string[] | null;
+  t: string;
+  why?: string[];
+  ex?: string[];
+}
+
+function newNode({ a, t, why, ex }: NewNodeProps): KnowledgeNode {
   return {
-    aliases: aliases ?? [],
-    text,
-    exampleNodes: exampleNodes?.map((node) => newNode(null, node)),
-    whyNodes: whyNodes?.map((node) => newNode(null, node)),
+    aliases: a ?? [],
+    text: t,
+    exampleNodes: ex?.map((node) => newNode({ t: node })),
+    whyNodes: why?.map((node) => newNode({ t: node })),
   };
 }
 
