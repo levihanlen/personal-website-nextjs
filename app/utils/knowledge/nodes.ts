@@ -1,7 +1,7 @@
 import { newNode } from "./create";
 import { KnowledgeNode } from "./types";
 
-const WRITING_NODES: KnowledgeNode[] = [];
+// const WRITING_NODES: KnowledgeNode[] = [];
 
 const LEARNING_NODES: KnowledgeNode[] = [
   newNode({
