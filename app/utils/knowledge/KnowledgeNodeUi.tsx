@@ -10,6 +10,15 @@ function KnowledgeNodeItem({ node }: { node: KnowledgeGraphNode }) {
         <li>
           Difficulty: {node.allDependencies.length} - Importance:{" "}
           {node.allDependents.length}
+          <br />
+          {node.allDependencies.map((dep) => (
+            <div
+              key={dep.text}
+              dangerouslySetInnerHTML={{
+                __html: formatKnowledgeText(dep.text),
+              }}
+            />
+          ))}
         </li>
 
         {node.whyNodes && node.whyNodes.length > 0 && (

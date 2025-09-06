@@ -21,7 +21,7 @@ const testNodes: KnowledgeNode[] = [
     ]
   ),
   newNode(
-    ["λ", "wavelength"],
+    ["wavelength", "λ"],
     `{{c2::wavelength}} is "{{c1::distance between successive peaks of a [[wave]]}}"`,
     [],
     [

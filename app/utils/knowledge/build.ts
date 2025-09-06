@@ -28,8 +28,8 @@ function gatherDirectDependencies(
     const ref = aliasMap.get(match[1].toLowerCase());
     if (ref) deps.push(ref);
   }
-  if (node.whyNodes) deps.push(...node.whyNodes);
-  if (node.exampleNodes) deps.push(...node.exampleNodes);
+  // if (node.whyNodes) deps.push(...node.whyNodes);
+  // if (node.exampleNodes) deps.push(...node.exampleNodes);
   return deps;
 }
 
