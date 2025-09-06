@@ -30,7 +30,7 @@ const testNodes: KnowledgeNode[] = [
   ),
   newNode(
     ["frequency"],
-    `frequency is "{{c1::number of wave cycles per unit time}}"`,
+    `frequency is "{{c1::number of [[wave]] cycles per unit time}}"`,
     [],
     [`if you {{c1::double}} the [[frequency]], the [[period]] {{c2::halves}}`]
   ),
@@ -58,6 +58,22 @@ const testNodes: KnowledgeNode[] = [
     [],
     []
   ),
+  newNode(
+    ["wave", "waves"],
+    `wave is "{{c1::disturbance that propagates through space and time, carrying [[energy]] without transporting matter}}"`,
+    [],
+    [
+      `{{c1::mechanical waves}} (sound, water) require a {{c2::medium}} to travel`,
+      `{{c1::electromagnetic waves}} (light, radio) can travel through {{c2::vacuum}}`,
+    ]
+  ),
+  newNode(
+    ["electromagnetic radiation", "EM radiation", "electromagnetic waves"],
+    `electromagnetic radiation is "{{c1::energy that travels in [[wave]] form and includes all wavelengths from radio waves to gamma rays}}"`,
+    [],
+    []
+  ),
+  newNode(["energy"], `energy is "{{c1::ability to cause change}}"`, [], []),
 ];
 
 export { testNodes };
