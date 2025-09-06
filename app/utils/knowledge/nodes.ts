@@ -20,6 +20,32 @@ const testNodes: KnowledgeNode[] = [
       `authors emphasize actionable insight because {{valuable [[knowledge nodes]] change behavior}}`,
     ]
   ),
+  newNode(
+    ["λ", "wavelength"],
+    `{{c2::wavelength}} is "{{c1::distance between successive peaks of a [[wave]]}}"`,
+    [],
+    [
+      `if you {{c1::double}} the [[frequency]] in same medium, the [[wavelength]] {{c2::halves}}`,
+    ]
+  ),
+  newNode(
+    ["frequency"],
+    `frequency is "{{c1::number of wave cycles per unit time}}"`,
+    [],
+    [`if you {{c1::double}} the [[frequency]], the [[period]] {{c2::halves}}`]
+  ),
+  newNode(
+    ["T", "period"],
+    `[[period]] is "{{c1::time for one complete cycle of a [[wave]]}}"`,
+    [],
+    []
+  ),
+  newNode(
+    ["rayleigh scattering"],
+    `[[rayleigh scattering]] is "{{c1::scattering of [[photons]] by [[atoms]] much smaller than the [[wavelength]] of the [[photon]]}}"`,
+    [],
+    []
+  ),
 ];
 
 export { testNodes };

@@ -1,13 +1,17 @@
 import { KnowledgeNode } from "./types";
 import { formatKnowledgeText } from "./get";
+import { countTotalDependencies, countTotalDependents } from "./dependencies";
+import { testNodes } from "./nodes";
 
 function KnowledgeNodeItem({ node }: { node: KnowledgeNode }) {
   return (
     <>
-      <p
-        className="text"
-        dangerouslySetInnerHTML={{ __html: formatKnowledgeText(node.text) }}
-      />
+      <p dangerouslySetInnerHTML={{ __html: formatKnowledgeText(node.text) }} />
+
+      <p>
+        {countTotalDependencies(node, testNodes)} -{" "}
+        {countTotalDependents(node, testNodes)}
+      </p>
 
       {node.whyNodes && node.whyNodes.length > 0 && (
         <ul>
