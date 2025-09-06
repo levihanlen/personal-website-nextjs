@@ -46,6 +46,18 @@ const testNodes: KnowledgeNode[] = [
     [],
     []
   ),
+  newNode(
+    ["photon", "photons"],
+    `photon is "{{c1::quantum of [[electromagnetic radiation]]}}"`,
+    [],
+    []
+  ),
+  newNode(
+    ["atom", "atoms"],
+    `atom is "{{c1::smallest unit of a [[chemical element]]}}"`,
+    [],
+    []
+  ),
 ];
 
 export { testNodes };
