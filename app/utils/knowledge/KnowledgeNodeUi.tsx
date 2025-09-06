@@ -8,36 +8,38 @@ function KnowledgeNodeItem({ node }: { node: KnowledgeNode }) {
     <>
       <p dangerouslySetInnerHTML={{ __html: formatKnowledgeText(node.text) }} />
 
-      <p>
-        {countTotalDependencies(node, testNodes)} -{" "}
-        {countTotalDependents(node, testNodes)}
-      </p>
+      <ul>
+        <li>
+          Difficulty: {countTotalDependencies(node, testNodes)} - Importance:{" "}
+          {countTotalDependents(node, testNodes)}
+        </li>
 
-      {node.whyNodes && node.whyNodes.length > 0 && (
-        <ul>
-          {node.whyNodes.map((whyNode, index) => (
-            <li
-              key={index}
-              dangerouslySetInnerHTML={{
-                __html: formatKnowledgeText(whyNode.text),
-              }}
-            />
-          ))}
-        </ul>
-      )}
+        {node.whyNodes && node.whyNodes.length > 0 && (
+          <>
+            {node.whyNodes.map((whyNode, index) => (
+              <li
+                key={index}
+                dangerouslySetInnerHTML={{
+                  __html: formatKnowledgeText(whyNode.text),
+                }}
+              />
+            ))}
+          </>
+        )}
 
-      {node.exampleNodes && node.exampleNodes.length > 0 && (
-        <ul>
-          {node.exampleNodes.map((exampleNode, index) => (
-            <li
-              key={index}
-              dangerouslySetInnerHTML={{
-                __html: formatKnowledgeText(exampleNode.text),
-              }}
-            />
-          ))}
-        </ul>
-      )}
+        {node.exampleNodes && node.exampleNodes.length > 0 && (
+          <>
+            {node.exampleNodes.map((exampleNode, index) => (
+              <li
+                key={index}
+                dangerouslySetInnerHTML={{
+                  __html: formatKnowledgeText(exampleNode.text),
+                }}
+              />
+            ))}
+          </>
+        )}
+      </ul>
     </>
   );
 }
