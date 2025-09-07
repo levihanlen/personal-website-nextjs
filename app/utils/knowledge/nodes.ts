@@ -286,15 +286,15 @@ const PHYS_NODES: KnowledgeNode[] = [
     t: "if you were to turn the [[sun]] off and shine a really bright white narrow flashlight into the sky, it would {{c1::look blue}} because {{c2::of [[rayleigh scattering]]}}",
   }),
   newNode({
+    t: "sunrise/sunset appears red because {{c1::light must travel through hundreds of more miles of [[atmosphere]] to reach you, scattering it more}}",
+  }),
+  newNode({
     t: "[[x-rays]], [[gamma rays]], and [[light]] are all {{c1::[[electromagnetic radiation]]}}",
     a: ["electromagnetic radiation"],
   }),
   newNode({
     t: "a {{c1::[[photon]]}} is a {{c2::particle of [[electromagnetic radiation]]}}",
     a: ["photon", "photons"],
-  }),
-  newNode({
-    t: "sunrise/sunset appears red because {{c1::light must travel through hundreds of more miles of [[atmosphere]] to reach you, scattering it more}}",
   }),
 ];
 
