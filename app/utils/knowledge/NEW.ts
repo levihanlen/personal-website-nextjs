@@ -41,3 +41,5 @@ const RAYLEIGH_SCATTERING_CLUSTER: NodeClusterType = {
     "sunrise/sunset appears red because {{c1::light must travel through hundreds of more miles of [[atmosphere]] to reach you, scattering it more}}",
   ],
 };
+
+export { RAYLEIGH_SCATTERING_CLUSTER };

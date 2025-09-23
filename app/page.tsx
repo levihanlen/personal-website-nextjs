@@ -159,6 +159,10 @@ export default function Home() {
           <li>Trying to do all the work</li>
           <li>Underestimating how hard it will be</li>
         </ul>
+        {/* <h2>Things I know</h2>
+        <ul>
+          <li>test</li>
+        </ul> */}
         <div className="pt-16"></div>
         <h1>My work 🎯</h1>
         <p>
