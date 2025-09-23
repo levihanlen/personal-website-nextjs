@@ -7,7 +7,6 @@ const LEARNING_NODES: KnowledgeNode[] = [
   newNode({
     t: `a knowledge node is the smallest unit of knowledge`,
     a: ["knowledge node", "knowledge nodes"],
-    n: ["thi sis a note"],
   }),
   newNode({
     t: `an [[anki]] card should represent one [[knowledge node]]`,

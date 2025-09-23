@@ -72,6 +72,7 @@ export default function Home() {
               Anki
             </a>
           </li>
+          <li>I created my own custom alphabet that I write with</li>
         </ul>
 
         <div className="w-full space-y-4 p-8 lh-card  flex flex-col items-center justify-center">
