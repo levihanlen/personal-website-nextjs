@@ -49,7 +49,7 @@ export default function Home() {
         <h2>About me 🕵️</h2>
         <ul>
           <li>
-            I&apos;m an {age}-year-old in the US who loves creating businesses
+            I&apos;m a {age}-year-old in the US who loves creating businesses
             and learning
           </li>
           <li>I&apos;m a minimalist with under 100 items</li>
