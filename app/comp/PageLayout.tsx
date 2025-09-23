@@ -52,7 +52,7 @@ export function Navbar() {
             <NavBtn href="/">Home</NavBtn>
           </div>
           <NavBtn href="/guides">Guides</NavBtn>
-          <NavBtn href="/blog">Blog</NavBtn>
+          <NavBtn href="/blog">Essays</NavBtn>
         </div>
       </nav>
     </div>
@@ -147,7 +147,7 @@ function Footer() {
             <div className="font-bold text-darkest ">Levi Hanlen</div>
             <ALink href="/">Home</ALink>
             <ALink href="/guides">Guides</ALink>
-            <ALink href="/blog">Blog</ALink>
+            <ALink href="/blog">Essays</ALink>
           </div>
         </div>
       </div>
