@@ -102,7 +102,7 @@ export function PageLayout({
       {...props}
     >
       <Navbar />
-      <main className="flex h-full w-full flex-col items-center pb-32">
+      <main className="flex h-full w-full flex-col items-center pb-32 gap-8">
         {children}
       </main>
       <Footer />
@@ -116,8 +116,8 @@ function Footer() {
       id="footer"
       className="flex w-full flex-col  lh-fg p-4 pt-8 pb-32 items-center text-sm text-dark"
     >
-      <div className="flex flex-col gap-12">
-        <div className="w-full max-w-lg flex-grow space-y-4">
+      <div className="flex flex-col gap-12 w-full max-w-lg">
+        {/* <div className=" flex-grow space-y-4">
           <div className="font-bold text-center text-darkest">Our Mission</div>
           <p>
             Note that I said <i>our</i> mission. We, you and I, have an
@@ -133,7 +133,7 @@ function Footer() {
             improved your life; I spend way too much time on them.
           </p>
           <p>- Levi</p>
-        </div>
+        </div> */}
         <div className="flex w-full justify-between ">
           <div className="w-auto flex flex-col space-y-1">
             <div className="font-bold text-darkest">My social links</div>
@@ -183,7 +183,7 @@ export function Article({
   return (
     <div className="flex w-full flex-row justify-center">
       <article
-        className={`prose prose-gray prose-a:text-darkest prose-sm prose-pre:bg-light prose-pre:rounded-lg lg:prose-base prose-headings:font-semibold prose-strong:text-darkest prose-ol:text-dark prose-ul:text-dark prose-headings:text-darkest prose-blockquote:text-dark prose-p:text-dark !w-[576px] max-w-full flex-grow-0 self-center px-4 sm:px-0 lh-ml md:min-w-[576px] md:self-start ${className}`}
+        className={`lh-prose-editor text-dark max-w-full flex-grow-0 self-center px-4 sm:px-0 lh-ml md:min-w-[576px] md:self-start ${className}`}
       >
         {children}
       </article>
@@ -203,7 +203,7 @@ export function CenteredArticle({
 }) {
   return (
     <div
-      className={`prose prose-sm prose-zinc !prose-invert lg:prose-base prose-headings:font-semibold prose-headings:text-darkest prose-p:text-dark prose-li:text-dark w-full max-w-xl self-center px-4 ${className}`}
+      className={`lh-prose-editor text-dark  w-full max-w-xl self-center px-4 ${className}`}
     >
       {children}
     </div>

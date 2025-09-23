@@ -35,7 +35,7 @@ export function RandomGuides({ articles }: { articles: GuideType[] }) {
   }, [articles]);
 
   return (
-    <div className="w-full grid gap-4 sm:grid-cols-2 grid-cols-1">
+    <>
       {nextArticles.map((article) => (
         <GuideCard
           key={article.slug}
@@ -43,6 +43,6 @@ export function RandomGuides({ articles }: { articles: GuideType[] }) {
           className="bg-lightest"
         />
       ))}
-    </div>
+    </>
   );
 }

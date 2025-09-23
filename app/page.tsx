@@ -1,11 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import path from "path";
-import fs from "fs";
-import matter from "gray-matter";
-import { GuideType } from "./utils/types";
-import { RandomGuides } from "./guides/comp/RandomGuides";
 import { CenteredArticle } from "./comp/PageLayout";
 
 export default function Home() {
@@ -20,19 +15,19 @@ export default function Home() {
     age--;
   }
 
-  const articleDir = "guides";
-  const files = fs.readdirSync(path.join(articleDir));
-  const articles = files.map((filename) => {
-    const fileContent = fs.readFileSync(
-      path.join(articleDir, filename),
-      "utf-8"
-    );
-    const { data: frontMatter } = matter(fileContent);
-    return {
-      meta: frontMatter,
-      slug: filename.replace(".mdx", ""),
-    };
-  }) as GuideType[];
+  // const articleDir = "guides";
+  // const files = fs.readdirSync(path.join(articleDir));
+  // const articles = files.map((filename) => {
+  //   const fileContent = fs.readFileSync(
+  //     path.join(articleDir, filename),
+  //     "utf-8"
+  //   );
+  //   const { data: frontMatter } = matter(fileContent);
+  //   return {
+  //     meta: frontMatter,
+  //     slug: filename.replace(".mdx", ""),
+  //   };
+  // }) as GuideType[];
 
   // const imageUrl = "/header-images/neuron.jpg";
   // const background = `linear-gradient(hsla(120, 0%, 0%, 0.8), hsla(120, 0%, 0%, 0.8)), url(${imageUrl})`;
@@ -48,16 +43,8 @@ export default function Home() {
         </div>
         <h2>About me 🕵️</h2>
         <ul>
-          <li>
-            I&apos;m a {age}-year-old in the US who loves creating businesses
-            and learning
-          </li>
+          <li>I&apos;m a {age}-year-old in the US who loves learning</li>
           <li>I&apos;m a minimalist with under 100 items</li>
-          <li>I was Valedictorian of my high school class</li>
-          <li>
-            I chose not to attend college and am instead pursuing
-            entrepreneurship
-          </li>
           <li>
             I love reading so much that I used to it for eight hours daily (I
             now do one hour)
@@ -66,6 +53,12 @@ export default function Home() {
           {/* <li>I&apos;m celibate by choice</li> */}
           <li>I&apos;m writing down every memory I&apos;ve ever had</li>
           <li>Almost everything I own is black, white, or gray</li>
+
+          <li>I was Valedictorian of my high school class</li>
+          <li>
+            I chose not to attend college and am instead pursuing
+            entrepreneurship
+          </li>
           <li>
             I&apos;m madly in love with{" "}
             <a href="https://apps.ankiweb.net/" target="_blank">
@@ -74,17 +67,20 @@ export default function Home() {
           </li>
           <li>I created my own custom alphabet that I write with</li>
         </ul>
-
-        <div className="w-full space-y-4 p-8 lh-card  flex flex-col items-center justify-center">
-          <h2 className="text-center text-2xl font-semibold !my-0">
-            {articles.length} high-quality guides
-          </h2>
+      </CenteredArticle>
+      {/* <div className="w-full space-y-4 p-8 lh-card flex flex-col items-center justify-center">
+        <h2 className="text-center text-2xl font-semibold !my-0">
+          {articles.length} high-quality guides
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <RandomGuides articles={articles} />
-          <Link href="/guides" className="lh-btn-primary px-4">
-            Browse all guides
-          </Link>
         </div>
-        <div className="flex flex-col space-y-4 my-12">
+        <Link href="/guides" className="lh-btn-primary px-4">
+          Browse all guides
+        </Link>
+      </div> */}
+      <CenteredArticle>
+        {/* <div className="flex flex-col space-y-4 my-12">
           <h1 className="!m-0 text-pretty">My goals 🌲</h1>
           <div className="tracking-widest text-xs font-semibold text-dark">
             VERSION 13 OF 1000
@@ -98,18 +94,16 @@ export default function Home() {
         <p>
           Never blindly assume tomorrow will be better. Because it won&apos;t be
           unless you make it so.
-        </p>
-        <h2>Goals specific to me 🧐</h2>
+        </p> */}
+        {/* <h2>Goals specific to me 🧐</h2>
         <div className="flex flex-col gap-2">
           <Goal date="2025-12">10K anki cards</Goal>
-          {/* <Goal date="2025-05">Make $1000 off a business</Goal> */}
           <Goal date="2025-10">
             Be able to fully sustain myself with self-made income
           </Goal>
-          {/* <Goal date="2028">560x daily improvements</Goal> */}
           <Goal date="2028">Master all desire, emotions, and willpower</Goal>
-        </div>
-        <h2>Goals anyone can (and should) help with 🌍</h2>
+        </div> */}
+        {/* <h2>Goals anyone can (and should) help with 🌍</h2>
         <div className="flex flex-col gap-2">
           <Goal date="2024" years={10}>
             Help create AGI
@@ -158,12 +152,11 @@ export default function Home() {
           <li>Discouragement from failures</li>
           <li>Trying to do all the work</li>
           <li>Underestimating how hard it will be</li>
-        </ul>
+        </ul> */}
         {/* <h2>Things I know</h2>
         <ul>
           <li>test</li>
         </ul> */}
-        <div className="pt-16"></div>
         <h1>My work 🎯</h1>
         <p>
           The main project I&apos;m working on is WriteRush. Check it out by
@@ -216,76 +209,76 @@ export default function Home() {
   // <GenerateWallpaperButton />
 }
 
-const isValidYear = (date: string): boolean => /^\d{4}$/.test(date);
-const isValidYearMonth = (date: string): boolean =>
-  /^\d{4}-(0[1-9]|1[0-2])$/.test(date);
+// const isValidYear = (date: string): boolean => /^\d{4}$/.test(date);
+// const isValidYearMonth = (date: string): boolean =>
+//   /^\d{4}-(0[1-9]|1[0-2])$/.test(date);
 
-const MONTH_NAMES: { [key: string]: string } = {
-  "01": "Jan",
-  "02": "Feb",
-  "03": "Mar",
-  "04": "Apr",
-  "05": "May",
-  "06": "Jun",
-  "07": "Jul",
-  "08": "Aug",
-  "09": "Sep",
-  "10": "Oct",
-  "11": "Nov",
-  "12": "Dec",
-};
+// const MONTH_NAMES: { [key: string]: string } = {
+//   "01": "Jan",
+//   "02": "Feb",
+//   "03": "Mar",
+//   "04": "Apr",
+//   "05": "May",
+//   "06": "Jun",
+//   "07": "Jul",
+//   "08": "Aug",
+//   "09": "Sep",
+//   "10": "Oct",
+//   "11": "Nov",
+//   "12": "Dec",
+// };
 
-// Function to format the date string
-const formatDate = (year: string, month: string): string => {
-  if (month) {
-    const monthName = MONTH_NAMES[month];
-    return `${monthName} ${year}`;
-  }
-  return year;
-};
+// // Function to format the date string
+// const formatDate = (year: string, month: string): string => {
+//   if (month) {
+//     const monthName = MONTH_NAMES[month];
+//     return `${monthName} ${year}`;
+//   }
+//   return year;
+// };
 
-function Goal({
-  children,
-  years,
-  done,
-  date,
-}: {
-  children: React.ReactNode;
-  years?: number;
-  done?: boolean;
-  date: string;
-}) {
-  const validateDate = (date: string): boolean => {
-    return isValidYear(date) || isValidYearMonth(date);
-  };
+// function Goal({
+//   children,
+//   years,
+//   done,
+//   date,
+// }: {
+//   children: React.ReactNode;
+//   years?: number;
+//   done?: boolean;
+//   date: string;
+// }) {
+//   const validateDate = (date: string): boolean => {
+//     return isValidYear(date) || isValidYearMonth(date);
+//   };
 
-  if (!validateDate(date)) {
-    console.error(
-      `Invalid date format: "${date}". Expected "YYYY" or "YYYY-MM".`
-    );
-    return null;
-  }
+//   if (!validateDate(date)) {
+//     console.error(
+//       `Invalid date format: "${date}". Expected "YYYY" or "YYYY-MM".`
+//     );
+//     return null;
+//   }
 
-  // eslint-disable-next-line prefer-const
-  let [year, month] = date.split("-");
+//   // eslint-disable-next-line prefer-const
+//   let [year, month] = date.split("-");
 
-  const initialYear = year;
+//   const initialYear = year;
 
-  const isStart = years !== undefined;
-  if (isStart) {
-    year = (Number(year) + years).toString();
-  }
+//   const isStart = years !== undefined;
+//   if (isStart) {
+//     year = (Number(year) + years).toString();
+//   }
 
-  const formattedDate = formatDate(year, month);
-  return (
-    <div className={`lh-card text-dark p-4 ${done ? "opacity-50" : ""}`}>
-      <div>
-        <span className="text-darkest">{children}</span>
-      </div>
-      <div>{isStart ? initialYear + " - " + year : formattedDate}</div>
-    </div>
-  );
-}
+//   const formattedDate = formatDate(year, month);
+//   return (
+//     <div className={`lh-card text-dark p-4 ${done ? "opacity-50" : ""}`}>
+//       <div>
+//         <span className="text-darkest">{children}</span>
+//       </div>
+//       <div>{isStart ? initialYear + " - " + year : formattedDate}</div>
+//     </div>
+//   );
+// }
 
 function ProjectDiv({
   heading,

@@ -3,6 +3,8 @@ import "./globals.css";
 import { Libre_Franklin } from "next/font/google";
 import { PageLayout } from "./comp/PageLayout";
 const libreFranklin = Libre_Franklin({ subsets: ["latin"] });
+// const ebGaramond = EB_Garamond({ subsets: ["latin"] });
+
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
