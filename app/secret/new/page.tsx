@@ -1,9 +1,8 @@
-import fs from "fs";
-import path from "path";
-import { parseHls, NodeClusterType } from "@/app/utils/knowledge/NEW";
+import { NodeClusterType } from "@/app/utils/knowledge/NEW";
 import { CenteredArticle } from "@/app/comp/PageLayout";
 import { formatKnowledgeText } from "@/app/utils/knowledge/format";
 import { capitalize } from "@/app/utils/utils";
+import { getAllHlsFiles } from "@/app/utils/knowledge/hls";
 
 function BulletList({
   items,
@@ -37,7 +36,7 @@ function BulletList({
 function ParsedNodeCluster({ cluster }: { cluster: NodeClusterType }) {
   return (
     <>
-      {/* <h2>{cluster?.category ? capitalize(cluster.category) : ""}</h2> */}
+      <h2>{cluster?.category ? capitalize(cluster.category) : ""}</h2>
       <BulletList items={[cluster]} />
       <hr />
     </>
@@ -45,9 +44,7 @@ function ParsedNodeCluster({ cluster }: { cluster: NodeClusterType }) {
 }
 
 function Page() {
-  const hlsPath = path.join(process.cwd(), "nodes", "test.hls");
-  const hlsString = fs.readFileSync(hlsPath, "utf-8");
-  const parsed = parseHls(hlsString);
+  const parsed = getAllHlsFiles();
   return (
     <>
       <CenteredArticle className="mt-32">
