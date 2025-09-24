@@ -65,6 +65,10 @@ export default function Home() {
             </a>
           </li>
           <li>I created my own custom alphabet that I write with</li>
+          {/* <li>
+            I&apos;m working on a programmatic simulation of societies (turns
+            out it&apos;s pretty hard)
+          </li> */}
         </ul>
       </CenteredArticle>
       {/* <div className="w-full space-y-4 p-8 lh-card flex flex-col items-center justify-center">
