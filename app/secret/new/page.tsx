@@ -36,6 +36,7 @@ function ParsedNodeCluster({ cluster }: { cluster: NodeClusterType }) {
     <>
       {/* <h2>{cluster?.category ? capitalize(cluster.category) : ""}</h2> */}
       <BulletList items={[cluster]} />
+      <hr />
     </>
   );
 }

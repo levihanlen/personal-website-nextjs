@@ -271,4 +271,8 @@ h6 {
   blockquote {
     @apply border-dark border-l-[0.125em] pl-[1em];
   }
+
+  hr {
+    @apply border-medium;
+  }
 }
