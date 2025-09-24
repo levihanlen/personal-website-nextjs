@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { HiMiniBars3 } from "react-icons/hi2";
+import { ebGaramond } from "../utils/fonts";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState("");
@@ -183,7 +184,7 @@ export function Article({
   return (
     <div className="flex w-full flex-row justify-center">
       <article
-        className={`lh-prose-editor text-dark max-w-full flex-grow-0 self-center px-4 sm:px-0 lh-ml md:min-w-[576px] md:self-start ${className}`}
+        className={`${ebGaramond.className} lh-prose-editor text-dark max-w-full flex-grow-0 self-center px-4 sm:px-0 lh-ml md:min-w-[576px] md:self-start ${className}`}
       >
         {children}
       </article>
@@ -203,7 +204,7 @@ export function CenteredArticle({
 }) {
   return (
     <div
-      className={`lh-prose-editor text-dark  w-full max-w-xl self-center px-4 ${className}`}
+      className={`${ebGaramond.className} text-base sm:text-lg lh-prose-editor text-dark  w-full max-w-xl self-center px-4 ${className}`}
     >
       {children}
     </div>

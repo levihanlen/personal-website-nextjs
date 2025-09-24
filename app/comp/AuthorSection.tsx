@@ -6,7 +6,7 @@ export function AuthorSection({ className }: { className?: string }) {
     <div
       className={`align-center mt-24 flex w-full max-w-sm flex-col items-center justify-center space-y-2 px-8 ${className}`}
     >
-      <Avatar src="/blinds.jpg" size={84} />
+      <Avatar src="/barcelona.jpeg" size={84} />
       <p className="text-pretty text-center text-dark">
         All content here is researched and created by me, Levi Hanlen.
       </p>

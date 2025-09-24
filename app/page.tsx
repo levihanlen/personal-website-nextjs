@@ -46,8 +46,7 @@ export default function Home() {
           <li>I&apos;m a {age}-year-old in the US who loves learning</li>
           <li>I&apos;m a minimalist with under 100 items</li>
           <li>
-            I love reading so much that I used to it for eight hours daily (I
-            now do one hour)
+            I love reading so much that I used to do it for eight hours daily
           </li>
           <li>I drink only water and eat only healthy food</li>
           {/* <li>I&apos;m celibate by choice</li> */}

@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Libre_Franklin } from "next/font/google";
 import { PageLayout } from "./comp/PageLayout";
-const libreFranklin = Libre_Franklin({ subsets: ["latin"] });
-// const ebGaramond = EB_Garamond({ subsets: ["latin"] });
 
 import { Analytics } from "@vercel/analytics/next";
+import { libreFranklin } from "./utils/fonts";
 
 export const metadata: Metadata = {
   title: "Levi Hanlen - Learn anything",
