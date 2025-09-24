@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 import { parseHls, NodeClusterType } from "@/app/utils/knowledge/NEW";
 import { CenteredArticle } from "@/app/comp/PageLayout";
-import { capitalize } from "@/app/utils/utils";
 import { formatKnowledgeText } from "@/app/utils/knowledge/format";
 
 function BulletList({
@@ -35,7 +34,7 @@ function BulletList({
 function ParsedNodeCluster({ cluster }: { cluster: NodeClusterType }) {
   return (
     <>
-      <h2>{cluster?.category ? capitalize(cluster.category) : ""}</h2>
+      {/* <h2>{cluster?.category ? capitalize(cluster.category) : ""}</h2> */}
       <BulletList items={[cluster]} />
     </>
   );
@@ -47,7 +46,6 @@ function Page() {
   const parsed = parseHls(hlsString);
   return (
     <>
-      {JSON.stringify(parsed, null, 2)}
       <CenteredArticle className="mt-32">
         {parsed.map((cluster) => (
           <ParsedNodeCluster key={cluster.p} cluster={cluster} />
