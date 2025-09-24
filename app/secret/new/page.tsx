@@ -3,6 +3,7 @@ import path from "path";
 import { parseHls, NodeClusterType } from "@/app/utils/knowledge/NEW";
 import { CenteredArticle } from "@/app/comp/PageLayout";
 import { formatKnowledgeText } from "@/app/utils/knowledge/format";
+import { capitalize } from "@/app/utils/utils";
 
 function BulletList({
   items,
@@ -20,7 +21,9 @@ function BulletList({
             {item.n &&
               item.n.map((note, nIdx) => (
                 <ul key={`n-${nIdx}`} className="">
-                  <li>(note) {note}</li>
+                  <li>
+                    <i>{capitalize(note)}</i>
+                  </li>
                 </ul>
               ))}
             {item.c && <BulletList items={item.c} level={level + 1} />}
