@@ -34,14 +34,14 @@ export default function Home() {
   return (
     <>
       <CenteredArticle className={`mt-32`}>
-        <h1>Hey! I&apos;m Levi 👋</h1>
+        <h1>Hey! I&apos;m Levi</h1>
         <div className="grid grid-cols-2 gap-2 sm:gap-4">
           <SquareImg src="/barcelona.jpeg" />
           <SquareImg src="/golf.jpeg" />
           <SquareImg src="/suits.png" />
           <SquareImg src="/polaroid.jpeg" />
         </div>
-        <h2>About me 🕵️</h2>
+        <h2>About me</h2>
         <ul>
           <li>I&apos;m a {age}-year-old in the US who loves learning</li>
           <li>I&apos;m a minimalist with under 100 items</li>
@@ -156,7 +156,7 @@ export default function Home() {
         <ul>
           <li>test</li>
         </ul> */}
-        <h1>My work 🎯</h1>
+        <h1>My work</h1>
         <p>
           The main project I&apos;m working on is WriteRush. Check it out by
           clicking the button below!
@@ -294,7 +294,7 @@ function SquareImg({ src }: { src: string }) {
         height={0}
         sizes="100vw"
         alt="Image"
-        className="absolute m-0 w-full h-full grayscale object-cover rounded-xl"
+        className="absolute w-full h-full grayscale object-cover rounded-xl"
       />
     </div>
   );
