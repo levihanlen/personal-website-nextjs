@@ -4,7 +4,7 @@
   - the sky is blue because of a phenonmenom called {{rayleigh scattering}}
     - shadows outside are {{blue-ish}} because of {{rayleigh scattering}}
   - n: this is a note
-  - rayleigh scattering equation is "{{intensity of scattering}} is {{proportional to}} {{(frequency ^ 4)}}
+  - rayleigh scattering equation is "{{intensity of scattering}} is {{proportional to}} {{(frequency ^ 4)}}"
     - if you {{half the}} wavelength, the rayleigh scattering {{increases by a factor of 16 (2^4)}}
     - if you {{double}} the wavelength, the rayleigh scattering {{decreases by a factor of 16 (2^4)}}
   - in the atmosphere, violet light is scattered {{more}} than blue light

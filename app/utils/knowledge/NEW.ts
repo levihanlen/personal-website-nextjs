@@ -1,8 +1,19 @@
 // the new sysetm is based off MENTAL MODELS/CONCEPTS
 
-interface NodeClusterType {
+export interface NodeClusterType {
   p: string; // parent
-  c?: (NodeClusterType | string)[]; // c
+  c?: NodeClusterType[]; // c
+  // children consists of
+  // - clarifying/explanation
+  // - why
+  // applications (examples)
+  n?: string[]; // notes
+  category?: string;
+}
+
+interface OldNodeClusterType {
+  p: string; // parent
+  c?: (OldNodeClusterType | string)[]; // c
   // children consists of
   // - clarifying/explanation
   // - why
@@ -13,7 +24,7 @@ interface NodeClusterType {
 }
 
 // example cluster
-const RAYLEIGH_SCATTERING_CLUSTER: NodeClusterType = {
+const RAYLEIGH_SCATTERING_CLUSTER: OldNodeClusterType = {
   a: ["rayleigh scattering"],
   p: "rayleigh scattering is how [[photons]] are scattered by [[molecules]] much smaller than the [[wavelength]] of the [[photon]]",
   c: [
@@ -74,14 +85,13 @@ function validateCloze(line: string): void {
   }
 }
 
-function postProcess(node: NodeClusterType): NodeClusterType | string {
+function postProcess(node: NodeClusterType): NodeClusterType {
   if (!node.c && !node.n) {
-    return node.p;
+    return node;
   }
   if (node.c) {
     node.c = node.c.map((child) => {
-      if (typeof child === "string") return child;
-      return postProcess(child as NodeClusterType);
+      return postProcess(child);
     });
   }
   return node;
