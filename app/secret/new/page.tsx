@@ -1,9 +1,6 @@
 import fs from "fs";
 import path from "path";
-import {
-  parseHlsToNodeCluster,
-  NodeClusterType,
-} from "@/app/utils/knowledge/NEW";
+import { parseHls, NodeClusterType } from "@/app/utils/knowledge/NEW";
 import { CenteredArticle } from "@/app/comp/PageLayout";
 import { capitalize } from "@/app/utils/utils";
 import { formatKnowledgeText } from "@/app/utils/knowledge/format";
@@ -47,11 +44,14 @@ function ParsedNodeCluster({ cluster }: { cluster: NodeClusterType }) {
 function Page() {
   const hlsPath = path.join(process.cwd(), "nodes", "test.hls");
   const hlsString = fs.readFileSync(hlsPath, "utf-8");
-  const parsed = parseHlsToNodeCluster(hlsString);
+  const parsed = parseHls(hlsString);
   return (
     <>
+      {JSON.stringify(parsed, null, 2)}
       <CenteredArticle className="mt-32">
-        <ParsedNodeCluster cluster={parsed} />
+        {parsed.map((cluster) => (
+          <ParsedNodeCluster key={cluster.p} cluster={cluster} />
+        ))}
       </CenteredArticle>
     </>
   );
