@@ -53,7 +53,7 @@ export function Navbar() {
             <NavBtn href="/">Home</NavBtn>
           </div>
           <NavBtn href="/guides">Guides</NavBtn>
-          <NavBtn href="/blog">Essays</NavBtn>
+          {/* <NavBtn href="/blog">Essays</NavBtn> */}
         </div>
       </nav>
     </div>
