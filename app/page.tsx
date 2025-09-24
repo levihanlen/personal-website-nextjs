@@ -162,46 +162,13 @@ export default function Home() {
           clicking the button below!
         </p>
       </CenteredArticle>
-      <div className="mt-16 max-w-sm">
+      <div className=" max-w-sm">
         <ProjectDiv
           heading="WriteRush"
           desc="Software that makes writing fun, fast, and easy"
           href="https://www.writerush.net/"
           img="/writerush-mockup.png"
         />
-      </div>
-      <div className="pt-16 px-4 lh-pl lh-pr grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full gap-4">
-        {/* <ProjectDiv
-          heading="Varu AI"
-          desc="AI platform that can generate an entire book series"
-          href="https://www.varu.us/"
-          img="url('/varu.png')"
-        /> */}
-        {/* <ProjectDiv
-          heading="WriteRush"
-          desc="Software that makes writing fun, fast, and easy"
-          href="https://www.writerush.net/"
-          img="/writerush-mockup.png"
-        /> */}
-        {/* <ProjectDiv
-          heading="Hanlen's Simulator"
-          img="/mythscape-mockup.png"
-          desc="Procedural text-based game"
-          href="https://game.levihanlen.com/"
-        /> */}
-        {/*
-        <ProjectDiv
-          heading="LeviHanlen Instagram"
-          desc="Life hacks, business ideas, productivity tips, wisdom, and more"
-          href="https://www.instagram.com/levihanlen/"
-          img="url('/levihanlen-ig-mockup.png')"
-        />
-        <ProjectDiv
-          heading="WriteRush Instagram"
-          desc="Actionable advice for fiction writing (20K+ followers)"
-          href="https://www.instagram.com/writerushofficial/"
-          img="url('/writerush-ig-mockup.png')"
-        /> */}
       </div>
     </>
   );
