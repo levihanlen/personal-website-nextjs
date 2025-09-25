@@ -78,7 +78,7 @@ export default function ReviewClient({ nodes }: { nodes: NodeClusterType[] }) {
           <button
             key={g}
             onClick={() => handleRate(g)}
-            className="lh-btn-primary"
+            className="lh-btn-secondary"
           >
             {Rating[g]}
           </button>
