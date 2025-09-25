@@ -112,7 +112,7 @@ export default function ReviewClient({ nodes }: { nodes: NodeClusterType[] }) {
   }
 
   return (
-    <div className="flex flex-col items-center w-full max-w-lg mt-32 gap-6">
+    <div className="flex flex-col items-center w-full max-w-lg mt-32 gap-6 px-4">
       <div className="w-full min-h-40 flex flex-col gap-6 items-start">
         <div className="text-dark text-sm">{dueCards.length} left</div>
         <div
