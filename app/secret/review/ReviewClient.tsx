@@ -113,9 +113,10 @@ export default function ReviewClient({ nodes }: { nodes: NodeClusterType[] }) {
 
   return (
     <div className="flex flex-col items-center w-full max-w-lg mt-32 gap-6">
-      <div className="w-full min-h-40 flex flex-col">
+      <div className="w-full min-h-40 flex flex-col gap-6 items-start">
+        <div className="text-dark text-sm">{dueCards.length} left</div>
         <div
-          className={`p-8 text-dark text-pretty w-full text-xl ${ebGaramond.className}`}
+          className={` text-dark text-pretty w-full text-xl ${ebGaramond.className}`}
         >
           <span className="text-darkest font-semibold italic">
             {current.node.category}
@@ -127,7 +128,6 @@ export default function ReviewClient({ nodes }: { nodes: NodeClusterType[] }) {
         </div>
       </div>
 
-      <div className="text-dark">{dueCards.length} cards due</div>
       {!showAnswer ? (
         <button
           className="lh-btn-secondary"
