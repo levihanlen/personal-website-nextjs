@@ -17,6 +17,8 @@ function BulletList({
         return (
           <li key={idx}>
             {formatKnowledgeText(item.p)}
+
+            {/* {getAnkiText(item)} */}
             {item.n &&
               item.n.map((note, nIdx) => (
                 <ul key={`n-${nIdx}`} className="">
