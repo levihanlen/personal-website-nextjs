@@ -112,18 +112,20 @@ export default function ReviewClient({ nodes }: { nodes: NodeClusterType[] }) {
   }
 
   return (
-    <div className="flex flex-col items-center w-full mt-32 space-y-8">
+    <div className="flex flex-col items-center w-full max-w-lg mt-32 gap-8">
       <div className="text-dark">{dueCards.length} cards due</div>
-      <div
-        className={`p-8 text-dark text-pretty w-full lh-card max-w-lg text-xl ${ebGaramond.className}`}
-      >
-        <span className="text-darkest font-semibold italic">
-          {current.node.category}
-        </span>
-        {" - "}
-        <span
-          dangerouslySetInnerHTML={{ __html: renderText(current.node.p) }}
-        />
+      <div className="w-full min-h-60 flex flex-col">
+        <div
+          className={`p-8 text-dark text-pretty w-full lh-card text-xl ${ebGaramond.className}`}
+        >
+          <span className="text-darkest font-semibold italic">
+            {current.node.category}
+          </span>
+          {" - "}
+          <span
+            dangerouslySetInnerHTML={{ __html: renderText(current.node.p) }}
+          />
+        </div>
       </div>
 
       {!showAnswer ? (
@@ -131,12 +133,12 @@ export default function ReviewClient({ nodes }: { nodes: NodeClusterType[] }) {
           Show answer
         </button>
       ) : (
-        <div className="flex gap-4">
+        <div className="flex lh-card">
           {[Rating.Again, Rating.Hard, Rating.Good, Rating.Easy].map((g) => (
             <button
               key={g}
               onClick={() => handleRate(g)}
-              className="lh-btn-secondary"
+              className="lh-btn-base lh-btn-horz-p"
             >
               {Rating[g]}
             </button>
