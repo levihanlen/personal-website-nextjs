@@ -4,6 +4,7 @@ import { useCallback, useMemo, useState } from "react";
 import { NodeClusterType } from "@/app/utils/knowledge/NEW";
 import { createCardForNode, nextState } from "@/app/utils/anki/generate";
 import { Rating, Grade } from "ts-fsrs";
+import { ebGaramond } from "@/app/utils/fonts";
 
 type ReviewCard = {
   node: NodeClusterType;
@@ -122,13 +123,16 @@ export default function ReviewClient({ nodes }: { nodes: NodeClusterType[] }) {
   return (
     <div className="flex flex-col items-center mt-32 space-y-8">
       <div className="text-dark">{dueCards.length} cards due</div>
-      <div className="lh-card p-8 text-dark text-pretty max-w-lg flex flex-col gap-1 items-start">
-        {current.node.category && (
-          <div className="text-sm px-2 py-1 lh-card">
-            {current.node.category}
-          </div>
-        )}
-        <div dangerouslySetInnerHTML={{ __html: renderText(current.node.p) }} />
+      <div
+        className={`lh-card p-8 text-dark text-pretty max-w-lg text-xl ${ebGaramond.className}`}
+      >
+        <span className="text-darkest font-semibold italic">
+          {current.node.category}
+        </span>
+        {" - "}
+        <span
+          dangerouslySetInnerHTML={{ __html: renderText(current.node.p) }}
+        />
       </div>
 
       {!showAnswer ? (
@@ -150,7 +154,7 @@ export default function ReviewClient({ nodes }: { nodes: NodeClusterType[] }) {
       )}
 
       {feedback && <div className="text-dark">{feedback}</div>}
-      <pre>{JSON.stringify(queue, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(queue, null, 2)}</pre> */}
     </div>
   );
 }
