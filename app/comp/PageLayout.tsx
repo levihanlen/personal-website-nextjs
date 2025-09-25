@@ -115,9 +115,9 @@ function Footer() {
   return (
     <footer
       id="footer"
-      className="flex w-full flex-col  lh-fg p-4 pt-8 pb-32 items-center text-sm text-dark"
+      className="flex w-full flex-col  pb-12 items-center text-sm text-dark"
     >
-      <div className="flex flex-col gap-12 w-full max-w-lg">
+      <div className="flex flex-col gap-12 w-full max-w-lg lh-card p-8">
         {/* <div className=" flex-grow space-y-4">
           <div className="font-bold text-center text-darkest">Our Mission</div>
           <p>

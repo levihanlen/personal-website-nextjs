@@ -109,22 +109,13 @@ export default function ReviewClient({ nodes }: { nodes: NodeClusterType[] }) {
         ? `<span class="${className}">${cleanInner(inner)}</span>`
         : `<span class="${className}">{{...}}</span>`;
     });
-    // if (showAnswer) {
-    //   t = t.replace(
-    //     /\{\{(.*?)\}\}/g,
-    //     (_, inner) => `<b>${cleanInner(inner)}</b>`
-    //   );
-    // } else {
-    //   t = t.replace(/\{\{(.*?)\}\}/g, () => `<b>{{...}}</b>`);
-    // }
-    // return t;
   }
 
   return (
-    <div className="flex flex-col items-center mt-32 space-y-8">
+    <div className="flex flex-col items-center w-full mt-32 space-y-8">
       <div className="text-dark">{dueCards.length} cards due</div>
       <div
-        className={`lh-card p-8 text-dark text-pretty max-w-lg text-xl ${ebGaramond.className}`}
+        className={`p-8 text-dark text-pretty w-full lh-card max-w-lg text-xl ${ebGaramond.className}`}
       >
         <span className="text-darkest font-semibold italic">
           {current.node.category}
