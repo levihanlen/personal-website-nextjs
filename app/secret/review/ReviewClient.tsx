@@ -4,7 +4,6 @@ import { useCallback, useMemo, useState } from "react";
 import { NodeClusterType } from "@/app/utils/knowledge/NEW";
 import { createCardForNode, nextState } from "@/app/utils/anki/generate";
 import { Rating, Grade } from "ts-fsrs";
-import { getAnkiText } from "@/app/utils/anki/text";
 
 type ReviewCard = {
   node: NodeClusterType;
@@ -66,6 +65,7 @@ export default function ReviewClient({ nodes }: { nodes: NodeClusterType[] }) {
 
   const current = dueCards[0];
   const [feedback, setFeedback] = useState<string | null>(null);
+  const [showAnswer, setShowAnswer] = useState(false);
 
   const handleRate = useCallback(
     (grade: Rating) => {
@@ -90,29 +90,65 @@ export default function ReviewClient({ nodes }: { nodes: NodeClusterType[] }) {
         });
         return nextQueue;
       });
+      setShowAnswer(false);
     },
     [current]
   );
 
   if (!current) return <div className="mt-32">All cards reviewed</div>;
 
+  function cleanInner(inner: string) {
+    return inner.replace(/c\d+::/, "");
+  }
+
+  function renderText(text: string) {
+    const className = "text-darkest  font-semibold";
+    return text.replace(/\{\{(.*?)\}\}/g, (_, inner) => {
+      return showAnswer
+        ? `<span class="${className}">${cleanInner(inner)}</span>`
+        : `<span class="${className}">{{...}}</span>`;
+    });
+    // if (showAnswer) {
+    //   t = t.replace(
+    //     /\{\{(.*?)\}\}/g,
+    //     (_, inner) => `<b>${cleanInner(inner)}</b>`
+    //   );
+    // } else {
+    //   t = t.replace(/\{\{(.*?)\}\}/g, () => `<b>{{...}}</b>`);
+    // }
+    // return t;
+  }
+
   return (
     <div className="flex flex-col items-center mt-32 space-y-8">
       <div className="text-dark">{dueCards.length} cards due</div>
-      <div className="lh-card p-8 text-dark text-pretty max-w-lg">
-        {getAnkiText(current.node)}
+      <div className="lh-card p-8 text-dark text-pretty max-w-lg flex flex-col gap-1 items-start">
+        {current.node.category && (
+          <div className="text-sm px-2 py-1 lh-card">
+            {current.node.category}
+          </div>
+        )}
+        <div dangerouslySetInnerHTML={{ __html: renderText(current.node.p) }} />
       </div>
-      <div className="flex gap-4">
-        {[Rating.Again, Rating.Hard, Rating.Good, Rating.Easy].map((g) => (
-          <button
-            key={g}
-            onClick={() => handleRate(g)}
-            className="lh-btn-secondary"
-          >
-            {Rating[g]}
-          </button>
-        ))}
-      </div>
+
+      {!showAnswer ? (
+        <button className="lh-btn-primary" onClick={() => setShowAnswer(true)}>
+          Show answer
+        </button>
+      ) : (
+        <div className="flex gap-4">
+          {[Rating.Again, Rating.Hard, Rating.Good, Rating.Easy].map((g) => (
+            <button
+              key={g}
+              onClick={() => handleRate(g)}
+              className="lh-btn-secondary"
+            >
+              {Rating[g]}
+            </button>
+          ))}
+        </div>
+      )}
+
       {feedback && <div className="text-dark">{feedback}</div>}
       <pre>{JSON.stringify(queue, null, 2)}</pre>
     </div>
