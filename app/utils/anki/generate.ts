@@ -4,63 +4,40 @@ import {
   FSRS,
   GenSeedStrategyWithCardId,
   generatorParameters,
-  RecordLog,
   RecordLogItem,
   StrategyMode,
   Grade,
 } from "ts-fsrs";
-import { NodeClusterType } from "../knowledge/NEW";
-import { getAnkiId } from "./text";
 
 type WithNodeId<T> = T & { id: string };
 
-function createScheduler(
-  params?: Partial<Parameters<typeof generatorParameters>[0]>
-) {
-  const resolved = generatorParameters(params ?? {});
-  const scheduler = new FSRS(resolved);
-  scheduler.useStrategy(StrategyMode.SEED, GenSeedStrategyWithCardId("id"));
-  return scheduler;
-}
+const resolved = generatorParameters({ enable_fuzz: true });
+const scheduler = new FSRS(resolved);
+scheduler.useStrategy(StrategyMode.SEED, GenSeedStrategyWithCardId("id"));
 
-const schedulerCache = createScheduler({ enable_fuzz: true });
-
-function getScheduler() {
-  return schedulerCache;
-}
-
-function createCardForNode(node: NodeClusterType) {
+function createCardForNode(text: string) {
   const card = createEmptyCard(new Date(), function (card) {
     return {
       ...card,
-      id: getAnkiId(node),
+      id: text,
     } as WithNodeId<Card>;
   });
   return card;
 }
 
-function previewRatings(card: Card, now = new Date()) {
-  const scheduler = getScheduler();
-  const result: RecordLog = scheduler.repeat(card, now);
-  return result;
-}
+// function previewRatings(card: Card, now = new Date()) {
+//   const result: RecordLog = scheduler.repeat(card, now);
+//   return result;
+// }
 
 function nextState(card: Card, rating: Grade, now = new Date()) {
-  const scheduler = getScheduler();
   const result: RecordLogItem = scheduler.next(card, now, rating);
   return result;
 }
 
-function scheduleCard(card: Card, rating: Grade, now = new Date()) {
-  const next = nextState(card, rating, now);
-  return next.card;
-}
+// function scheduleCard(card: Card, rating: Grade, now = new Date()) {
+//   const next = nextState(card, rating, now);
+//   return next.card;
+// }
 
-export {
-  createCardForNode,
-  createScheduler,
-  getScheduler,
-  nextState,
-  previewRatings,
-  scheduleCard,
-};
+export { createCardForNode, nextState };

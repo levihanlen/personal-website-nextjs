@@ -22,9 +22,39 @@ function flatten(nodes: NodeClusterType[]): NodeClusterType[] {
 }
 
 export default function ReviewClient({ nodes }: { nodes: NodeClusterType[] }) {
-  const [queue, setQueue] = useState<ReviewCard[]>(() =>
-    flatten(nodes).map((node) => ({ node, card: createCardForNode(node) }))
-  );
+  function clozeVariants(text: string): string[] {
+    const regex = /\{\{(.*?)\}\}/g;
+    const matches = Array.from(text.matchAll(regex));
+    if (matches.length === 0) return [text];
+    return matches.map((m, idx) => {
+      // iterate over matches again to build string
+      let result = text;
+      matches.forEach((match, i) => {
+        const inner = match[1].replace(/c\d+::/, "");
+        if (i === idx) {
+          // keep braces for active cloze
+          // already match stays
+        } else {
+          // replace entire {{...}} with inner text
+          result = result.replace(match[0], inner);
+        }
+      });
+      return result;
+    });
+  }
+
+  const [queue, setQueue] = useState<ReviewCard[]>(() => {
+    const flat = flatten(nodes);
+    const cards: ReviewCard[] = [];
+    flat.forEach((n) => {
+      const variants = clozeVariants(n.p);
+      variants.forEach((variant) => {
+        const tempNode = { ...n, p: variant };
+        cards.push({ node: tempNode, card: createCardForNode(variant) });
+      });
+    });
+    return cards;
+  });
 
   // cards that are due now or overdue
   const dueCards = useMemo(() => {
@@ -84,7 +114,7 @@ export default function ReviewClient({ nodes }: { nodes: NodeClusterType[] }) {
         ))}
       </div>
       {feedback && <div className="text-dark">{feedback}</div>}
-      {/* <pre>{JSON.stringify(queue, null, 2)}</pre> */}
+      <pre>{JSON.stringify(queue, null, 2)}</pre>
     </div>
   );
 }
