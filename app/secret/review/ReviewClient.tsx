@@ -50,7 +50,6 @@ export default function ReviewClient({ nodes }: { nodes: NodeClusterType[] }) {
             );
             const updated = record.card;
 
-            // feedback interval
             setFeedback(
               `${Rating[grade]} - due again in ${getDiffStr(updated.due)}`
             );
