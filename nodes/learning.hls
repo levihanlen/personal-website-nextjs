@@ -1,0 +1,236 @@
+
+
+- successful people build systems to avoid using willpower, instead of relying on willpower all the time
+
+
+
+- go into learning with the intention of writing about it. this will make you more deliberate
+
+
+
+- study: learning is more effective when you are naturally motivated to do it
+  - dont pre-plan what to learn, instead follow what you feel is most important to learn at the time
+    - strictly adhering to a plan for learning is bad because it will eventually get in the way of your natural motivation
+  - study: the most successful scientist's workflows dont just only do intense focus. instead they alternated between intense focus and exploring/playing with ideas (src: oshin vartanian)
+
+
+
+
+study: teachers often mistook beginners for experts and experts for beginners, because the beginners followed their rules better.
+
+the experts adapted to the situation intuitively
+
+
+- {{zeigarnik effect}} is {{where unfinished tasks take up mental space}}
+  - when a task is finished, it no longer takes up mental space.
+  - study: a waiter could remember orders flawlessly, but as soon as the diners left, she forgot the customers. because when they left the task was finished
+  - you can make a task leave your mental space (close it) by writing it down, because it "finishes" the task for now
+  - if before deep work you have takss running through your mind, you shoudl writem them down or do them
+  - having a notebook on you at all times helps clear mental resources due to zeignark effect
+
+
+you can use this effect, by leaving tasks "open" in your mind while doing another task
+  ex: while showering
+  how do yuo makrk it as open?
+
+
+
+
+
+
+
+
+
+
+- summarizing things makes you understand them
+  - summarizing ensures understanding (to an extent) becuase you translate it into a way that you understand
+  - study: two groups taking notes on lecture, one via computer other via hand. by hand understood much better
+    - students who take notes on a lecture {{slower}} understand {{better}}, because {{they had to summarize to keep up with the pace of the lecture}}
+  - instead of highlighting text from a book, summarize it in your own words
+    - when you just highlight text, you remove the natural context it's placed in, and thus lose some understanding
+    - when you summarize text from a book, it should be no longer than a paragraph
+    - n: i used to just highlight everything, but never write notes. i've since changed my strategy
+
+
+
+
+- confirmation bias is ...
+  - you don't seek out confirmation bias. it happens because you can't tell what is bias or not. and what looks like "truth" and "correctness" to you is tinted by bias. meaning that the source of data we think is truthful is biased because we have a biased sense of truth
+    - you often surround yourself with people who think like you because of confirmation bias, you like them more because they think like you.
+    - you often read publications that confrim your ideas, because of confirmation bias. they seem smarter because they say things you agree with
+  - when you come across an opposing view point, write it down and think it through, so you can fully think through of ideas and combat bias
+  - if you come into something with a hypothesis, do not try to prove it. try to prove it wrong
+    - instead of trying to prove yourself right, try to prove yourself wrong, because this combats confirmation bias
+
+
+if an idea being true would be threatening to you, its likely that you're under confirmation bias 
+  why?
+
+
+
+understandable speech comes across as intelligent
+
+
+if you can't teach it to a 5th grader you don't understand it
+  the example of 5th grader is used because they need it to be simple and understandable
+  why do you need to be able to teach it in an understnadable way to ensure your own understanding?
+
+
+
+writing makes clear the gaps in your knowledge (how?)
+
+
+- familiarity comes from encountering something a lot
+  - the more familiar you are with something, the more you trust and feel that you understand it. regardless of whether either is true
+
+
+testing and writing down in your own words checks if we actually know the content. 
+
+seeing something again feels the same as recalling it again. this it makes it feel like you have strengthened the memory (via recall) but you have not 
+
+
+
+
+
+to create understanding of something, it requires effort. it wont just happen passively
+
+
+when teaching, the student should not just be reading material
+
+
+
+a teacher changing the topic in the middle of a lesson (only to come back later) can be good because it uses interleaving
+
+so basically they teach small section of A, then small esction of B, then small esction of C, then go back to A.
+  they are interleaving the learning.
+  
+this is optimal because when they get back to A, they've forgotten a bita nd then are forced to recall (which will be slightly difficult and thus encode it in their brain more)
+
+the common way to teach is to fully master one topic before moving to the next. this can be bad, becasue it prevents interleaving
+
+
+
+teachers, instead of just presenting something to read, you should test the students. because this ensures understanding
+  testing just means forcing the students to retrieve it
+
+if teaching, you should almost never just present text for someone to read. it's bad for learning.
+
+good learning is often hard in the short term but easy in the long term
+
+bad learning is often easy in the short term but hard in the long term (meaning it wasnt embedded in long-term memory well)
+
+
+
+
+
+when teachers organize things into modules, categories, and themes, they make it harder to learn long etrm
+  why?
+  
+
+
+good learning requires struggle.
+
+many teachers spent time trying to make learning easier, but that can actually make learning worse, because struggle is required for lasting learning
+
+the more effort you put into trying to understand something, the stronger the memory is
+
+
+so the issue is that because the student doesnt have to struggle with the concepts, the concepts aren't embedded in their long-term memory, and the concepts don't have deep understanding (they didnt translate it into their own understandign)
+
+
+specifically for my guides, i think the reader should have to summarize it in their own words
+  or add tests.
+  maybe add tests before they even learn it.
+  right now my method is just a book. it's a good book too. but it's not optimal for learning
+    the user must be forced to retrieve the info. this is very easy because i have the cloze's built in.
+      this is a form of test
+    the learning/test mode should be in random order (interleaved)
+    and ideally, they should actually do the test mode first before they read. and they should genuinely try to come to an answer for each one.
+      though this may be werid for some like "what is the wavelength of radio wave?" like the user just doesnt know that at all.
+      this works better for stuff like "why do you think germany lost ww2?" where critical thinking is required adn they can actually come up with an answer
+  ask the reader to come up wiht other connections to other ideas.
+    i think have a mode where they it's maybe scrambled, and it's all cloze deletioned. and then the reader goes through and clicks each to reveal. 
+    and then for each root-level tree (bullet poitn strucutre), have a textarea at the bottom, where the user writes their summary
+  in the ui it should show like a "hwy is this importnatn?" with a tooltip that explains why
+  the test mode is literally just the anki mode, but the only cards that exist are these ones.
+    they are in random order.
+
+before taeching the concep, the teacher may ask, "Before we begin, what do you think are the three main functions of the prefrontal cortex?"
+  the student must then look through their existing knowledeg, and try to guess an answer.
+
+
+
+trying to answer something you don't know will make it easier to learn when you do learn it. even if you fail
+
+
+the more effort you put into recalling a fact (meaning the fact was difficult to recall), the more it is strengthened
+
+
+
+- stress makes it harder to learn
+  - exercise helps you memorize things, because it reduces stress, which makes learning harder
+
+- exercise reduces stress
+
+
+
+the best-researched and most successful learning method is elaboration.
+
+elaboration is thinking of the meaning of what you read (does that mean trying to understand it on a deeper level/analyzing it or just trying to understand it?) and applying it to different scenarios and conepts
+
+its fine for learning to take a long time because it is basically required to actually understand it 
+
+
+good readers relate the topics of the text to other topics
+
+good readers also can spot the limitations of the text
+
+to build a web of knowledge, think about how one piece of knowledge relates to other pieces of knowledge
+
+writing concepts down frees mental resources to think about and improve that concept
+
+if yuo dont write it down, keeping the entier concept itself in short term memory would take mental resources
+
+your brain naturally jumps to conclusions and make connections.  even if those conclusions are incorrect
+
+
+don't think through ideas just in your head. write them down and work them out on paper or fomputer
+
+
+feature-positive effect—our tendency to overvalue recent or easily remembered information.
+
+you r brain is biased to value things himore if they are more recent or easily recalled.
+
+
+
+creative ideas come from just connecting different ideas
+
+often people who come up with creative dieas feel guilty because they feel like they didnt make it, they just connected ideas
+
+
+
+
+
+to connect ideas to ther ideas, you must first remove the idea from the context it was found in. basically find the fundamental truth that is not specific to just one context
+
+
+
+
+
+
+
+
+the brain prioritises ideas that are easily available in the moment. This, obviously, does not equal relevant. The brain more easily remembers information that it encountered recently, which has emotions attached to it and is lively, concrete or specific. Ideally, it rhymes as well
+
+your brain more easily recalls ideas that are recent, specific, emotionful, or rhyme
+
+people usually like their first ideas best, regardless of how good it actually is
+
+More people in a brainstorming group usually come up with less good ideas and restrict themselves inadvertently to a narrower range of topics
+
+brainstorming is best done alone
+
+
+just because you can more easily recall something does not mean it is more valuable
+
+
