@@ -273,6 +273,6 @@ h6 {
   }
 
   hr {
-    @apply border-medium;
+    @apply border-light;
   }
 }

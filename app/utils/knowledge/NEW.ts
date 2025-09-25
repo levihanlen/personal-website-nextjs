@@ -139,4 +139,26 @@ function parseHls(input: string): NodeClusterType[] {
   return result;
 }
 
-export { parseHls };
+interface UiNodeCluster {
+  title?: string;
+  nodes: NodeClusterType[];
+}
+
+function parseHlsForUi(input: string): UiNodeCluster[] {
+  const lines = input.split(/\r?\n/);
+  const groups: UiNodeCluster[] = [];
+  let index = 0;
+  while (index < lines.length) {
+    const { category, next } = extractCategory(lines, index);
+    index = next;
+    if (index >= lines.length) break;
+    const { clusters, next: after } = parseClustersForCategory(lines, index);
+    if (clusters.length === 0) break;
+    if (category) clusters.forEach((c) => propagateCategory(c, category));
+    groups.push({ title: category || undefined, nodes: clusters });
+    index = after;
+  }
+  return groups;
+}
+
+export { parseHls, parseHlsForUi, type UiNodeCluster };

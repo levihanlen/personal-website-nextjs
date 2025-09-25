@@ -1,4 +1,4 @@
-import { NodeClusterType } from "@/app/utils/knowledge/NEW";
+import { NodeClusterType, UiNodeCluster } from "@/app/utils/knowledge/NEW";
 import { CenteredArticle } from "@/app/comp/PageLayout";
 import { formatKnowledgeText } from "@/app/utils/knowledge/format";
 import { capitalize } from "@/app/utils/utils";
@@ -33,12 +33,11 @@ function BulletList({
   );
 }
 
-function ParsedNodeCluster({ cluster }: { cluster: NodeClusterType }) {
+function ParsedNodeCluster({ cluster }: { cluster: UiNodeCluster }) {
   return (
     <>
-      <h2>{cluster?.category ? capitalize(cluster.category) : ""}</h2>
-      <BulletList items={[cluster]} />
-      <hr />
+      <h2>{cluster.title ? capitalize(cluster.title) : ""}</h2>
+      <BulletList items={cluster.nodes} />
     </>
   );
 }
@@ -48,8 +47,8 @@ function Page() {
   return (
     <>
       <CenteredArticle className="mt-32">
-        {parsed.map((cluster) => (
-          <ParsedNodeCluster key={cluster.p} cluster={cluster} />
+        {parsed.map((cluster, idx) => (
+          <ParsedNodeCluster key={idx} cluster={cluster} />
         ))}
       </CenteredArticle>
     </>
