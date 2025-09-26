@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { CenteredArticle } from "./comp/PageLayout";
+import NewsletterForm from "./comp/NewsletterForm";
 
 export default function Home() {
   const today = new Date();
@@ -71,6 +72,8 @@ export default function Home() {
           </li> */}
         </ul>
       </CenteredArticle>
+
+      <NewsletterForm />
       {/* <div className="w-full space-y-4 p-8 lh-card flex flex-col items-center justify-center">
         <h2 className="text-center text-2xl font-semibold !my-0">
           {articles.length} high-quality guides
@@ -78,7 +81,7 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <RandomGuides articles={articles} />
         </div>
-        <Link href="/guides" className="lh-btn-primary px-4">
+        <Link href="/guides" className="lh-btn-primary">
           Browse all guides
         </Link>
       </div> */}

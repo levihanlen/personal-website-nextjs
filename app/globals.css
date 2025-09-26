@@ -86,6 +86,14 @@ h6 {
   @apply rounded-[1.125rem];
 }
 
+.lh-input {
+  @apply lh-btn-h lh-input-no-h py-0;
+}
+
+.lh-input-no-h {
+  @apply lh-fg lh-round lh-btn-horz-p text-dark placeholder:text-medium lh-border py-4;
+}
+
 .lh-bold {
   @apply font-medium;
 }

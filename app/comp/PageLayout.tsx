@@ -103,10 +103,10 @@ export function PageLayout({
       {...props}
     >
       <Navbar />
-      <main className="flex h-full w-full flex-col items-center pb-32 gap-8">
+      <main className="flex h-full w-full flex-col items-center px-4 gap-8">
         {children}
+        <Footer />
       </main>
-      <Footer />
     </div>
   );
 }
@@ -115,7 +115,7 @@ function Footer() {
   return (
     <footer
       id="footer"
-      className="flex w-full flex-col  pb-12 px-4 items-center text-sm text-dark"
+      className="flex w-full flex-col  pb-12 items-center text-sm text-dark"
     >
       <div className="flex flex-col gap-12 w-full max-w-lg lh-card p-8">
         {/* <div className=" flex-grow space-y-4">
@@ -156,22 +156,6 @@ function Footer() {
   );
 }
 
-export function OldArticle({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`prose prose-sm prose-headings:font-semibold prose-strong:text-darkest prose-ol:text-dark prose-ul:text-dark prose-headings:text-darkest prose-blockquote:text-dark prose-p:text-dark !w-[576px] max-w-full flex-grow-0 self-center px-4 sm:px-0 lh-ml md:min-w-[576px] md:self-start ${className}`}
-    >
-      {children}
-    </div>
-  );
-}
-
 export function Article({
   children,
   className,
@@ -184,7 +168,7 @@ export function Article({
   return (
     <div className="flex w-full flex-row justify-center">
       <article
-        className={`${ebGaramond.className} lh-prose-editor text-dark max-w-full flex-grow-0 self-center px-4 sm:px-0 lh-ml md:min-w-[576px] md:self-start ${className}`}
+        className={`${ebGaramond.className} lh-prose-editor text-dark max-w-full flex-grow-0 self-center sm:px-0 lh-ml md:min-w-[576px] md:self-start ${className}`}
       >
         {children}
       </article>
@@ -204,7 +188,7 @@ export function CenteredArticle({
 }) {
   return (
     <div
-      className={`${ebGaramond.className} text-base sm:text-lg lh-prose-editor text-dark  w-full max-w-xl self-center px-4 ${className}`}
+      className={`${ebGaramond.className} text-base sm:text-lg lh-prose-editor text-dark  w-full max-w-lg self-center ${className}`}
     >
       {children}
     </div>
