@@ -3,8 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import React from "react";
 import { AuthorSection } from "@/app/comp/AuthorSection";
-import { Article, CenteredArticle } from "@/app/comp/PageLayout";
-import { ShareBtns } from "@/app/comp/SocialShare";
+import { CenteredArticle } from "@/app/comp/PageLayout";
 import { RandomGuides } from "@/app/guides/comp/RandomGuides";
 import { GuideType } from "@/app/utils/types";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -46,14 +45,7 @@ export default function Post({ params }: { params: { slug: string } }) {
   // const timeToRead = Math.max(Math.round(props.content.length / 5 / 250), 1);
   return (
     <>
-      <Article
-        className="mt-32"
-        right={
-          <div className="flex flex-col lh-card p-4 gap-4">
-            <ShareBtns />
-          </div>
-        }
-      >
+      <CenteredArticle className="mt-32">
         <h1 className="!mb-4">{props.frontMatter.title}</h1>
         <div className="flex flex-row flex-wrap items-start justify-start text-sm text-dark md:text-base">
           {props.frontMatter.tags.map((tag: string, index: number) => (
@@ -61,7 +53,7 @@ export default function Post({ params }: { params: { slug: string } }) {
           ))}
         </div>
         <MDXRemote {...{ source: props.content }} />
-      </Article>
+      </CenteredArticle>
       <EndCardArticle />
       <AuthorSection />
     </>

@@ -168,7 +168,7 @@ export function Article({
   return (
     <div className="flex w-full flex-row justify-center">
       <article
-        className={`${ebGaramond.className} lh-prose-editor text-dark max-w-full flex-grow-0 self-center sm:px-0 lh-ml md:min-w-[576px] md:self-start ${className}`}
+        className={`${ebGaramond.className} lh-prose-editor text-dark text-base sm:text-lg max-w-full flex-grow-0 self-center sm:px-0 lh-ml md:min-w-[576px] md:self-start ${className}`}
       >
         {children}
       </article>
