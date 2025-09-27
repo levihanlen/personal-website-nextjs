@@ -60,7 +60,7 @@ export default function ReviewClient({ nodes }: { nodes: NodeClusterType[] }) {
   const dueCards = useMemo(() => {
     const now = Date.now();
     return queue
-      .filter((c) => c.card.due.getTime() <= now)
+      .filter((c) => c.card.due.getTime() <= now + 1000 * 60 * 10) // 10 minutes buffer
       .sort((a, b) => a.card.due.getTime() - b.card.due.getTime());
   }, [queue]);
 
