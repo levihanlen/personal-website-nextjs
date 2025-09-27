@@ -65,7 +65,10 @@ export default function Home() {
               Anki
             </a>
           </li>
-          <li>I created my own custom alphabet that I write with</li>
+          <li>
+            I created my own <a href="/blog/shorthand">shorthand alphabet</a>{" "}
+            that I write with
+          </li>
           {/* <li>
             I&apos;m working on a programmatic simulation of societies (turns
             out it&apos;s pretty hard)
