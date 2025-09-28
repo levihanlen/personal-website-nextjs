@@ -39,63 +39,19 @@
 - writing shows the gaps in your knowledge (how?)
 
 
-
-- familiarity comes from encountering something a lot
-  - the more familiar you are with something, the more you trust and feel that you understand it. regardless of whether either is true
-
-
-
-
-
-
 - to create understanding of something, it requires effort. it wont just happen passively
-  - good learning requires struggle, 
+  - good learning requires struggle - why?
   - its fine for learning to take a long time because it is basically required to actually understand it
   - the more effort you put into recalling a fact (meaning the fact was difficult to recall), the more it is strengthened
   - good learning is often hard in the short term but easy in the long term
   - bad learning is often easy in the short term but hard in the long term (meaning it wasnt embedded in long-term memory well)
 
 
-
-# teaching
-
-
-- a teacher changing the topic in the middle of a lesson (and back later) can be good because it uses interleaving
-
-- when teaching multiple topics, you should interleave them, instead of fully explaining each
-  - the common way to teach is to fully master one topic before moving to the next. this can be bad, becasue it prevents interleaving
-  - the optimal way to teach is teach small section of A, then esction of B, then esction of C, then go back to A.
-    - this is optimal because when they get back to A, they've forgotten a bita nd then are forced to recall (which will be slightly difficult and thus encode it in their brain more)
-
-
-
-- instead of just presenting something to read, you should test the students. because this ensures understanding
-  - testing just means forcing the students to retrieve it
-
-- if teaching, you should almost never just present text for someone to read. it's bad for learning.
-
-
-
-
-
-- when teachers organize things into modules and categories categories, they make it harder to learn long etrm, because it lacks interleaving
-  
-
-
-
-- many teachers spent time trying to make learning easier, but that can actually make learning worse, because struggle is required for lasting learning
-  - the student doesnt have to struggle with the concepts, the concepts aren't embedded in their long-term memory, and the concepts don't have deep understanding (they didnt translate it into their own understandign)
-
-
-
-
-
 - trying to answer something you don't know will make it easier to learn when you do learn it. even if you fail
+  why
   - you must then look through your existing knowledeg, and try to guess an answer
   - before learning why the sky is blue, ask yourself why you think the sky is blue
   - before giving someone the answer, ask them what they think the answer is, this will give them better understanding
-
-
 
 
 - stress makes it harder to learn
@@ -103,30 +59,16 @@
 - exercise reduces stress
 
 
-
 - elaboration is the process of trying understand something on a deeper level/analyze it, and applying it to different scenarios and concepts
+  - when learning, ask how, why, and give examples
 
 
 - to build a web of knowledge, think about how one piece of knowledge relates to other pieces of knowledge
   - to connect ideas to ther ideas, you must first remove the idea from the context it was found in. basically find the fundamental truth that is not specific to just one context
 
 
-
-
-- writing concepts down frees mental resources to think about and improve that concept
-  - if yuo dont write it down, keeping the entier concept itself in short term memory would take mental resources
-  - when brainstorming,don't think through ideas just in your head. write them down and work them out on paper or fomputer
-
-
-
-
 - creative ideas come from connecting different ideas
   - often people who come up with creative dieas feel guilty because they feel like they didnt make it, they just connected ideas
-
-
-
-
-
 
 
 
@@ -140,3 +82,33 @@
 
 - brainstorming is best done alone
   - when there's more than 1 person in a brainstorming group, the ideas are generally worse
+
+
+
+# teaching
+
+
+
+- when teaching multiple topics, you should interleave them, instead of fully explaining each
+  - a teacher changing the topic in the middle of a lesson (and back later) can be good because it uses interleaving
+  - the common way to teach is to fully master one topic before moving to the next. this can be bad, because it prevents interleaving
+  - the optimal way to teach is teach small part of A, then part of B, then part of C, then back to A, etc.
+    - interleaving learning small parts of different topics is optimal becuase when you get back to a topic, you have forgotten a bit and must recall (which will be slightly difficult and thus encode it in their brain more)
+
+
+
+- instead of just presenting something to read, you should test the students. because this ensures understanding
+  - optimal testing must make the student retrieve the info
+    - recognizing something is far easier than recalling it
+      - multiple choice questions are bad for learning/testing because it tests if you can recognize the answer, not recall it.
+
+
+
+- when teachers organize things into modules and categories categories, they make it harder to learn long term, because it lacks interleaving
+  
+
+
+
+- many teachers spent time trying to make learning easier, but that can actually make learning worse, because struggle is required for lasting learning
+  - the student doesnt have to struggle with the concepts, the concepts aren't embedded in their long-term memory, and the concepts don't have deep understanding (they didnt translate it into their own understandign)
+
