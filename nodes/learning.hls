@@ -7,27 +7,33 @@
   - study: the most successful scientist's workflows dont just only do intense focus. instead they alternated between intense focus and exploring/playing with ideas (src: oshin vartanian)
 
 - summarizing things makes you understand them
-  - summarizing ensures understanding (to an extent) becuase you translate it into a way that you understand
+  - summarizing makes you understand because you translate it into a way that you understand
   - study: two groups taking notes on lecture, one via computer other via hand. by hand understood much better
     - students who take notes on a lecture {{slower}} understand {{better}}, because {{they had to summarize to keep up with the pace of the lecture}}
-  - instead of highlighting text from a book, summarize it in your own words
-    - highlight text is bad because when you return to it later the natural context is gone, and you lose some understanding
+  - instead of highlighting text from a book, {{summarize it in your own words}}
+    - highlighting text is bad because {{when you return to it later, you've lost context and some understanding}}
     - when you summarize text from a book, it should be <= 1 paragraph
-    - n: i used to just highlight everything, but never write notes. i've since changed my strategy
+    - n: i used to just highlight everything and never write notes. i've since changed my strategy
   - when you read without summarizing, it gives you a false sense of knowledge
     - seeing something again feels the same as recalling it again. this it makes it feel like you have strengthened the memory (via recall) but you have not 
 
 - if you can't teach it to a 5th grader (simple and understandable) you don't understand it
   - why do you need to be able to teach it in an understandable way to ensure your own understanding?
 
+heres a bit why:
+  you can't use jargon. you are forced to substitute jargon with actual definitions, which ensures you know them
+  a 5th grader will ask "why"
+
 - writing shows the gaps in your knowledge (how?)
+  when you are just thinking of something, your brain cant catch all the logical inconsistencies, but when you wrtie it down, you will catch them
+  it will make you realize that A does not actually lead to B, even though in your brain you just automatically assumed it was
+  when you write, it has to be linear. you have to traverse the entire tree of knowledge. in your brain it is not linear, you just skip around
 
 - to create understanding of something, it requires effort. it wont just happen passively
   - good learning requires struggle - why?
+    - good learning is often hard in the short term but easy in the long term
   - its fine for learning to take a long time because it is basically required to actually understand it
   - the more effort you put into recalling a fact (meaning the fact was difficult to recall), the more it is strengthened
-  - good learning is often hard in the short term but easy in the long term
-  - bad learning is often easy in the short term but hard in the long term (meaning it wasnt embedded in long-term memory well)
 
 - trying to answer something you don't know will make it easier to learn when you do learn it. even if you fail
   why
@@ -35,61 +41,37 @@
   - before learning why the sky is blue, ask yourself why you think the sky is blue
   - before giving someone the answer, ask them what they think the answer is, this will give them better understanding
 
-
-- stress makes it harder to learn
+- stress makes learning worse
+  - why?
   - exercise helps you memorize things, because it reduces stress, which makes learning harder
 - exercise reduces stress
 
-- elaboration is the process of trying understand something on a deeper level/analyze it, and applying it to different scenarios and concepts
+- elaboration is the process of trying understand something on a deeper level, and applying it to different scenarios and concepts
   - when learning, ask how, why, and give examples
-
-
-- to build a web of knowledge, think about how one piece of knowledge relates to other pieces of knowledge
-  - to connect ideas to ther ideas, you must first remove the idea from the context it was found in. basically find the fundamental truth that is not specific to just one context
-
-
-- creative ideas come from connecting different ideas
-  - often people who come up with creative dieas feel guilty because they feel like they didnt make it, they just connected ideas
-
-
-
-- just because you can more easily recall something does not mean it is more valuable
-  - your brain more easily recalls ideas that are recent, specific, emotionful, or rhyme
-- your brain is biased to value things more if they are more recent or easily recalled.
-
-
-- people usually like their first ideas best, regardless of how good it actually is
-
-
-- brainstorming is best done alone
-  - when there's more than 1 person in a brainstorming group, the ideas are generally worse
-
+  - to build a web of knowledge, think about how one piece of knowledge relates to other pieces of knowledge
+    - to connect ideas to ther ideas, you must first remove the idea from the context it was found in. basically find the fundamental truth that is not specific to just one context
 
 
 # teaching
-
-
 
 - when teaching multiple topics, you should interleave them, instead of fully explaining each
   - a teacher changing the topic in the middle of a lesson (and back later) can be good because it uses interleaving
   - the common way to teach is to fully master one topic before moving to the next. this can be bad, because it prevents interleaving
   - the optimal way to teach is teach small part of A, then part of B, then part of C, then back to A, etc.
     - interleaving learning small parts of different topics is optimal becuase when you get back to a topic, you have forgotten a bit and must recall (which will be slightly difficult and thus encode it in their brain more)
-
-
+  - when teachers organize things into modules and categories categories, they make it harder to learn long term, because it lacks interleaving
 
 - instead of just presenting something to read, you should test the students. because this ensures understanding
   - optimal testing must make the student retrieve the info
     - recognizing something is far easier than recalling it
       - multiple choice questions are bad for learning/testing because it tests if you can recognize the answer, not recall it.
 
-
-
-- when teachers organize things into modules and categories categories, they make it harder to learn long term, because it lacks interleaving
-  
-
-
-
 - many teachers spent time trying to make learning easier, but that can actually make learning worse, because struggle is required for lasting learning
   - the student doesnt have to struggle with the concepts, the concepts aren't embedded in their long-term memory, and the concepts don't have deep understanding (they didnt translate it into their own understandign)
 
+
+
+
+ideas from me
+
+to understand something, you must translate it into your own understanding, and must analyze the concept on a deeper level
