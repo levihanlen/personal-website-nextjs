@@ -1,18 +1,18 @@
 
 # reading
 
-- study: learning is more effective when you are naturally motivated to do it
-  - dont pre-plan what to learn, instead follow what you feel is most important to learn at the time
-    - strictly adhering to a plan for learning is bad because it will eventually get in the way of your natural motivation
-  - study: the most successful scientist's workflows dont just only do intense focus. instead they alternated between intense focus and exploring/playing with ideas (src: oshin vartanian)
+- study: learning is more effective when you're naturally motivated to do it
+  - dont {{pre-plan what to learn}}, instead {{follow what you feel is most important to learn at the time}}
+    - strictly adhering to a plan for learning is bad because {{it'll eventually get in the way of your natural motivation}}
+  - study: the most successful scientist's workflows dont just only do intense focus. they alternated between intense focus and exploring/playing with ideas (src: oshin vartanian)
 
-- summarizing things makes you understand them
-  - summarizing makes you understand because you translate it into a way that you understand
-  - study: two groups taking notes on lecture, one via computer other via hand. by hand understood much better
+- {{summarizing}} things {{makes you understand them}}
+  - summarizing makes you understand because {{you translate it into a way that you understand}}
+  - study: two groups taking notes on lecture, one via computer other via hand. {{by hand}} understood much better
     - students who take notes on a lecture {{slower}} understand {{better}}, because {{they had to summarize to keep up with the pace of the lecture}}
-  - instead of highlighting text from a book, {{summarize it in your own words}}
+  - instead of highlighting a book, {{summarize it in your own words}}
     - highlighting text is bad because {{when you return to it later, you've lost context and some understanding}}
-    - when you summarize text from a book, it should be <= 1 paragraph
+    - when you summarize text from a book, it should be {{<= 1 paragraph::size}}
     - n: i used to just highlight everything and never write notes. i've since changed my strategy
   - when you read without summarizing, it gives you a false sense of knowledge
     - seeing something again feels the same as recalling it again. this it makes it feel like you have strengthened the memory (via recall) but you have not 
@@ -24,22 +24,21 @@ heres a bit why:
   you can't use jargon. you are forced to substitute jargon with actual definitions, which ensures you know them
   a 5th grader will ask "why"
 
-- writing shows the gaps in your knowledge (how?)
+- writing shows the gaps in your knowledge
   when you are just thinking of something, your brain cant catch all the logical inconsistencies, but when you wrtie it down, you will catch them
   it will make you realize that A does not actually lead to B, even though in your brain you just automatically assumed it was
   when you write, it has to be linear. you have to traverse the entire tree of knowledge. in your brain it is not linear, you just skip around
 
-- to create understanding of something, it requires effort. it wont just happen passively
-  - good learning requires struggle - why?
-    - good learning is often hard in the short term but easy in the long term
-  - its fine for learning to take a long time because it is basically required to actually understand it
-  - the more effort you put into recalling a fact (meaning the fact was difficult to recall), the more it is strengthened
+- good learning requires {{struggle}}
+  - {{good}} learning is often {{hard in the short term}}
+  - {{bad}} learning is often {{easy in the short term, but hard in the long term}}
+  - its fine for learning to take a long time because {{it's basically required for understanding}}
+  - the more effort you put into recalling a difficult memory, {{the more it's strengthened}}
 
-- trying to answer something you don't know will make it easier to learn when you do learn it. even if you fail
-  why
+- trying to answer something you don't know {{makes it easier to learn when you learn it, even if you fail}}
   - you must then look through your existing knowledeg, and try to guess an answer
   - before learning why the sky is blue, ask yourself why you think the sky is blue
-  - before giving someone the answer, ask them what they think the answer is, this will give them better understanding
+  - (teaching) before giving someone the answer, ask them what they think the answer is, this will give them better understanding
 
 my thoughts on why
   you are forced to think about it. which will lead you to which conclusios are incorrect
@@ -48,17 +47,16 @@ my thoughts on why
   creates curiosity, which makes you more receptivet o the answer
 
 
-- stress makes learning worse
+- stress makes learning {{worse}}
   - stress releases cortisol in the brain
-    - cortisol inhibits the ability to create long-term memories
-  - stress also consumes mental resources  
-  - exercise helps you memorize things, because it reduces stress, which makes learning harder
-- exercise reduces stress
+    - {{cortisol}} inhibits {{the ability to create long-term memories::learning}}
+  - stress harms learning because it {{consumes mental resources}} and {{releases cortisol}}
+  - exercise helps you memorize things, because {{it reduces stress}}
 
-- elaboration is the process of trying understand something on a deeper level, and applying it to different scenarios and concepts
+- {{to understand}}, {{translate it into your own understanding}}, {{analyze it on a deeper level}}, and {{connect it to examples and other concepts}}
   - when learning, ask how, why, and give examples
   - to build a web of knowledge, think about how one piece of knowledge relates to other pieces of knowledge
-    - to connect ideas to ther ideas, you must first remove the idea from the context it was found in. basically find the fundamental truth that is not specific to just one context
+    - to connect ideas to ther ideas, you must first remove the idea from the context it was found in. (find the fundamental truth not specific to just one context)
 
 
 # teaching
@@ -77,10 +75,3 @@ my thoughts on why
 
 - many teachers spent time trying to make learning easier, but that can actually make learning worse, because struggle is required for lasting learning
   - the student doesnt have to struggle with the concepts, the concepts aren't embedded in their long-term memory, and the concepts don't have deep understanding (they didnt translate it into their own understandign)
-
-
-
-
-ideas from me
-
-to understand something, you must translate it into your own understanding, and must analyze the concept on a deeper level
