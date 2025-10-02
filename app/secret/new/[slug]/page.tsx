@@ -1,6 +1,9 @@
 import { CenteredArticle } from "@/app/comp/PageLayout";
 import { GUIDES } from "../render";
 import { notFound } from "next/navigation";
+import React from "react";
+import { gradient } from "@/app/utils/utils";
+import { ebGaramond } from "@/app/utils/fonts";
 
 function Page({ params }: { params: { slug: string } }) {
   const guide = GUIDES.find((g) => g.slug === params.slug);
@@ -9,14 +12,28 @@ function Page({ params }: { params: { slug: string } }) {
     notFound();
   }
 
+  const background = gradient(guide.imgSrc);
+
   return (
-    <CenteredArticle className="mt-32">
-      <h1>{guide.title}</h1>
-      <p>{guide.desc}</p>
-      {guide.sections.map((section, idx) => (
-        <div key={idx}>{section}</div>
-      ))}
-    </CenteredArticle>
+    <>
+      <div className="lh-border lh-round overflow-hidden mt-32 w-full max-w-lg">
+        <div
+          style={{ backgroundImage: background }}
+          className={`text-center grayscale text-dark flex flex-col gap-4 w-full items-center justify-center p-8 bg-no-repeat bg-cover bg-center ${ebGaramond.className}`}
+        >
+          <h1 className="text-3xl md:text-4xl lh-bold tracking-tight text-darkest">
+            {guide.title}
+          </h1>
+          {/* <p>{guide.desc}</p> */}
+          <div>{guide.readingTime} minute read</div>
+        </div>
+      </div>
+      <CenteredArticle className="">
+        {guide.sections.map((section, idx) => (
+          <React.Fragment key={idx}>{section}</React.Fragment>
+        ))}
+      </CenteredArticle>
+    </>
   );
 }
 
