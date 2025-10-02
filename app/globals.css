@@ -91,7 +91,7 @@ h6 {
 }
 
 .lh-input-no-h {
-  @apply lh-fg lh-round lh-btn-horz-p text-dark placeholder:text-medium lh-border py-4;
+  @apply bg-transparent lh-round  lh-btn-horz-p text-dark placeholder:text-medium lh-border py-4;
 }
 
 .lh-bold {
@@ -139,6 +139,10 @@ h6 {
 .lh-interactive {
   /* @apply transition-transform hover:scale-105; */
   @apply cursor-pointer transition-all hover:opacity-50;
+}
+
+.lh-link {
+  @apply underline lh-interactive text-darkest;
 }
 
 .lh-t-shadow {
@@ -273,7 +277,7 @@ h6 {
   }
 
   a {
-    @apply underline lh-interactive text-darkest;
+    @apply lh-link;
   }
 
   blockquote {

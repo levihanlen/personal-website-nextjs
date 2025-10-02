@@ -62,18 +62,39 @@ function BulletList({
 }
 
 function ParsedNodeCluster({ cluster }: { cluster: UiNodeCluster }) {
-  // const [isSummaryFocused, setIsSummaryFocused] = useState(false);
+  const [isSummaryFocused, setIsSummaryFocused] = useState(false);
+  const [showWhyImportant, setShowWhyImportant] = useState(false);
 
   return (
     <>
       <h2>{cluster.title ? capitalize(cluster.title) : ""}</h2>
-      <BulletList items={cluster.nodes} />
-      {/* <textarea
-        className="w-full lh-input-no-h min-h-[100px]"
-        placeholder="Write your summary here..."
-        onFocus={() => setIsSummaryFocused(true)}
-        onBlur={() => setIsSummaryFocused(false)}
-      /> */}
+
+      <div className={isSummaryFocused ? "blur-sm opacity-50" : ""}>
+        <BulletList items={cluster.nodes} />
+      </div>
+      <div className="flex flex-col  gap-2">
+        <textarea
+          className="flex-1 lh-input-no-h min-h-[100px]"
+          placeholder="Summarize the entire idea group here in one paragraph or less..."
+          onFocus={() => setIsSummaryFocused(true)}
+          onBlur={() => setIsSummaryFocused(false)}
+        />
+        <button
+          onClick={() => setShowWhyImportant(!showWhyImportant)}
+          className="lh-link font-sans"
+        >
+          Why is summarizing important?
+        </button>
+
+        {showWhyImportant && (
+          <div className="p-4 lh-card">
+            Summarizing forces you to process and understand the information. By
+            distilling the key ideas into your own words, you create stronger
+            mental connections and improve long-term retention. It is one of the
+            most effective learning techniques.
+          </div>
+        )}
+      </div>
     </>
   );
 }
