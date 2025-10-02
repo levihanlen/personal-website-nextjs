@@ -44,7 +44,7 @@ export function GuideCard({
           {article.meta.title}
         </div>
         <div className="flex flex-row gap-2 items-center">
-          {read && <RadioCircle checked={read} />}
+          <RadioCircle checked={read} />
           12 min
         </div>
       </div>
