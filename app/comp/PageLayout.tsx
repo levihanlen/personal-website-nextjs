@@ -84,7 +84,7 @@ export function ALink({
   href: string;
 }) {
   return (
-    <Link href={href} className="lh-interactive underline">
+    <Link href={href} className="lh-link">
       {children}
     </Link>
   );
@@ -120,23 +120,6 @@ function Footer() {
       className="flex w-full flex-col  pb-12 items-center text-sm text-dark"
     >
       <div className="flex flex-col gap-12 w-full max-w-lg lh-card p-8">
-        {/* <div className=" flex-grow space-y-4">
-          <div className="font-bold text-center text-darkest">Our Mission</div>
-          <p>
-            Note that I said <i>our</i> mission. We, you and I, have an
-            obligation to improve the world.
-          </p>
-          <p>
-            It may sound ambitious, even impossible. But with enough people and
-            enough effort, it&apos;s achievable. And we <i>will</i> make it
-            happen in our lifetime.
-          </p>
-          <p>
-            As always, thanks for supporting me. I hope my projects have
-            improved your life; I spend way too much time on them.
-          </p>
-          <p>- Levi</p>
-        </div> */}
         <div className="flex w-full justify-between ">
           <div className="w-auto flex flex-col space-y-1">
             <div className="font-bold text-darkest">My social links</div>
