@@ -54,7 +54,7 @@ const LEARNING_GUIDE_SECTIONS: GuideSectionType[] = renderGuideSections(
     renderText(`
 This text
     `),
-    "productivity",
+    // "learning",
     renderImg("/images/learning/learning-guide.png"),
   ]
 );
@@ -70,3 +70,4 @@ const LEARNING_GUIDE: GuideType = {
 const GUIDES: GuideType[] = [LEARNING_GUIDE];
 
 export { GUIDES };
+export type { GuideType };
