@@ -14,7 +14,10 @@ interface GuideType {
 }
 
 function renderText(text: string): GuideSectionType {
-  return text.split("\n").map((line) => <p key={line}>{line}</p>);
+  return text
+    .trim()
+    .split("\n")
+    .map((line) => <p key={line}>{line.trim()}</p>);
 }
 
 function renderImg(src: string): GuideSectionType {
@@ -81,10 +84,12 @@ function renderGuideSections(
 const LEARNING_GUIDE_SECTIONS: GuideSectionType[] = renderGuideSections(
   "learning",
   [
-    "reading",
     renderText(`
-This text
+We spend over a decade in school being told what to learn, but almost no one ever teaches us how to learn. Most of us rely on instinct and ineffective habits like rereading and highlighting (methods that feel productive but create an illusion of knowledge).
+
+This guide is a new operating system for your brain. It's a framework built on cognitive science for learning anything faster, deeper, and for longer.
     `),
+    "reading",
     // "learning",
     renderImg("/header-images/neuron.jpg"),
   ]
@@ -92,7 +97,7 @@ This text
 
 const LEARNING_GUIDE: GuideType = {
   slug: "learning",
-  title: "Learning Guide",
+  title: "How to Learn",
   desc: "Learn how to learn. this is a very logn description lets see how it will fare when it's long",
   imgSrc: "/header-images/neuron.jpg",
   sections: LEARNING_GUIDE_SECTIONS,

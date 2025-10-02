@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import React from "react";
 import { gradient } from "@/app/utils/utils";
 import { ebGaramond } from "@/app/utils/fonts";
+import { AuthorSection } from "@/app/comp/AuthorSection";
 
 function Page({ params }: { params: { slug: string } }) {
   const guide = GUIDES.find((g) => g.slug === params.slug);
@@ -33,6 +34,7 @@ function Page({ params }: { params: { slug: string } }) {
           <React.Fragment key={idx}>{section}</React.Fragment>
         ))}
       </CenteredArticle>
+      <AuthorSection />
     </>
   );
 }
