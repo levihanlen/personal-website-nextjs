@@ -45,7 +45,7 @@ export function GuideCard({
         </div>
         <div className="flex flex-row gap-2 items-center">
           {read && <RadioCircle checked={read} />}
-          25 min
+          12 min
         </div>
       </div>
       <ul className="text-sm text-dark flex flex-col gap-1 list-disc pl-4">
