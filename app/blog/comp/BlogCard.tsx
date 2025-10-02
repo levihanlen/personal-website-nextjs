@@ -1,8 +1,8 @@
 "use client";
 
+import { RadioCircle } from "@/app/comp/Primitives";
 import { BlogType } from "@/app/utils/types";
 import { useState, useEffect } from "react";
-import { HiMiniCheckCircle } from "react-icons/hi2";
 
 export function BlogCard({
   article,
@@ -37,9 +37,9 @@ export function BlogCard({
         <div className="text-base font-semibold leading-tight  ">
           {article.meta.title}
         </div>{" "}
-        {read && <HiMiniCheckCircle className="lh-icon-size text-dark" />}
       </div>
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-row gap-2 items-center">
+        <RadioCircle checked={read} />
         <div className="text-xs text-dark">{article.meta.date}</div>
         <div className="flex flex-row flex-wrap text-xs text-dark ">
           {article.meta.tags.map((tag, index) => (

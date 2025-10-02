@@ -54,7 +54,7 @@ export function RadioCircle({ checked }: { checked: boolean }) {
         checked
           ? "border-0 bg-gradient-to-b from-darkest to-darkest"
           : "transparent lh-border"
-      } flex h-4 w-4 items-center justify-center rounded-full border-pt `}
+      } flex shrink-0 h-4 w-4 items-center justify-center rounded-full border-pt `}
     >
       {checked && <HiMiniCheck className="text-lightest lh-icon-size" />}
     </div>

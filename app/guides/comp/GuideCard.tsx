@@ -1,10 +1,10 @@
 "use client";
 
+import { RadioCircle } from "@/app/comp/Primitives";
 import { GuideType } from "@/app/utils/types";
 import { gradient } from "@/app/utils/utils";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { HiMiniCheckCircle } from "react-icons/hi2";
 
 export function GuideCard({
   article,
@@ -35,25 +35,28 @@ export function GuideCard({
   return (
     <Link
       style={{ backgroundImage: background }}
-      className={`lh-card  lh-interactive border border-dark no-underline flex w-full bg-no-repeat bg-cover bg-center grayscale  flex-grow flex-col space-y-2 p-4 md:p-6 ${className}`}
+      className={`lh-card  lh-interactive border border-medium no-underline flex w-full bg-no-repeat bg-cover bg-center grayscale  flex-grow flex-col space-y-2 p-4 md:p-6 ${className}`}
       onClick={() => handleArticleClick(article.slug)}
       href={"/guides/" + article.slug}
     >
-      <div className="flex flex-row gap-1 items-center">
+      <div className="flex flex-row gap-2 items-center justify-between">
         <div className="text-lg font-semibold leading-tight md:text-xl ">
           {article.meta.title}
-        </div>{" "}
-        {read && <HiMiniCheckCircle className="lh-icon-size text-dark" />}
+        </div>
+        <div className="flex flex-row gap-2 items-center">
+          {read && <RadioCircle checked={read} />}
+          25 min
+        </div>
       </div>
-      <div className="text-sm text-dark flex flex-col gap-1">
+      <ul className="text-sm text-dark flex flex-col gap-1 list-disc pl-4">
         {article.meta.desc.map((val) => {
           return (
-            <div className="list-disc" key={val}>
+            <li className="" key={val}>
               {val}
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </Link>
   );
 }

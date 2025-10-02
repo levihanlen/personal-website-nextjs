@@ -11,7 +11,7 @@ export function shuffleArray<T>(array: T[]) {
 }
 
 export function gradient(url: string) {
-  return `linear-gradient(hsla(120, 0%, 0%, 0.7), hsla(120, 0%, 0%, 0.7)), url(${url})`;
+  return `linear-gradient(to right,hsla(120, 0%, 0%, 0.9), hsla(120, 0%, 0%, 0.7)), url(${url})`;
 }
 
 export function capitalize(str: string) {

@@ -5,7 +5,6 @@ import { capitalize } from "@/app/utils/utils";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useMemo, useState } from "react";
-import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 import { BlogCard } from "./BlogCard";
 import { RadioCircle } from "@/app/comp/Primitives";
 
@@ -120,21 +119,14 @@ export function TagSelectorContent({ articles }: { articles: BlogType[] }) {
           Read {articles.length} blogs
         </div>
         <div className="relative flex w-full flex-col border-light md:flex-row md:items-start  md:border-y-pt">
-          <div className="left-0 top-0 flex flex-col md:sticky md:flex md:w-1/3  md:border-light md:pt-16">
-            <div className="relative mb-8 flex lh-card lh-interactive flex-row items-center overflow-hidden text-dark ">
-              <span className="mr-2 pl-4 absolute lh-icon-size">
-                <HiMiniMagnifyingGlass />
-              </span>
-              <input
-                id="searchInput"
-                placeholder="Search"
-                className="w-full bg-transparent p-2 pl-10 lh-round placeholder:text-dark"
-                onChange={handleSearchChange}
-              ></input>
-            </div>
-            <div className="pb-4 text-xs tracking-widest text-dark">
-              FILTERS
-            </div>
+          <div className="left-0 top-0 flex flex-col gap-4 md:sticky md:flex md:w-1/3  md:border-light md:pt-16">
+            <input
+              id="searchInput"
+              placeholder="Search"
+              className="w-full lh-input"
+              onChange={handleSearchChange}
+            ></input>
+            <div className=" text-xs tracking-widest text-dark">FILTERS</div>
             <div className="flex flex-col md:w-full">
               {tags.map((tag) => (
                 <button

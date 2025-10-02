@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <>
       <h1 className="text-4xl text-darkest font-semibold mt-32">Guides</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-32 w-full lh-pl lh-pr">
+      <div className="max-w-lg w-full flex flex-col gap-4">
         {articles.map((val) => {
           return <GuideCard article={val} key={val.slug} />;
         })}
