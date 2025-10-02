@@ -2,7 +2,7 @@
 
 import { RadioCircle } from "@/app/comp/Primitives";
 import { GuideType } from "@/app/utils/types";
-import { gradient } from "@/app/utils/utils";
+import { capitalize, gradient } from "@/app/utils/utils";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -52,7 +52,7 @@ export function GuideCard({
         {article.meta.desc.map((val) => {
           return (
             <li className="" key={val}>
-              {val}
+              {capitalize(val)}
             </li>
           );
         })}
