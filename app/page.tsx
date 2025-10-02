@@ -64,6 +64,7 @@ export default function Home() {
             <a href="https://apps.ankiweb.net/" target="_blank">
               Anki
             </a>
+            . I even made my own version
           </li>
           <li>
             I created my own <a href="/blog/shorthand">shorthand alphabet</a>{" "}
