@@ -5,6 +5,26 @@ import React from "react";
 import { gradient } from "@/app/utils/utils";
 import { ebGaramond } from "@/app/utils/fonts";
 import { AuthorSection } from "@/app/comp/AuthorSection";
+import { Metadata } from "next";
+
+export function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Metadata {
+  const guide = GUIDES.find((g) => g.slug === params.slug);
+
+  if (!guide) {
+    return {
+      title: "Guide Not Found - Levi Hanlen",
+    };
+  }
+
+  return {
+    title: `${guide.title} - Levi Hanlen`,
+    description: guide.desc,
+  };
+}
 
 function Page({ params }: { params: { slug: string } }) {
   const guide = GUIDES.find((g) => g.slug === params.slug);
