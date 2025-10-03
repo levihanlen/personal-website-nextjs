@@ -49,7 +49,7 @@ export default function Home() {
           <li>
             I love reading so much that I used to do it for eight hours daily
           </li>
-          <li>I drink only water and eat only healthy food</li>
+          <li>I only drink water</li>
           {/* <li>I&apos;m celibate by choice</li> */}
           <li>I&apos;m writing down every memory I&apos;ve ever had</li>
           <li>Almost everything I own is black, white, or gray</li>
@@ -64,11 +64,11 @@ export default function Home() {
             <a href="https://apps.ankiweb.net/" target="_blank">
               Anki
             </a>
-            . I even made my own version
+            . I even made my own version.
           </li>
           <li>
             I created my own <a href="/blog/shorthand">shorthand alphabet</a>{" "}
-            that I write with
+            with which I write
           </li>
           {/* <li>
             I&apos;m working on a programmatic simulation of societies (turns
@@ -169,8 +169,8 @@ export default function Home() {
         </ul> */}
         <h1>My work</h1>
         <p>
-          The main project I&apos;m working on is WriteRush. Check it out by
-          clicking the button below!
+          My main project these days is WriteRush. Check it out by clicking the
+          button below!
         </p>
       </CenteredArticle>
       <div className=" max-w-sm">
@@ -280,15 +280,8 @@ function ProjectDiv({
             className="w-full h-full object-cover group-hover:scale-105 transition-transform"
           />
         </div>
-        {/* <div
-          style={{
-            backgroundImage: img,
-            aspectRatio: "1 / 1",
-          }}
-          className="lh-border w-full bg-cover bg-no-repeat bg-center rounded-xl group-hover:scale-105 transition-transform"
-        /> */}
         <div className="mt-4 space-y-4 text-center px-4 text-pretty">
-          <h2 className="text-darkest text-2xl font-semibold">{heading}</h2>
+          <h2 className="text-darkest text-2xl lh-bold">{heading}</h2>
           <p className="text-dark">{desc}</p>
         </div>
       </Link>
@@ -305,7 +298,7 @@ function SquareImg({ src }: { src: string }) {
         height={0}
         sizes="100vw"
         alt="Image"
-        className="absolute w-full h-full grayscale object-cover rounded-xl"
+        className="absolute w-full h-full grayscale object-cover"
       />
     </div>
   );
