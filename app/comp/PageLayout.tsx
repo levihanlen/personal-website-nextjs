@@ -122,7 +122,7 @@ function Footer() {
       <div className="flex flex-col gap-12 w-full max-w-lg lh-card p-8">
         <div className="flex w-full justify-between ">
           <div className="w-auto flex flex-col space-y-1">
-            <div className="font-bold text-darkest">My social links</div>
+            {/* <div className="lh-bold text-darkest">My social links</div> */}
             <ALink href="https://www.instagram.com/levihanlen/">
               Instagram
             </ALink>
@@ -130,7 +130,7 @@ function Footer() {
             <ALink href="https://github.com/levihanlen">Github</ALink>
           </div>
           <div className=" flex flex-col space-y-1 text-right">
-            <div className="font-bold text-darkest ">Levi Hanlen</div>
+            {/* <div className="lh-bold text-darkest ">Levi Hanlen</div> */}
             <ALink href="/">Home</ALink>
             <ALink href="/guides">Guides</ALink>
             <ALink href="/blog">Essays</ALink>
