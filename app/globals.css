@@ -173,7 +173,7 @@ h6 {
   a,
   img,
   hr {
-    @apply mb-[1em];
+    @apply my-[1em];
   }
 
   h1,

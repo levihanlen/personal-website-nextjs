@@ -31,7 +31,7 @@ function InnerBulletList({
         {item.c && <BulletList items={item.c} level={level + 1} />}
       </li>
 
-      {level === 0 && (
+      {level === 0 && item.c && (
         <textarea
           className="w-full lh-input-no-h min-h-[100px]"
           placeholder="Write your summary here..."
