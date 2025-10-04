@@ -3,7 +3,18 @@
 import { formatKnowledgeText } from "@/app/utils/knowledge/format";
 import { NodeClusterType, UiNodeCluster } from "@/app/utils/knowledge/NEW";
 import { capitalize } from "@/app/utils/utils";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
+
+type GuideSidebarData = {
+  slug: string;
+  title: string;
+  chapters: {
+    slug: string;
+    title: string;
+  }[];
+};
 
 function InnerBulletList({
   item,
@@ -99,4 +110,51 @@ function ParsedNodeCluster({ cluster }: { cluster: UiNodeCluster }) {
   );
 }
 
-export { ParsedNodeCluster, BulletList };
+function GuideSidebar({ guides }: { guides: GuideSidebarData[] }) {
+  const pathname = usePathname();
+
+  const getCurrentSlug = () => {
+    if (!pathname) return "";
+    const match = pathname.match(/\/secret\/new\/([^/]+)/);
+    return match ? match[1] : "";
+  };
+
+  const currentSlug = getCurrentSlug();
+
+  return (
+    <div className="flex flex-col gap-6">
+      <h3 className="text-lg lh-bold text-darkest">Guides</h3>
+      <div className="flex flex-col gap-4">
+        {guides.map((guide) => (
+          <div key={guide.slug} className="flex flex-col gap-2">
+            <Link
+              href={`/secret/new/${guide.slug}`}
+              className={`lh-bold ${
+                guide.slug === currentSlug
+                  ? "text-darkest"
+                  : "text-dark lh-interactive"
+              }`}
+            >
+              {guide.title}
+            </Link>
+            <div className="flex flex-col gap-1 pl-4 border-l-2 border-light">
+              {guide.chapters.map(
+                (chapter: { slug: string; title: string }) => (
+                  <Link
+                    key={chapter.slug}
+                    href={`/secret/new/${guide.slug}/${chapter.slug}`}
+                    className="text-dark lh-interactive"
+                  >
+                    {chapter.title}
+                  </Link>
+                )
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export { ParsedNodeCluster, BulletList, GuideSidebar };

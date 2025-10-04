@@ -1,4 +1,4 @@
-import { Article, PageLayout } from "@/app/comp/PageLayout";
+import { Article } from "@/app/comp/PageLayout";
 import { GUIDES } from "../../guides";
 import { notFound } from "next/navigation";
 import React from "react";
@@ -60,7 +60,7 @@ function Page({ params }: { params: { slug: string; chapter: string } }) {
   const background = gradient(guide.imgSrc);
 
   return (
-    <PageLayout>
+    <>
       <div className="w-full max-w-lg mb-4">
         <Link href={`/secret/new/${guide.slug}`} className="lh-link text-sm">
           ← Back to {guide.title}
@@ -121,7 +121,7 @@ function Page({ params }: { params: { slug: string; chapter: string } }) {
       </Article>
 
       <AuthorSection />
-    </PageLayout>
+    </>
   );
 }
 

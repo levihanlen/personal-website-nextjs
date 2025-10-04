@@ -1,4 +1,3 @@
-import { PageLayout } from "@/app/comp/PageLayout";
 import { GUIDES } from "../guides";
 import { notFound } from "next/navigation";
 import { gradient } from "@/app/utils/utils";
@@ -35,7 +34,7 @@ function Page({ params }: { params: { slug: string } }) {
   const background = gradient(guide.imgSrc);
 
   return (
-    <PageLayout>
+    <>
       <div className="lh-border lh-round overflow-hidden w-full max-w-lg">
         <div
           style={{ backgroundImage: background }}
@@ -72,7 +71,7 @@ function Page({ params }: { params: { slug: string } }) {
           </Link>
         ))}
       </div>
-    </PageLayout>
+    </>
   );
 }
 
