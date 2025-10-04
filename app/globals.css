@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scrollbar-color: #ffffff36 transparent;
+}
+
 p img {
   @apply rounded-lg;
 }
