@@ -121,6 +121,15 @@ function GuideSidebar({ guides }: { guides: GuideSidebarData[] }) {
     ? pathname.match(/\/secret\/new\/([^/]+)/)?.[1]
     : "";
 
+  const [readChapters, setReadChapters] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    const stored = localStorage.getItem("readChapters");
+    if (stored) {
+      setReadChapters(new Set(JSON.parse(stored) as string[]));
+    }
+  }, []);
+
   function slugToTitle(slug: string) {
     return slug
       .replace(/-/g, " ")
@@ -129,13 +138,12 @@ function GuideSidebar({ guides }: { guides: GuideSidebarData[] }) {
 
   return (
     <div className="flex flex-col gap-6 w-full">
-      {/* <h3 className="text-lg lh-bold text-darkest">Guides</h3> */}
       <div className="flex flex-col text-dark">
         {guides.map((guide) => {
           const isCurrentGuide = guide.slug === guidePathname;
 
           const isGuideRead = guide.chapters.every((chapter) =>
-            hasChapterBeenRead(guide.slug, chapter.slug)
+            readChapters.has(`${guide.slug}/${chapter.slug}`)
           );
 
           return (
@@ -172,7 +180,9 @@ function GuideSidebar({ guides }: { guides: GuideSidebarData[] }) {
                   >
                     <div className="flex flex-row gap-2 items-center">
                       <RadioCircle
-                        checked={hasChapterBeenRead(guide.slug, chapter.slug)}
+                        checked={readChapters.has(
+                          `${guide.slug}/${chapter.slug}`
+                        )}
                       />
                       <span
                         className={
