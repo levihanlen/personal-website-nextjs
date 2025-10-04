@@ -6,7 +6,7 @@ import { NodeClusterType, UiNodeCluster } from "@/app/utils/knowledge/NEW";
 import { capitalize } from "@/app/utils/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { HiMiniChevronRight } from "react-icons/hi2";
 
 type GuideSidebarData = {
@@ -134,6 +134,10 @@ function GuideSidebar({ guides }: { guides: GuideSidebarData[] }) {
         {guides.map((guide) => {
           const isCurrentGuide = guide.slug === guidePathname;
 
+          const isGuideRead = guide.chapters.every((chapter) =>
+            hasChapterBeenRead(guide.slug, chapter.slug)
+          );
+
           return (
             <div key={guide.slug}>
               <Link
@@ -141,7 +145,7 @@ function GuideSidebar({ guides }: { guides: GuideSidebarData[] }) {
                 className="lh-interactive py-1 flex flex-row gap-2 items-center justify-between"
               >
                 <div className="flex flex-row gap-2 items-center">
-                  <RadioCircle checked={false} />
+                  <RadioCircle checked={isGuideRead} />
                   <span
                     className={` ${
                       guide.slug === lastPathname ? "text-darkest lh-bold" : ""
@@ -167,7 +171,9 @@ function GuideSidebar({ guides }: { guides: GuideSidebarData[] }) {
                     className="lh-interactive pl-4 py-1 flex flex-row gap-2 items-center justify-between"
                   >
                     <div className="flex flex-row gap-2 items-center">
-                      <RadioCircle checked={false} />
+                      <RadioCircle
+                        checked={hasChapterBeenRead(guide.slug, chapter.slug)}
+                      />
                       <span
                         className={
                           chapter.slug === lastPathname
@@ -189,4 +195,62 @@ function GuideSidebar({ guides }: { guides: GuideSidebarData[] }) {
   );
 }
 
-export { ParsedNodeCluster, BulletList, GuideSidebar };
+function hasChapterBeenRead(guideSlug: string, chapterSlug: string): boolean {
+  if (typeof window === "undefined") return false;
+  const readChapters = localStorage.getItem("readChapters");
+  if (!readChapters) return false;
+  const chapters = JSON.parse(readChapters) as string[];
+  return chapters.includes(`${guideSlug}/${chapterSlug}`);
+}
+
+function toggleChapterRead(guideSlug: string, chapterSlug: string): boolean {
+  if (typeof window === "undefined") return false;
+  const chapterPath = `${guideSlug}/${chapterSlug}`;
+  const readChapters = localStorage.getItem("readChapters");
+  let chapters: string[] = readChapters ? JSON.parse(readChapters) : [];
+
+  if (chapters.includes(chapterPath)) {
+    chapters = chapters.filter((c) => c !== chapterPath);
+  } else {
+    chapters.push(chapterPath);
+  }
+
+  localStorage.setItem("readChapters", JSON.stringify(chapters));
+  return chapters.includes(chapterPath);
+}
+
+function MarkAsReadButton({
+  guideSlug,
+  chapterSlug,
+}: {
+  guideSlug: string;
+  chapterSlug: string;
+}) {
+  const [isRead, setIsRead] = useState(false);
+
+  useEffect(() => {
+    setIsRead(hasChapterBeenRead(guideSlug, chapterSlug));
+  }, [guideSlug, chapterSlug]);
+
+  function handleToggleRead() {
+    const newReadState = toggleChapterRead(guideSlug, chapterSlug);
+    setIsRead(newReadState);
+  }
+
+  return (
+    <button
+      onClick={handleToggleRead}
+      className="lh-btn-secondary backdrop-blur-sm font-sans"
+    >
+      {isRead ? "Mark as unread" : "Mark as read"}
+    </button>
+  );
+}
+
+export {
+  ParsedNodeCluster,
+  BulletList,
+  GuideSidebar,
+  hasChapterBeenRead,
+  MarkAsReadButton,
+};

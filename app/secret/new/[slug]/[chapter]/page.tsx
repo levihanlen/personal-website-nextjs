@@ -7,6 +7,7 @@ import { ebGaramond } from "@/app/utils/fonts";
 import { AuthorSection } from "@/app/comp/AuthorSection";
 import { Metadata } from "next";
 import Link from "next/link";
+import { MarkAsReadButton } from "../../comp";
 import { InnerIconBtn } from "@/app/comp/Primitives";
 import { HiMiniChevronLeft, HiMiniChevronRight } from "react-icons/hi2";
 
@@ -115,6 +116,10 @@ function Page({ params }: { params: { slug: string; chapter: string } }) {
               <span>{chapter.readingTime} minute read</span>
             </div>
           )}
+          <MarkAsReadButton
+            guideSlug={params.slug}
+            chapterSlug={params.chapter}
+          />
         </div>
       </div>
 
