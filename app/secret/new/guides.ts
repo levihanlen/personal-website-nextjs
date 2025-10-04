@@ -110,6 +110,85 @@ const LEARNING_GUIDE: GuideType = {
   ],
 };
 
-const GUIDES: GuideType[] = [LEARNING_GUIDE];
+const TEST_GUIDE: GuideType = {
+  slug: "test2",
+  title: "How to Learn",
+  desc: "Learn how to learn. this is a very logn description lets see how it will fare when it's long",
+  imgSrc: "/header-images/neuron.jpg",
+  chapters: [READING_CHAPTER, TEACHING_CHAPTER],
+  // readingTime: getReadingTimeForHls("learning"),
+  citations: [
+    {
+      title: "How to Take Smart Notes",
+      first: "Sönke",
+      last: "Ahrens",
+      date: "2017",
+      url: "https://www.goodreads.com/book/show/34507927-how-to-take-smart-notes",
+    },
+    {
+      title: "How to Read a Book",
+      first: "Mortimer",
+      last: "J. Adler",
+      date: "1972",
+      url: "https://www.goodreads.com/book/show/567610.How_to_Read_a_Book",
+    },
+    {
+      url: "https://www.goodreads.com/book/show/36647421-learning-how-to-learn",
+      title: "Learning How to Learn",
+      first: "Barbara",
+      last: "Oakley",
+      date: "2018",
+    },
+    {
+      url: "https://www.goodreads.com/book/show/59616977-building-a-second-brain",
+      title: "Building a Second Brain",
+      first: "Tiago",
+      last: "Forte",
+      date: "2020",
+    },
+    {
+      url: "https://gwern.net/spaced-repetition",
+      title: "Spaced Repetition",
+      date: "2021",
+    },
+    {
+      url: "https://augmentingcognition.com/ltm.html",
+      title: "Augmenting Long Term Memory",
+      date: "2021",
+      first: "Michael",
+      last: "Nielsen",
+    },
+    {
+      first: "Piotr",
+      last: "Wozniak",
+      url: "https://www.supermemo.com/en/blog/twenty-rules-of-formulating-knowledge",
+      title: "Twenty Rules of Formulating Knowledge",
+      date: "1999",
+    },
+    {
+      url: "https://andymatuschak.org/books/",
+      title: "Why Books Don't Work",
+      first: "Andy",
+      last: "Matuschak",
+      date: "2019",
+    },
+    {
+      url: "https://www.goodreads.com/book/show/35167685-surely-you-re-joking-mr-feynman",
+      title: "Surely You're Joking, Mr. Feynman!",
+      first: "Richard",
+      last: "Feynman",
+      date: "1985",
+    },
+    {
+      url: "https://www.goodreads.com/book/show/44770129-ultralearning",
+      title: "Ultralearning",
+      first: "Scott",
+      last: "Young",
+      date: "2019",
+    },
+  ],
+};
+
+const GUIDES: GuideType[] = [LEARNING_GUIDE, TEST_GUIDE];
 
 export { GUIDES };
