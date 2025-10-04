@@ -32,10 +32,10 @@ export function Navbar() {
   }
   return (
     <div
-      className={`flex flex-col items-center w-full fixed left-0 top-0 z-30 ${scrolled}`}
+      className={`flex flex-col items-center w-full fixed px-4 left-0 top-0 z-30 ${scrolled}`}
     >
       <nav
-        className={` max-w-lg  w-full flex w-full flex-row items-start justify-between py-2 sm:items-center text-base`}
+        className={`max-w-lg flex w-full flex-row items-start justify-between py-2 sm:items-center text-base`}
       >
         <div className="hidden sm:block">
           <NavBtn href="/">Levi Hanlen</NavBtn>
