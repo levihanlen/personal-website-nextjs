@@ -47,13 +47,17 @@ export function Navbar() {
           <HiMiniBars3 />
         </button>
         <div
-          className={`flex-col items-end space-y-4 sm:flex-row sm:space-x-6 sm:space-y-0 ${
+          className={`flex-col items-end gap-2 sm:flex-row sm:flex sm:items-center ${
             menuOpen ? "flex" : "hidden"
-          } text-lg sm:flex sm:text-base`}
+          }`}
         >
           <div className="sm:hidden block">
             <NavBtn href="/">Home</NavBtn>
           </div>
+
+          {/* <Link href="/guides" className="lh-link">
+            Guides
+          </Link> */}
           <NavBtn href="/guides">Guides</NavBtn>
           {/* <NavBtn href="/blog">Essays</NavBtn> */}
         </div>
