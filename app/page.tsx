@@ -33,7 +33,7 @@ export default function Home() {
   // const imageUrl = "/header-images/neuron.jpg";
   // const background = `linear-gradient(hsla(120, 0%, 0%, 0.8), hsla(120, 0%, 0%, 0.8)), url(${imageUrl})`;
   return (
-    <PageLayout left={<div>test</div>}>
+    <PageLayout>
       <Article className={`mt-32`}>
         <h1>Hey! I&apos;m Levi</h1>
         <div className="grid grid-cols-2 gap-2 sm:gap-4">
