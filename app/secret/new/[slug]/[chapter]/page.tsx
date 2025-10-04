@@ -8,8 +8,12 @@ import { AuthorSection } from "@/app/comp/AuthorSection";
 import { Metadata } from "next";
 import Link from "next/link";
 import { MarkAsReadButton } from "../../comp";
-import { InnerIconBtn } from "@/app/comp/Primitives";
-import { HiMiniChevronLeft, HiMiniChevronRight } from "react-icons/hi2";
+import { DisplayPill, InnerIconBtn } from "@/app/comp/Primitives";
+import {
+  HiMiniCheckBadge,
+  HiMiniChevronLeft,
+  HiMiniChevronRight,
+} from "react-icons/hi2";
 
 export function generateMetadata({
   params,
@@ -160,6 +164,17 @@ function Page({ params }: { params: { slug: string; chapter: string } }) {
         </details>
       </Article>
 
+      <div className="lh-card p-6 w-full flex flex-col items-center gap-4">
+        <DisplayPill className="inline-flex flex-row items-center space-x-2">
+          <span>GUIDE COMPLETE</span>
+          <HiMiniCheckBadge className="lh-icon-size" />
+        </DisplayPill>
+        <p>Mark the guide as complete to track your progress</p>
+        <MarkAsReadButton
+          guideSlug={params.slug}
+          chapterSlug={params.chapter}
+        />
+      </div>
       <div className="w-full flex justify-between items-center gap-4">
         {previousLink ? (
           <Link href={previousLink} className="lh-btn-secondary">
