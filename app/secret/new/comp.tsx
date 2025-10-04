@@ -15,6 +15,7 @@ type GuideSidebarData = {
   chapters: {
     slug: string;
     title: string;
+    readingTime: number;
   }[];
 };
 
@@ -159,13 +160,13 @@ function GuideSidebar({ guides }: { guides: GuideSidebarData[] }) {
                 />
               </Link>
               {isCurrentGuide &&
-                guide.chapters.map(
-                  (chapter: { slug: string; title: string }) => (
-                    <Link
-                      key={chapter.slug}
-                      href={`/secret/new/${guide.slug}/${chapter.slug}`}
-                      className="lh-interactive pl-4 py-1 flex flex-row gap-2 items-center"
-                    >
+                guide.chapters.map((chapter) => (
+                  <Link
+                    key={chapter.slug}
+                    href={`/secret/new/${guide.slug}/${chapter.slug}`}
+                    className="lh-interactive pl-4 py-1 flex flex-row gap-2 items-center justify-between"
+                  >
+                    <div className="flex flex-row gap-2 items-center">
                       <RadioCircle checked={false} />
                       <span
                         className={
@@ -176,9 +177,10 @@ function GuideSidebar({ guides }: { guides: GuideSidebarData[] }) {
                       >
                         {slugToTitle(chapter.slug)}
                       </span>
-                    </Link>
-                  )
-                )}
+                    </div>
+                    <span className="text-sm">{chapter.readingTime}m</span>
+                  </Link>
+                ))}
             </div>
           );
         })}

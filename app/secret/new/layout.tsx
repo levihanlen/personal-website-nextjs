@@ -9,6 +9,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     chapters: guide.chapters.map((chapter) => ({
       slug: chapter.slug,
       title: chapter.title,
+      readingTime: chapter.readingTime,
     })),
   }));
 
