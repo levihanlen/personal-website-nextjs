@@ -68,7 +68,7 @@ function Page({ params }: { params: { slug: string } }) {
       </CenteredArticle>
       <CenteredArticle className="mt-16">
         <details className="lh-border lh-round p-6">
-          <summary className="cursor-pointer text-lg font-semibold">
+          <summary className="text-darkest text-lg lh-bold lh-interactive">
             Citations
           </summary>
           <div className="mt-4 space-y-4">

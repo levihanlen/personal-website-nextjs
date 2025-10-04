@@ -178,7 +178,7 @@ const LEARNING_GUIDE: GuideType = {
       title: "Ultralearning",
       first: "Scott",
       last: "Young",
-      date: "2018",
+      date: "2019",
     },
   ],
 };
