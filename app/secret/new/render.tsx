@@ -133,6 +133,53 @@ const LEARNING_GUIDE: GuideType = {
       last: "Oakley",
       date: "2018",
     },
+    {
+      url: "https://www.goodreads.com/book/show/59616977-building-a-second-brain",
+      title: "Building a Second Brain",
+      first: "Tiago",
+      last: "Forte",
+      date: "2020",
+    },
+    {
+      url: "https://gwern.net/spaced-repetition",
+      title: "Spaced Repetition",
+      date: "2021",
+    },
+    {
+      url: "https://augmentingcognition.com/ltm.html",
+      title: "Augmenting Long Term Memory",
+      date: "2021",
+      first: "Michael",
+      last: "Nielsen",
+    },
+    {
+      first: "Piotr",
+      last: "Wozniak",
+      url: "https://www.supermemo.com/en/blog/twenty-rules-of-formulating-knowledge",
+      title: "Twenty Rules of Formulating Knowledge",
+      date: "1999",
+    },
+    {
+      url: "https://andymatuschak.org/books/",
+      title: "Why Books Don't Work",
+      first: "Andy",
+      last: "Matuschak",
+      date: "2019",
+    },
+    {
+      url: "https://www.goodreads.com/book/show/35167685-surely-you-re-joking-mr-feynman",
+      title: "Surely You're Joking, Mr. Feynman!",
+      first: "Richard",
+      last: "Feynman",
+      date: "1985",
+    },
+    {
+      url: "https://www.goodreads.com/book/show/44770129-ultralearning",
+      title: "Ultralearning",
+      first: "Scott",
+      last: "Young",
+      date: "2018",
+    },
   ],
 };
 
