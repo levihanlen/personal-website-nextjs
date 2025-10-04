@@ -61,19 +61,17 @@ export function RadioCircle({ checked }: { checked: boolean }) {
   );
 }
 
-/*
-
-                  <div
-                    className={`${
-                      tag == selectedTag
-                        ? "border-0 bg-gradient-to-b from-darkest to-darkest"
-                        : "transparent lh-border"
-                    } mr-4 flex h-4 w-4 items-center justify-center rounded-full border-pt `}
-                  >
-                    <div
-                      className={`${
-                        tag == selectedTag ? "bg-lightest" : "bg-transparent"
-                      } h-2 w-2 rounded-full`}
-                    />
-                  </div>
-*/
+export function InnerIconBtn({
+  icon,
+  children,
+}: {
+  icon: React.ReactNode;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="flex flex-row gap-2 items-center">
+      <span className="lh-icon-size shrink-0">{icon}</span>
+      {children}
+    </div>
+  );
+}

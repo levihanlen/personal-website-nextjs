@@ -7,6 +7,8 @@ import { ebGaramond } from "@/app/utils/fonts";
 import { AuthorSection } from "@/app/comp/AuthorSection";
 import { Metadata } from "next";
 import Link from "next/link";
+import { InnerIconBtn } from "@/app/comp/Primitives";
+import { HiMiniChevronLeft, HiMiniChevronRight } from "react-icons/hi2";
 
 export function generateMetadata({
   params,
@@ -47,6 +49,39 @@ function Page({ params }: { params: { slug: string; chapter: string } }) {
   if (!chapter) {
     notFound();
   }
+
+  const guideIndex = GUIDES.findIndex((g) => g.slug === params.slug);
+  const chapterIndex = guide.chapters.findIndex(
+    (c) => c.slug === params.chapter
+  );
+
+  const getPreviousLink = () => {
+    if (chapterIndex > 0) {
+      return `/secret/new/${guide.slug}/${
+        guide.chapters[chapterIndex - 1].slug
+      }`;
+    } else if (guideIndex > 0) {
+      const prevGuide = GUIDES[guideIndex - 1];
+      const lastChapter = prevGuide.chapters[prevGuide.chapters.length - 1];
+      return `/secret/new/${prevGuide.slug}/${lastChapter.slug}`;
+    }
+    return null;
+  };
+
+  const getNextLink = () => {
+    if (chapterIndex < guide.chapters.length - 1) {
+      return `/secret/new/${guide.slug}/${
+        guide.chapters[chapterIndex + 1].slug
+      }`;
+    } else if (guideIndex < GUIDES.length - 1) {
+      const nextGuide = GUIDES[guideIndex + 1];
+      return `/secret/new/${nextGuide.slug}/${nextGuide.chapters[0].slug}`;
+    }
+    return null;
+  };
+
+  const previousLink = getPreviousLink();
+  const nextLink = getNextLink();
 
   const citations = [...guide.citations];
   citations.push({
@@ -119,6 +154,33 @@ function Page({ params }: { params: { slug: string; chapter: string } }) {
           </div>
         </details>
       </Article>
+
+      <div className="w-full flex justify-between items-center gap-4">
+        {previousLink ? (
+          <Link href={previousLink} className="lh-btn-secondary">
+            <InnerIconBtn icon={<HiMiniChevronLeft />}>Previous</InnerIconBtn>
+          </Link>
+        ) : (
+          <button
+            disabled
+            className="lh-btn-secondary opacity-50 cursor-not-allowed"
+          >
+            <InnerIconBtn icon={<HiMiniChevronLeft />}>Previous</InnerIconBtn>
+          </button>
+        )}
+        {nextLink ? (
+          <Link href={nextLink} className="lh-btn-secondary">
+            <InnerIconBtn icon={<HiMiniChevronRight />}>Next</InnerIconBtn>
+          </Link>
+        ) : (
+          <button
+            disabled
+            className="lh-btn-secondary opacity-50 cursor-not-allowed"
+          >
+            <InnerIconBtn icon={<HiMiniChevronRight />}>Next</InnerIconBtn>
+          </button>
+        )}
+      </div>
 
       <AuthorSection />
     </>
