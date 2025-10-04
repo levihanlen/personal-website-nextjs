@@ -249,7 +249,7 @@ export function Article({
 }) {
   return (
     <div
-      className={`${ebGaramond.className} text-base sm:text-lg lh-prose-editor text-dark ${className}`}
+      className={`${ebGaramond.className} w-full text-base sm:text-lg lh-prose-editor text-dark ${className}`}
     >
       {children}
     </div>

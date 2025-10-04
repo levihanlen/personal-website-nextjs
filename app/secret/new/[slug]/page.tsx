@@ -1,11 +1,10 @@
-import { Article, PageLayout } from "@/app/comp/PageLayout";
-import { GUIDES } from "../render";
+import { PageLayout } from "@/app/comp/PageLayout";
+import { GUIDES } from "../guides";
 import { notFound } from "next/navigation";
-import React from "react";
 import { gradient } from "@/app/utils/utils";
 import { ebGaramond } from "@/app/utils/fonts";
-import { AuthorSection } from "@/app/comp/AuthorSection";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export function generateMetadata({
   params,
@@ -33,15 +32,6 @@ function Page({ params }: { params: { slug: string } }) {
     notFound();
   }
 
-  const citations = guide.citations;
-  citations.push({
-    title: "Levi Hanlen",
-    first: "Levi",
-    last: "Hanlen",
-    date: new Date().getFullYear().toString(),
-    url: "https://www.levihanlen.com",
-  });
-
   const background = gradient(guide.imgSrc);
 
   return (
@@ -54,49 +44,34 @@ function Page({ params }: { params: { slug: string } }) {
           <h1 className="text-3xl md:text-4xl lh-bold tracking-tight text-darkest">
             {guide.title}
           </h1>
-          {/* <p>{guide.desc}</p> */}
+          <p className="text-dark">{guide.desc}</p>
           <div className="flex gap-4 items-center flex-wrap">
-            <span>{guide.readingTime} minute read</span>
+            <span>{guide.chapters.length} chapters</span>
             <span>{guide.citations.length} citations</span>
           </div>
         </div>
       </div>
-      <Article className="">
-        {guide.sections.map((section, idx) => (
-          <React.Fragment key={idx}>{section}</React.Fragment>
+
+      <h2 className="text-2xl lh-bold text-darkest">Chapters</h2>
+      <div className="w-full flex flex-col divide-y-pt divide-light">
+        {guide.chapters.map((chapter, idx) => (
+          <Link
+            key={chapter.slug}
+            href={`/secret/new/${guide.slug}/${chapter.slug}`}
+            className="flex flex-col gap-2 p-4 lh-interactive"
+          >
+            <h3 className="lh-bold text-darkest">
+              {idx + 1}. {chapter.title}
+            </h3>
+            <p className="text-dark">{chapter.desc}</p>
+            {chapter.readingTime > 0 && (
+              <p className="text-sm text-dark">
+                {chapter.readingTime} minute read
+              </p>
+            )}
+          </Link>
         ))}
-      </Article>
-      <Article className="mt-16">
-        <details className="lh-border lh-round p-6">
-          <summary className="text-darkest text-lg lh-bold lh-interactive">
-            Citations
-          </summary>
-          <div className="mt-4 space-y-4">
-            {citations.map((citation, idx) => (
-              <div key={idx} className="text-sm">
-                {citation.first && citation.last && (
-                  <span>
-                    {citation.last}, {citation.first}.{" "}
-                  </span>
-                )}
-                {citation.title && (
-                  <span className="italic">{citation.title}</span>
-                )}
-                {citation.date && <span>. {citation.date}</span>}
-                {citation.url && (
-                  <span>
-                    .{" "}
-                    <a href={citation.url} target="_blank">
-                      {citation.url}
-                    </a>
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
-        </details>
-      </Article>
-      <AuthorSection />
+      </div>
     </PageLayout>
   );
 }
