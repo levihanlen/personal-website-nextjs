@@ -204,6 +204,9 @@ function Footer() {
             </ALink>
             <ALink href="https://x.com/LeviHanlen">Twitter (X)</ALink>
             <ALink href="https://github.com/levihanlen">Github</ALink>
+            <ALink href="https://www.goodreads.com/user/show/160790823-levi-hanlen">
+              Goodreads
+            </ALink>
           </div>
           <div className=" flex flex-col space-y-1 text-right">
             {/* <div className="lh-bold text-darkest ">Levi Hanlen</div> */}
