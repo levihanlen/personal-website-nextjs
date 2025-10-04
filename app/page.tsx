@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { CenteredArticle } from "./comp/PageLayout";
+import { Article, PageLayout } from "./comp/PageLayout";
 import NewsletterForm from "./comp/NewsletterForm";
 
 export default function Home() {
@@ -33,8 +33,8 @@ export default function Home() {
   // const imageUrl = "/header-images/neuron.jpg";
   // const background = `linear-gradient(hsla(120, 0%, 0%, 0.8), hsla(120, 0%, 0%, 0.8)), url(${imageUrl})`;
   return (
-    <>
-      <CenteredArticle className={`mt-32`}>
+    <PageLayout left={<div>test</div>}>
+      <Article className={`mt-32`}>
         <h1>Hey! I&apos;m Levi</h1>
         <div className="grid grid-cols-2 gap-2 sm:gap-4">
           <SquareImg src="/barcelona.jpeg" />
@@ -75,7 +75,7 @@ export default function Home() {
             out it&apos;s pretty hard)
           </li> */}
         </ul>
-      </CenteredArticle>
+      </Article>
 
       <NewsletterForm />
       {/* <div className="w-full space-y-4 p-8 lh-card flex flex-col items-center justify-center">
@@ -89,7 +89,7 @@ export default function Home() {
           Browse all guides
         </Link>
       </div> */}
-      <CenteredArticle>
+      <Article>
         {/* <div className="flex flex-col space-y-4 my-12">
           <h1 className="!m-0 text-pretty">My goals 🌲</h1>
           <div className="tracking-widest text-xs font-semibold text-dark">
@@ -172,7 +172,7 @@ export default function Home() {
           My main project these days is WriteRush. Check it out by clicking the
           button below!
         </p>
-      </CenteredArticle>
+      </Article>
       <div className=" max-w-sm">
         <ProjectDiv
           heading="WriteRush"
@@ -181,7 +181,7 @@ export default function Home() {
           img="/writerush-mockup.png"
         />
       </div>
-    </>
+    </PageLayout>
   );
   // <GenerateWallpaperButton />
 }

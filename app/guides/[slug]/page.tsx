@@ -4,14 +4,10 @@ import matter from "gray-matter";
 import React from "react";
 
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { HiMiniCheckBadge } from "react-icons/hi2";
 import { TableOfContents } from "../../comp/TableOfContents";
 import { AuthorSection } from "@/app/comp/AuthorSection";
-import { Article, CenteredArticle } from "@/app/comp/PageLayout";
-import { DisplayPill } from "@/app/comp/Primitives";
+import { Article, PageLayout } from "@/app/comp/PageLayout";
 import { ShareBtns } from "@/app/comp/SocialShare";
-import { RandomGuides } from "../comp/RandomGuides";
-import { GuideType } from "@/app/utils/types";
 import { gradient, slugify } from "@/app/utils/utils";
 import { notFound } from "next/navigation";
 import { GuidePromise } from "@/app/comp/GuidePromise";
@@ -85,7 +81,14 @@ export default function Post({ params }: { params: { slug: string } }) {
   const imageUrl = props.frontMatter.bg || "/header-images/wealth.jpg";
   const background = gradient(imageUrl);
   return (
-    <>
+    <PageLayout
+      right={
+        <div className="flex flex-col self-center p-4 gap-4">
+          <ShareBtns />
+          <TableOfContents content={props.content} />
+        </div>
+      }
+    >
       <div
         style={{ backgroundImage: background }}
         className="flex w-full flex-col grayscale items-center justify-center bg-light bg-cover bg-center bg-no-repeat pb-8 pt-32"
@@ -97,24 +100,16 @@ export default function Post({ params }: { params: { slug: string } }) {
           </div>
         </Article>
       </div>
-      <Article
-        className="mt-8"
-        right={
-          <div className="flex flex-col lh-card p-4 gap-4">
-            <ShareBtns />
-            <TableOfContents content={props.content} />
-          </div>
-        }
-      >
+      <Article className="mt-8">
         <GuidePromise data={props.frontMatter.desc} />
         <MDXRemote
           {...{ source: props.content }}
           components={componentsForMDX}
         />
       </Article>
-      <EndCardArticle />
+      {/* <EndCardArticle /> */}
       <AuthorSection />
-    </>
+    </PageLayout>
   );
 }
 
@@ -131,37 +126,37 @@ export async function generateMetadata({
   };
 }
 
-function EndCardArticle() {
-  // I copied the below code from page.js of /learn. This is to get the "articles" list
-  const articleDir = "guides";
-  const files = fs.readdirSync(path.join(articleDir));
-  const articles = files.map((filename) => {
-    const fileContent = fs.readFileSync(
-      path.join(articleDir, filename),
-      "utf-8"
-    );
-    const { data: frontMatter } = matter(fileContent);
-    return {
-      meta: frontMatter,
-      slug: filename.replace(".mdx", ""),
-    };
-  }) as GuideType[];
-  // code ends here.
-  return (
-    <div className="mt-16 flex w-full flex-col items-center px-4 md:px-16">
-      <div className="flex w-full flex-col items-center  lh-card px-8 sm:px-12 py-16">
-        <DisplayPill className="inline-flex flex-row items-center space-x-2">
-          <span>GUIDE COMPLETE</span>
-          <HiMiniCheckBadge className="lh-icon-size" />
-        </DisplayPill>
-        <CenteredArticle className="my-4 text-pretty text-center">
-          <p className="">
-            Amazing news! You&apos;re now 1% smarter after reading this guide.
-            Keep reading to improve!
-          </p>
-        </CenteredArticle>
-        <RandomGuides articles={articles} />
-      </div>
-    </div>
-  );
-}
+// function EndCardArticle() {
+//   // I copied the below code from page.js of /learn. This is to get the "articles" list
+//   const articleDir = "guides";
+//   const files = fs.readdirSync(path.join(articleDir));
+//   const articles = files.map((filename) => {
+//     const fileContent = fs.readFileSync(
+//       path.join(articleDir, filename),
+//       "utf-8"
+//     );
+//     const { data: frontMatter } = matter(fileContent);
+//     return {
+//       meta: frontMatter,
+//       slug: filename.replace(".mdx", ""),
+//     };
+//   }) as GuideType[];
+//   // code ends here.
+//   return (
+//     <div className="mt-16 flex w-full flex-col items-center">
+//       <div className="flex w-full flex-col items-center  lh-card px-8 sm:px-12 py-16">
+//         <DisplayPill className="inline-flex flex-row items-center space-x-2">
+//           <span>GUIDE COMPLETE</span>
+//           <HiMiniCheckBadge className="lh-icon-size" />
+//         </DisplayPill>
+//         <Article className="my-4 text-pretty text-center">
+//           <p className="">
+//             Amazing news! You&apos;re now 1% smarter after reading this guide.
+//             Keep reading to improve!
+//           </p>
+//         </Article>
+//         <RandomGuides articles={articles} />
+//       </div>
+//     </div>
+//   );
+// }

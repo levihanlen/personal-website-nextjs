@@ -7,6 +7,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useMemo, useState } from "react";
 import { BlogCard } from "./BlogCard";
 import { RadioCircle } from "@/app/comp/Primitives";
+import { PageLayout } from "@/app/comp/PageLayout";
 
 export function TagSelectorPage({ articles }: { articles: BlogType[] }) {
   return (
@@ -114,19 +115,18 @@ export function TagSelectorContent({ articles }: { articles: BlogType[] }) {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <div className="w-full pt-32 lh-pl lh-pr">
-        <div className="hidden py-4 text-dark md:block">
-          Read {articles.length} blogs
-        </div>
-        <div className="relative flex w-full flex-col border-light md:flex-row md:items-start  md:border-y-pt">
-          <div className="left-0 top-0 flex flex-col gap-4 md:sticky md:flex md:w-1/3  md:border-light md:pt-16">
+      <PageLayout
+        left={
+          <div className="flex flex-col gap-4">
             <input
               id="searchInput"
               placeholder="Search"
               className="w-full lh-input"
               onChange={handleSearchChange}
             ></input>
-            <div className=" text-xs tracking-widest text-dark">FILTERS</div>
+            <div className=" text-xs tracking-widest text-dark pl-2">
+              FILTERS
+            </div>
             <div className="flex flex-col md:w-full">
               {tags.map((tag) => (
                 <button
@@ -134,7 +134,7 @@ export function TagSelectorContent({ articles }: { articles: BlogType[] }) {
                     handleSetTag(tag);
                   }}
                   key={tag}
-                  className={`flex w-full lh-interactive flex-row items-center px-4 py-2 text-left  md:border-0 gap-2`}
+                  className={`flex w-full lh-interactive flex-row items-center text-left pl-2  md:border-0 gap-2`}
                 >
                   <RadioCircle checked={tag === selectedTag} />
                   <div>{capitalize(tag)}</div>
@@ -142,26 +142,29 @@ export function TagSelectorContent({ articles }: { articles: BlogType[] }) {
               ))}
             </div>
           </div>
-
-          <div className="w-full py-4 md:w-2/3 md:p-16 md:pt-16">
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 md:mt-0 md:grid-cols-1 lg:grid-cols-2">
-              {orderedArticles.map(
-                (article) =>
-                  (article.meta.tags.includes(selectedTag ?? "") ||
-                    selectedTag == null) && (
-                    <Link
-                      href={"/blog/" + article.slug}
-                      passHref
-                      key={article.slug}
-                    >
-                      <BlogCard article={article} />
-                    </Link>
-                  )
-              )}
-            </div>
+        }
+      >
+        <div className="hidden text-dark md:block">
+          Read {articles.length} essays
+        </div>
+        <div className="flex w-full flex-col">
+          <div className="flex flex-col divide-y-pt divide-light">
+            {orderedArticles.map(
+              (article) =>
+                (article.meta.tags.includes(selectedTag ?? "") ||
+                  selectedTag == null) && (
+                  <Link
+                    href={"/blog/" + article.slug}
+                    passHref
+                    key={article.slug}
+                  >
+                    <BlogCard article={article} />
+                  </Link>
+                )
+            )}
           </div>
         </div>
-      </div>
+      </PageLayout>
     </Suspense>
   );
 }
@@ -178,7 +181,7 @@ export function Tag({ key, tag }: { key: string; tag: string }) {
     <button
       key={key}
       onClick={() => handleButtonClick(tag)}
-      className="mr-1 text-darkest underline lh-interactive"
+      className="mr-1 lh-link"
     >
       #{tag}
     </button>

@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import { GuideType } from "../utils/types";
 import { GuideCard } from "./comp/GuideCard";
+import { PageLayout } from "../comp/PageLayout";
 
 export default function Home() {
   // 1) Set articles directory
@@ -29,15 +30,14 @@ export default function Home() {
     };
   }) as GuideType[];
 
-  console.log(articles);
   return (
-    <>
-      <h1 className="text-4xl text-darkest font-semibold mt-32">Guides</h1>
+    <PageLayout>
+      <h1 className="text-4xl text-darkest lh-bold tracking-tight">Guides</h1>
       <div className="max-w-lg w-full flex flex-col gap-4">
         {articles.map((val) => {
           return <GuideCard article={val} key={val.slug} />;
         })}
       </div>
-    </>
+    </PageLayout>
   );
 }

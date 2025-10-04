@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { PageLayout } from "./comp/PageLayout";
 
 export default function NotFound() {
   const [image, setImage] = useState("");
@@ -13,23 +14,25 @@ export default function NotFound() {
     setImage(`/lost${num}.webp`);
   }, []);
   return (
-    <div className="flex items-center justify-center h-screen text-center">
-      <div className="space-y-6 flex-col flex items-center">
-        <Image
-          src={image}
-          alt="A funny meme of a lost person"
-          width="500"
-          height="500"
-          className="w-2/3 rounded-xl aspect-square object-cover grayscale bg-light"
-        />
-        <h2 className="text-8xl font-semibold">404</h2>
-        <p className="text-xl text-dark">
-          Oops! I couldn&apos;t find that page for you.
-        </p>
-        <Link href="/">
-          <button className="lh-btn-primary">Return Home</button>
-        </Link>
+    <PageLayout>
+      <div className="flex items-center justify-center h-screen text-center">
+        <div className="space-y-6 flex-col flex items-center">
+          <Image
+            src={image}
+            alt="A funny meme of a lost person"
+            width="500"
+            height="500"
+            className="w-2/3 rounded-xl aspect-square object-cover grayscale bg-light"
+          />
+          <h2 className="text-8xl font-semibold">404</h2>
+          <p className="text-xl text-dark">
+            Oops! I couldn&apos;t find that page for you.
+          </p>
+          <Link href="/">
+            <button className="lh-btn-primary">Return Home</button>
+          </Link>
+        </div>
       </div>
-    </div>
+    </PageLayout>
   );
 }

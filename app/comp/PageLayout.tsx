@@ -4,7 +4,17 @@ import React, { useState, useEffect } from "react";
 import { HiMiniBars3 } from "react-icons/hi2";
 import { ebGaramond } from "../utils/fonts";
 
-export function Navbar() {
+export function Navbar({
+  hasLeft,
+  hasRight,
+  onToggleLeft,
+  onToggleRight,
+}: {
+  hasLeft?: boolean;
+  hasRight?: boolean;
+  onToggleLeft?: () => void;
+  onToggleRight?: () => void;
+}) {
   const [scrolled, setScrolled] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
@@ -22,7 +32,6 @@ export function Navbar() {
     handleScroll();
     window.addEventListener("scroll", handleScroll);
 
-    // Clean up the event listener on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -37,15 +46,25 @@ export function Navbar() {
       <nav
         className={`max-w-lg flex w-full flex-row items-start justify-between py-2 sm:items-center text-base`}
       >
-        <div className="hidden sm:block">
-          <NavBtn href="/">Levi Hanlen</NavBtn>
+        <div className="flex gap-2 items-center">
+          {hasLeft && (
+            <button
+              className="lh-btn-secondary lh-icon-size lg:hidden"
+              onClick={onToggleLeft}
+            >
+              L
+            </button>
+          )}
+          <div className="hidden sm:block">
+            <NavBtn href="/">Levi Hanlen</NavBtn>
+          </div>
+          <button
+            className="lh-btn-secondary lh-icon-size sm:hidden"
+            onClick={toggleMenu}
+          >
+            <HiMiniBars3 />
+          </button>
         </div>
-        <button
-          className="lh-btn-secondary lh-icon-size sm:hidden"
-          onClick={toggleMenu}
-        >
-          <HiMiniBars3 />
-        </button>
         <div
           className={`flex-col items-end gap-2 sm:flex-row sm:flex sm:items-center ${
             menuOpen ? "flex" : "hidden"
@@ -55,11 +74,15 @@ export function Navbar() {
             <NavBtn href="/">Home</NavBtn>
           </div>
 
-          {/* <Link href="/guides" className="lh-link">
-            Guides
-          </Link> */}
           <NavBtn href="/guides">Guides</NavBtn>
-          {/* <NavBtn href="/blog">Essays</NavBtn> */}
+          {hasRight && (
+            <button
+              className="lh-btn-secondary lh-icon-size lg:hidden"
+              onClick={onToggleRight}
+            >
+              R
+            </button>
+          )}
         </div>
       </nav>
     </div>
@@ -97,21 +120,70 @@ export function ALink({
 export function PageLayout({
   children,
   className,
+  left,
+  right,
   ...props
 }: {
   children: React.ReactNode;
   className?: string;
+  left?: React.ReactNode;
+  right?: React.ReactNode;
 }) {
+  const [leftOpen, setLeftOpen] = useState(false);
+  const [rightOpen, setRightOpen] = useState(false);
+
   return (
     <div
-      className={`flex min-h-full w-full flex-col justify-start ${className} `} //bg-gridX bg-right-top md:bg-gridXBig
-      style={{ backgroundSize: "100% auto" }}
+      className={`flex min-h-full w-full flex-col justify-start ${className} `}
       {...props}
     >
-      <Navbar />
-      <main className="flex h-full w-full flex-col items-center px-4 gap-8">
-        {children}
-        <Footer />
+      <Navbar
+        hasLeft={!!left}
+        hasRight={!!right}
+        onToggleLeft={() => setLeftOpen(!leftOpen)}
+        onToggleRight={() => setRightOpen(!rightOpen)}
+      />
+      <main className="flex h-full w-full flex-row justify-center gap-8 pt-16">
+        {left && (
+          <>
+            <aside className="hidden lg:flex flex-shrink-0 w-64 fixed left-4 top-16 bottom-0 overflow-y-auto">
+              {left}
+            </aside>
+            {leftOpen && (
+              <>
+                <div
+                  className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+                  onClick={() => setLeftOpen(false)}
+                />
+                <aside className="fixed left-0 top-16 bottom-0 w-64 bg-lightest z-50 overflow-y-auto p-4 lg:hidden">
+                  {left}
+                </aside>
+              </>
+            )}
+          </>
+        )}
+        <div className="flex flex-col items-center w-full max-w-lg flex-grow gap-8 px-4 lg:px-0 lg:mx-64">
+          {children}
+          <Footer />
+        </div>
+        {right && (
+          <>
+            <aside className="hidden lg:flex flex-shrink-0 w-64 fixed right-4 top-16 bottom-0 overflow-y-auto">
+              {right}
+            </aside>
+            {rightOpen && (
+              <>
+                <div
+                  className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+                  onClick={() => setRightOpen(false)}
+                />
+                <aside className="fixed right-0 top-16 bottom-0 w-64 bg-lightest z-50 overflow-y-auto p-4 lg:hidden">
+                  {right}
+                </aside>
+              </>
+            )}
+          </>
+        )}
       </main>
     </div>
   );
@@ -145,30 +217,30 @@ function Footer() {
   );
 }
 
-export function Article({
-  children,
-  className,
-  right,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  right?: React.ReactNode;
-}) {
-  return (
-    <div className="flex w-full flex-row justify-center">
-      <article
-        className={`${ebGaramond.className} lh-prose-editor text-dark text-base sm:text-lg max-w-full flex-grow-0 self-center sm:px-0 lh-ml md:min-w-[576px] md:self-start ${className}`}
-      >
-        {children}
-      </article>
-      <div className="sticky top-14 hidden w-full flex-grow self-start p-4 md:flex  lh-pr">
-        <div className="flex w-full flex-col items-end ">{right}</div>
-      </div>
-    </div>
-  );
-}
+// export function Article({
+//   children,
+//   className,
+//   right,
+// }: {
+//   children: React.ReactNode;
+//   className?: string;
+//   right?: React.ReactNode;
+// }) {
+//   return (
+//     <div className="flex w-full flex-row justify-center">
+//       <article
+//         className={`${ebGaramond.className} lh-prose-editor text-dark text-base sm:text-lg max-w-full flex-grow-0 self-center sm:px-0 lh-ml md:min-w-[576px] md:self-start ${className}`}
+//       >
+//         {children}
+//       </article>
+//       <div className="sticky top-14 hidden w-full flex-grow self-start p-4 md:flex  lh-pr">
+//         <div className="flex w-full flex-col items-end ">{right}</div>
+//       </div>
+//     </div>
+//   );
+// }
 
-export function CenteredArticle({
+export function Article({
   children,
   className,
 }: {
@@ -177,7 +249,7 @@ export function CenteredArticle({
 }) {
   return (
     <div
-      className={`${ebGaramond.className} text-base sm:text-lg lh-prose-editor text-dark  w-full max-w-lg self-center ${className}`}
+      className={`${ebGaramond.className} text-base sm:text-lg lh-prose-editor text-dark ${className}`}
     >
       {children}
     </div>

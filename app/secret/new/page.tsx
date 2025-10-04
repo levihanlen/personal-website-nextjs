@@ -1,5 +1,5 @@
 import { NodeClusterType } from "@/app/utils/knowledge/NEW";
-import { CenteredArticle } from "@/app/comp/PageLayout";
+import { Article, PageLayout } from "@/app/comp/PageLayout";
 import { getAllHlsFiles } from "@/app/utils/knowledge/hls";
 import { ParsedNodeCluster } from "./comp";
 
@@ -41,16 +41,16 @@ function Page() {
   const readingTime = calculateReadingTime(allText);
 
   return (
-    <>
-      <CenteredArticle className="mt-32">
+    <PageLayout>
+      <Article>
         <div className="">
           {readingTime} minute read - {totalNodeCount} nodes
         </div>
         {parsed.map((cluster, idx) => (
           <ParsedNodeCluster key={idx} cluster={cluster} />
         ))}
-      </CenteredArticle>
-    </>
+      </Article>
+    </PageLayout>
   );
 }
 

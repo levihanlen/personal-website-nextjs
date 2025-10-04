@@ -30,17 +30,23 @@ export function BlogCard({
 
   return (
     <div
-      className={`lh-card  lh-interactive outline outline-light flex w-full bg-no-repeat bg-cover bg-center grayscale  flex-grow flex-col space-y-2 p-4 ${className}`}
+      className={`lh-interactive flex w-full flex-col gap-2 p-4 ${className}`}
       onClick={() => handleArticleClick(article.slug)}
     >
       <div className="flex flex-row gap-1 items-center">
         <div className="text-base font-semibold leading-tight  ">
           {article.meta.title}
-        </div>{" "}
+        </div>
       </div>
       <div className="flex flex-row gap-2 items-center">
         <RadioCircle checked={read} />
-        <div className="text-xs text-dark">{article.meta.date}</div>
+        <div className="text-xs text-dark">
+          {new Date(article.meta.date).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })}
+        </div>
         <div className="flex flex-row flex-wrap text-xs text-dark ">
           {article.meta.tags.map((tag, index) => (
             <span key={index} className="mr-1">

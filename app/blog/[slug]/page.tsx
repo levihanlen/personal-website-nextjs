@@ -3,9 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import React from "react";
 import { AuthorSection } from "@/app/comp/AuthorSection";
-import { CenteredArticle } from "@/app/comp/PageLayout";
-import { RandomGuides } from "@/app/guides/comp/RandomGuides";
-import { GuideType } from "@/app/utils/types";
+import { Article, PageLayout } from "@/app/comp/PageLayout";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Tag } from "../comp/TagSelector";
 import { notFound } from "next/navigation";
@@ -44,8 +42,8 @@ export default function Post({ params }: { params: { slug: string } }) {
 
   // const timeToRead = Math.max(Math.round(props.content.length / 5 / 250), 1);
   return (
-    <>
-      <CenteredArticle className="mt-32">
+    <PageLayout>
+      <Article className="mt-32">
         <h1 className="!mb-4">{props.frontMatter.title}</h1>
         <div className="flex flex-row flex-wrap items-start justify-start text-sm text-dark md:text-base">
           {props.frontMatter.tags.map((tag: string, index: number) => (
@@ -53,10 +51,9 @@ export default function Post({ params }: { params: { slug: string } }) {
           ))}
         </div>
         <MDXRemote {...{ source: props.content }} />
-      </CenteredArticle>
-      <EndCardArticle />
+      </Article>
       <AuthorSection />
-    </>
+    </PageLayout>
   );
 }
 
@@ -73,30 +70,30 @@ export async function generateMetadata({
   };
 }
 
-function EndCardArticle() {
-  // I copied the below code from page.js of /learn. This is to get the "articles" list
-  const articleDir = "guides";
-  const files = fs.readdirSync(path.join(articleDir));
-  const articles = files.map((filename) => {
-    const fileContent = fs.readFileSync(
-      path.join(articleDir, filename),
-      "utf-8"
-    );
-    const { data: frontMatter } = matter(fileContent);
-    return {
-      meta: frontMatter,
-      slug: filename.replace(".mdx", ""),
-    };
-  }) as GuideType[];
-  // code ends here.
-  return (
-    <div className="mt-16 flex w-full flex-col items-center px-4 md:px-16">
-      <div className="flex w-full flex-col items-center  lh-card px-8 sm:px-12 py-16">
-        <CenteredArticle className="my-4 text-pretty text-center">
-          <p className="">Check out the guides on these topics:</p>
-        </CenteredArticle>
-        <RandomGuides articles={articles} />
-      </div>
-    </div>
-  );
-}
+// function EndCardArticle() {
+//   // I copied the below code from page.js of /learn. This is to get the "articles" list
+//   const articleDir = "guides";
+//   const files = fs.readdirSync(path.join(articleDir));
+//   const articles = files.map((filename) => {
+//     const fileContent = fs.readFileSync(
+//       path.join(articleDir, filename),
+//       "utf-8"
+//     );
+//     const { data: frontMatter } = matter(fileContent);
+//     return {
+//       meta: frontMatter,
+//       slug: filename.replace(".mdx", ""),
+//     };
+//   }) as GuideType[];
+//   // code ends here.
+//   return (
+//     <div className="mt-16 flex w-full flex-col items-center px-4 md:px-16">
+//       <div className="flex w-full flex-col items-center  lh-card px-8 sm:px-12 py-16">
+//         <Article className="my-4 text-pretty text-center">
+//           <p className="">Check out the guides on these topics:</p>
+//         </Article>
+//         <RandomGuides articles={articles} />
+//       </div>
+//     </div>
+//   );
+// }

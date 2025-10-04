@@ -1,4 +1,4 @@
-import { CenteredArticle } from "@/app/comp/PageLayout";
+import { Article, PageLayout } from "@/app/comp/PageLayout";
 import { GUIDES } from "../render";
 import { notFound } from "next/navigation";
 import React from "react";
@@ -45,8 +45,8 @@ function Page({ params }: { params: { slug: string } }) {
   const background = gradient(guide.imgSrc);
 
   return (
-    <>
-      <div className="lh-border lh-round overflow-hidden mt-32 w-full max-w-lg">
+    <PageLayout>
+      <div className="lh-border lh-round overflow-hidden w-full max-w-lg">
         <div
           style={{ backgroundImage: background }}
           className={`text-center grayscale text-dark flex flex-col gap-4 w-full items-center justify-center p-8 bg-no-repeat bg-cover bg-center ${ebGaramond.className}`}
@@ -61,12 +61,12 @@ function Page({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </div>
-      <CenteredArticle className="">
+      <Article className="">
         {guide.sections.map((section, idx) => (
           <React.Fragment key={idx}>{section}</React.Fragment>
         ))}
-      </CenteredArticle>
-      <CenteredArticle className="mt-16">
+      </Article>
+      <Article className="mt-16">
         <details className="lh-border lh-round p-6">
           <summary className="text-darkest text-lg lh-bold lh-interactive">
             Citations
@@ -95,9 +95,9 @@ function Page({ params }: { params: { slug: string } }) {
             ))}
           </div>
         </details>
-      </CenteredArticle>
+      </Article>
       <AuthorSection />
-    </>
+    </PageLayout>
   );
 }
 

@@ -5,6 +5,7 @@ import { NodeClusterType } from "@/app/utils/knowledge/NEW";
 import { createCardForNode, nextState } from "@/app/utils/anki/generate";
 import { Rating, Grade } from "ts-fsrs";
 import { ebGaramond } from "@/app/utils/fonts";
+import { PageLayout } from "@/app/comp/PageLayout";
 
 type ReviewCard = {
   node: NodeClusterType;
@@ -112,7 +113,7 @@ export default function ReviewClient({ nodes }: { nodes: NodeClusterType[] }) {
   }
 
   return (
-    <div className="flex flex-col items-center w-full max-w-lg mt-32 gap-6">
+    <PageLayout className="mt-16">
       <div className="w-full min-h-40 flex flex-col gap-6 items-start">
         <div className="text-dark text-sm">{dueCards.length} left</div>
         <div
@@ -151,7 +152,7 @@ export default function ReviewClient({ nodes }: { nodes: NodeClusterType[] }) {
 
       {feedback && <div className="text-dark">{feedback}</div>}
       {/* <pre>{JSON.stringify(queue, null, 2)}</pre> */}
-    </div>
+    </PageLayout>
   );
 }
 

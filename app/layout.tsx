@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { PageLayout } from "./comp/PageLayout";
 
 import { Analytics } from "@vercel/analytics/next";
 import { libreFranklin } from "./utils/fonts";
@@ -19,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${libreFranklin.className} bg-lightest text-darkest`}>
-        <PageLayout>{children}</PageLayout>
+        {children}
         <Analytics />
       </body>
     </html>
