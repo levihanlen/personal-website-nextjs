@@ -33,6 +33,15 @@ function Page({ params }: { params: { slug: string } }) {
     notFound();
   }
 
+  const citations = guide.citations;
+  citations.push({
+    title: "Levi Hanlen",
+    first: "Levi",
+    last: "Hanlen",
+    date: new Date().getFullYear().toString(),
+    url: "https://www.levihanlen.com",
+  });
+
   const background = gradient(guide.imgSrc);
 
   return (
@@ -46,13 +55,46 @@ function Page({ params }: { params: { slug: string } }) {
             {guide.title}
           </h1>
           {/* <p>{guide.desc}</p> */}
-          <div>{guide.readingTime} minute read</div>
+          <div className="flex gap-4 items-center flex-wrap">
+            <span>{guide.readingTime} minute read</span>
+            <span>{guide.citations.length} citations</span>
+          </div>
         </div>
       </div>
       <CenteredArticle className="">
         {guide.sections.map((section, idx) => (
           <React.Fragment key={idx}>{section}</React.Fragment>
         ))}
+      </CenteredArticle>
+      <CenteredArticle className="mt-16">
+        <details className="lh-border lh-round p-6">
+          <summary className="cursor-pointer text-lg font-semibold">
+            Citations
+          </summary>
+          <div className="mt-4 space-y-4">
+            {citations.map((citation, idx) => (
+              <div key={idx} className="text-sm">
+                {citation.first && citation.last && (
+                  <span>
+                    {citation.last}, {citation.first}.{" "}
+                  </span>
+                )}
+                {citation.title && (
+                  <span className="italic">{citation.title}</span>
+                )}
+                {citation.date && <span>. {citation.date}</span>}
+                {citation.url && (
+                  <span>
+                    .{" "}
+                    <a href={citation.url} target="_blank">
+                      {citation.url}
+                    </a>
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
+        </details>
       </CenteredArticle>
       <AuthorSection />
     </>

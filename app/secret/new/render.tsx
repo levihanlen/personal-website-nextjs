@@ -4,6 +4,14 @@ import { NodeClusterType } from "@/app/utils/knowledge/NEW";
 
 type GuideSectionType = React.ReactNode;
 
+interface CitationType {
+  first?: string;
+  last?: string;
+  title: string;
+  date?: string;
+  url?: string;
+}
+
 interface GuideType {
   slug: string;
   title: string;
@@ -11,6 +19,7 @@ interface GuideType {
   imgSrc: string;
   sections: GuideSectionType[];
   readingTime: number;
+  citations: CitationType[];
 }
 
 function renderText(text: string): GuideSectionType {
@@ -102,6 +111,29 @@ const LEARNING_GUIDE: GuideType = {
   imgSrc: "/header-images/neuron.jpg",
   sections: LEARNING_GUIDE_SECTIONS,
   readingTime: getReadingTimeForHls("learning"),
+  citations: [
+    {
+      title: "How to Take Smart Notes",
+      first: "Sönke",
+      last: "Ahrens",
+      date: "2017",
+      url: "https://www.goodreads.com/book/show/34507927-how-to-take-smart-notes",
+    },
+    {
+      title: "How to Read a Book",
+      first: "Mortimer",
+      last: "J. Adler",
+      date: "1972",
+      url: "https://www.goodreads.com/book/show/567610.How_to_Read_a_Book",
+    },
+    {
+      url: "https://www.goodreads.com/book/show/36647421-learning-how-to-learn",
+      title: "Learning How to Learn",
+      first: "Barbara",
+      last: "Oakley",
+      date: "2018",
+    },
+  ],
 };
 
 const GUIDES: GuideType[] = [LEARNING_GUIDE];
