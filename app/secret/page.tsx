@@ -1,3 +1,4 @@
+import { PageLayout } from "../comp/PageLayout";
 import { buildKnowledgeGraph } from "../utils/knowledge/build";
 import { KnowledgeGraphChart } from "../utils/knowledge/KnowledgeGraphChart";
 import { KnowledgeNodeItem } from "../utils/knowledge/KnowledgeNodeUi";
@@ -18,9 +19,9 @@ export default function Secret() {
 
   const test = seedAndTraverseClusters(sortedGraph);
   return (
-    <>
+    <PageLayout>
       <KnowledgeGraphChart nodes={sortedGraph} />
-      <div className="lh-pl lh-pr mt-32">
+      <div className="mt-32">
         <div className="lh-prose-editor text-dark max-w-[50ch]">
           <p>
             <strong>
@@ -42,6 +43,6 @@ export default function Secret() {
           ))}
         </div>
       </div>
-    </>
+    </PageLayout>
   );
 }

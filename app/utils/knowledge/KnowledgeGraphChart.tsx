@@ -696,8 +696,8 @@ function KnowledgeGraphChart({
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseLeave}
         onWheel={handleWheel}
-        style={{ width: "100%", height: Math.max(500, layout.height) }}
-        className="cursor-grab active:cursor-grabbing"
+        // style={{ width: "100%", height: layout.height }}
+        className="cursor-grab active:cursor-grabbing w-full aspect-square"
       />
       <div className="absolute bottom-4 right-4 flex gap-2 bg-lightest lh-round px-4 py-2 text-xs text-dark lh-border">
         <span>Drag nodes • Scroll to zoom • Drag background to pan</span>
