@@ -34,7 +34,7 @@ export default function Home() {
   // const background = `linear-gradient(hsla(120, 0%, 0%, 0.8), hsla(120, 0%, 0%, 0.8)), url(${imageUrl})`;
   return (
     <PageLayout>
-      <Article className={`mt-32`}>
+      <Article className={`mt-12`}>
         <h1>Hey! I&apos;m Levi</h1>
         <div className="grid grid-cols-2 gap-2 sm:gap-4">
           <SquareImg src="/barcelona.jpeg" />
