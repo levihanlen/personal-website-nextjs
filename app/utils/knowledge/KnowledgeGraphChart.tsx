@@ -217,7 +217,6 @@ function KnowledgeGraphChart({
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [isPanning, setIsPanning] = useState(false);
   const [panStart, setPanStart] = useState({ x: 0, y: 0 });
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const graphNodes = useMemo<KnowledgeGraphNode[]>(() => {
     if (isGraphNodeArray(nodes)) return nodes as KnowledgeGraphNode[];
@@ -257,19 +256,6 @@ function KnowledgeGraphChart({
     setNodePositions(positions);
     nodeVelocities.current = velocities;
   }, [layout]);
-
-  useEffect(() => {
-    const checkDarkMode = () => {
-      setIsDarkMode(document.documentElement.classList.contains("dark"));
-    };
-    checkDarkMode();
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     const SPRING_STRENGTH = 0.008;
@@ -440,14 +426,10 @@ function KnowledgeGraphChart({
       ctx.lineTo(toTransformed.x, toTransformed.y);
 
       if (isHighlighted) {
-        ctx.strokeStyle = isDarkMode
-          ? "rgba(147, 197, 253, 0.8)"
-          : "rgba(59, 130, 246, 0.8)";
+        ctx.strokeStyle = "rgba(147, 197, 253, 0.8)";
         ctx.lineWidth = 2.5 * zoom;
       } else {
-        ctx.strokeStyle = isDarkMode
-          ? "rgba(115, 115, 115, 0.3)"
-          : "rgba(212, 212, 212, 0.6)";
+        ctx.strokeStyle = "rgba(115, 115, 115, 0.3)";
         ctx.lineWidth = 1.5 * zoom;
       }
       ctx.stroke();
@@ -469,23 +451,15 @@ function KnowledgeGraphChart({
       ctx.arc(transformed.x, transformed.y, radius, 0, Math.PI * 2);
 
       if (isHovered || isSelected) {
-        ctx.fillStyle = isDarkMode
-          ? "rgba(96, 165, 250, 0.9)"
-          : "rgba(59, 130, 246, 0.9)";
-        ctx.shadowColor = isDarkMode
-          ? "rgba(96, 165, 250, 0.5)"
-          : "rgba(59, 130, 246, 0.5)";
+        ctx.fillStyle = "rgba(96, 165, 250, 0.9)";
+        ctx.shadowColor = "rgba(96, 165, 250, 0.5)";
         ctx.shadowBlur = 15 * zoom;
       } else if (isConnected) {
-        ctx.fillStyle = isDarkMode
-          ? "rgba(147, 197, 253, 0.6)"
-          : "rgba(147, 197, 253, 0.8)";
+        ctx.fillStyle = "rgba(147, 197, 253, 0.6)";
         ctx.shadowColor = "transparent";
         ctx.shadowBlur = 0;
       } else {
-        ctx.fillStyle = isDarkMode
-          ? "rgba(38, 38, 38, 0.95)"
-          : "rgba(255, 255, 255, 0.95)";
+        ctx.fillStyle = "rgba(38, 38, 38, 0.95)";
         ctx.shadowColor = "transparent";
         ctx.shadowBlur = 0;
       }
@@ -493,21 +467,15 @@ function KnowledgeGraphChart({
 
       ctx.strokeStyle =
         isHovered || isSelected
-          ? isDarkMode
-            ? "rgba(147, 197, 253, 1)"
-            : "rgba(59, 130, 246, 1)"
-          : isDarkMode
-          ? "rgba(82, 82, 82, 0.8)"
-          : "rgba(163, 163, 163, 0.8)";
+          ? "rgba(147, 197, 253, 1)"
+          : "rgba(82, 82, 82, 0.8)";
       ctx.lineWidth = (isHovered || isSelected ? 2.5 : 1.5) * zoom;
       ctx.stroke();
 
       if (isHovered || isSelected) {
         ctx.shadowColor = "transparent";
         ctx.shadowBlur = 0;
-        ctx.fillStyle = isDarkMode
-          ? "rgba(255, 255, 255, 0.95)"
-          : "rgba(0, 0, 0, 0.9)";
+        ctx.fillStyle = "rgba(255, 255, 255, 0.95)";
         ctx.font = `${Math.max(
           10,
           12 * zoom
@@ -524,12 +492,8 @@ function KnowledgeGraphChart({
         const boxX = transformed.x - textWidth / 2 - padding;
         const boxY = transformed.y + radius + 8 * zoom;
 
-        ctx.fillStyle = isDarkMode
-          ? "rgba(38, 38, 38, 0.95)"
-          : "rgba(255, 255, 255, 0.95)";
-        ctx.strokeStyle = isDarkMode
-          ? "rgba(82, 82, 82, 0.8)"
-          : "rgba(212, 212, 212, 0.8)";
+        ctx.fillStyle = "rgba(38, 38, 38, 0.95)";
+        ctx.strokeStyle = "rgba(82, 82, 82, 0.8)";
         ctx.lineWidth = 1 * zoom;
         ctx.beginPath();
         ctx.roundRect(
@@ -542,9 +506,7 @@ function KnowledgeGraphChart({
         ctx.fill();
         ctx.stroke();
 
-        ctx.fillStyle = isDarkMode
-          ? "rgba(255, 255, 255, 0.95)"
-          : "rgba(0, 0, 0, 0.9)";
+        ctx.fillStyle = "rgba(255, 255, 255, 0.95)";
         ctx.fillText(text, transformed.x, boxY + padding);
       }
     }
@@ -558,7 +520,6 @@ function KnowledgeGraphChart({
     transformPoint,
     getConnectedNodes,
     zoom,
-    isDarkMode,
   ]);
 
   useEffect(() => {
