@@ -14,6 +14,7 @@ import {
   HiMiniChevronLeft,
   HiMiniChevronRight,
 } from "react-icons/hi2";
+import NewsletterForm from "@/app/comp/NewsletterForm";
 
 export function generateMetadata({
   params,
@@ -203,6 +204,7 @@ function Page({ params }: { params: { slug: string; chapter: string } }) {
       </div>
 
       <AuthorSection />
+      <NewsletterForm />
     </>
   );
 }
