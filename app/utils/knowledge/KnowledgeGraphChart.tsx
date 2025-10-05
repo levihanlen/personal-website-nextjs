@@ -685,7 +685,7 @@ function KnowledgeGraphChart({
   return (
     <div
       ref={containerRef}
-      className="relative w-full overflow-hidden rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950"
+      className="relative w-full overflow-hidden lh-round lh-border bg-lightest lh-border"
     >
       <canvas
         ref={canvasRef}
@@ -699,7 +699,7 @@ function KnowledgeGraphChart({
         style={{ width: "100%", height: Math.max(500, layout.height) }}
         className="cursor-grab active:cursor-grabbing"
       />
-      <div className="absolute bottom-4 right-4 flex gap-2 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-sm rounded-lg px-3 py-2 text-xs text-neutral-600 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-800">
+      <div className="absolute bottom-4 right-4 flex gap-2 bg-lightest lh-round px-4 py-2 text-xs text-dark lh-border">
         <span>Drag nodes • Scroll to zoom • Drag background to pan</span>
       </div>
     </div>
