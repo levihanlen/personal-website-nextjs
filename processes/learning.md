@@ -26,7 +26,7 @@
   - write it down with this syntax. "q: why is blah blah blah"
 - once yuo're done with the book, you now have a summarized version of the book by you
   - do a quick check to see if there are any obvious issues/errors
-    are there any errors/incorrect parts of this? answer any questions i had
+    > are there any errors/incorrect parts of this? answer any questions i had
   - organize the notes into indented bullet piont list, where each root node is a concept
   - building understanding (feynman technique)
     - for those concepts repeatedly ask "why?", write your reasoning down
