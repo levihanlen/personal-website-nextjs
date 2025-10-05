@@ -209,6 +209,10 @@ function KnowledgeGraphChart({
   const [nodePositions, setNodePositions] = useState<
     Map<string, { x: number; y: number }>
   >(new Map());
+  const nodeVelocities = useRef<Map<string, { vx: number; vy: number }>>(
+    new Map()
+  );
+  const animationFrameId = useRef<number | null>(null);
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
   const [isPanning, setIsPanning] = useState(false);
@@ -245,10 +249,13 @@ function KnowledgeGraphChart({
 
   useEffect(() => {
     const positions = new Map<string, { x: number; y: number }>();
+    const velocities = new Map<string, { vx: number; vy: number }>();
     for (const n of layout.nodes) {
       positions.set(n.id, { x: n.x, y: n.y });
+      velocities.set(n.id, { vx: 0, vy: 0 });
     }
     setNodePositions(positions);
+    nodeVelocities.current = velocities;
   }, [layout]);
 
   useEffect(() => {
@@ -263,6 +270,100 @@ function KnowledgeGraphChart({
     });
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    const SPRING_STRENGTH = 0.008;
+    const REPULSION_STRENGTH = 800;
+    const IDEAL_DISTANCE = 80;
+    const MIN_DISTANCE = 30;
+    const DAMPING = 0.92;
+    const MAX_VELOCITY = 2;
+
+    const connectedNodesMap = new Map<string, Set<string>>();
+    for (const edge of layout.edges) {
+      if (!connectedNodesMap.has(edge.fromId)) {
+        connectedNodesMap.set(edge.fromId, new Set());
+      }
+      if (!connectedNodesMap.has(edge.toId)) {
+        connectedNodesMap.set(edge.toId, new Set());
+      }
+      connectedNodesMap.get(edge.fromId)!.add(edge.toId);
+      connectedNodesMap.get(edge.toId)!.add(edge.fromId);
+    }
+
+    function simulatePhysics() {
+      setNodePositions((currentPositions) => {
+        const newPositions = new Map(currentPositions);
+        const velocities = nodeVelocities.current;
+
+        for (const nodeA of layout.nodes) {
+          if (draggingNode === nodeA.id) continue;
+
+          const posA = newPositions.get(nodeA.id);
+          const velA = velocities.get(nodeA.id);
+          if (!posA || !velA) continue;
+
+          let fx = 0;
+          let fy = 0;
+
+          for (const nodeB of layout.nodes) {
+            if (nodeA.id === nodeB.id) continue;
+
+            const posB = newPositions.get(nodeB.id);
+            if (!posB) continue;
+
+            const dx = posB.x - posA.x;
+            const dy = posB.y - posA.y;
+            const distSq = dx * dx + dy * dy;
+            const dist = Math.sqrt(distSq);
+
+            if (dist < 0.1) continue;
+
+            const connectedA = connectedNodesMap.get(nodeA.id);
+            const isConnected = connectedA?.has(nodeB.id);
+
+            if (isConnected) {
+              const delta = dist - IDEAL_DISTANCE;
+              const force = SPRING_STRENGTH * delta;
+              fx += (dx / dist) * force;
+              fy += (dy / dist) * force;
+            } else {
+              const force =
+                REPULSION_STRENGTH /
+                Math.max(distSq, MIN_DISTANCE * MIN_DISTANCE);
+              fx -= (dx / dist) * force;
+              fy -= (dy / dist) * force;
+            }
+          }
+
+          velA.vx = (velA.vx + fx) * DAMPING;
+          velA.vy = (velA.vy + fy) * DAMPING;
+
+          velA.vx = Math.max(-MAX_VELOCITY, Math.min(MAX_VELOCITY, velA.vx));
+          velA.vy = Math.max(-MAX_VELOCITY, Math.min(MAX_VELOCITY, velA.vy));
+
+          posA.x += velA.vx;
+          posA.y += velA.vy;
+
+          const margin = PADDING_X;
+          posA.x = Math.max(margin, Math.min(layout.width - margin, posA.x));
+          posA.y = Math.max(margin, Math.min(layout.height - margin, posA.y));
+        }
+
+        return newPositions;
+      });
+
+      animationFrameId.current = requestAnimationFrame(simulatePhysics);
+    }
+
+    animationFrameId.current = requestAnimationFrame(simulatePhysics);
+
+    return () => {
+      if (animationFrameId.current !== null) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
+    };
+  }, [layout, draggingNode]);
 
   const getConnectedNodes = useCallback(
     (nodeId: string): Set<string> => {
