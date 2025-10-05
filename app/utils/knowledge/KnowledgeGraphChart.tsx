@@ -42,8 +42,7 @@ type Edge = {
   toId: string;
 };
 
-const NODE_RADIUS = 8;
-const HOVER_NODE_RADIUS = 12;
+const NODE_RADIUS = 6;
 const PADDING_X = 60;
 const PADDING_Y = 60;
 const MIN_WIDTH = 800;
@@ -426,11 +425,11 @@ function KnowledgeGraphChart({
       ctx.lineTo(toTransformed.x, toTransformed.y);
 
       if (isHighlighted) {
-        ctx.strokeStyle = "rgba(147, 197, 253, 0.8)";
-        ctx.lineWidth = 2.5 * zoom;
+        ctx.strokeStyle = "rgba(147, 197, 253, 0.6)";
+        ctx.lineWidth = 2 * zoom;
       } else {
-        ctx.strokeStyle = "rgba(115, 115, 115, 0.3)";
-        ctx.lineWidth = 1.5 * zoom;
+        ctx.strokeStyle = "rgba(96, 96, 96, 0.4)";
+        ctx.lineWidth = 1 * zoom;
       }
       ctx.stroke();
     }
@@ -445,69 +444,31 @@ function KnowledgeGraphChart({
       const isConnected =
         connectedToHovered.has(node.id) || connectedToSelected.has(node.id);
 
-      const radius = (isHovered ? HOVER_NODE_RADIUS : NODE_RADIUS) * zoom;
+      const radius = NODE_RADIUS * zoom;
 
       ctx.beginPath();
       ctx.arc(transformed.x, transformed.y, radius, 0, Math.PI * 2);
 
       if (isHovered || isSelected) {
-        ctx.fillStyle = "rgba(96, 165, 250, 0.9)";
-        ctx.shadowColor = "rgba(96, 165, 250, 0.5)";
-        ctx.shadowBlur = 15 * zoom;
+        ctx.fillStyle = "rgba(96, 165, 250, 1)";
       } else if (isConnected) {
-        ctx.fillStyle = "rgba(147, 197, 253, 0.6)";
-        ctx.shadowColor = "transparent";
-        ctx.shadowBlur = 0;
+        ctx.fillStyle = "rgba(147, 197, 253, 0.7)";
       } else {
-        ctx.fillStyle = "rgba(38, 38, 38, 0.95)";
-        ctx.shadowColor = "transparent";
-        ctx.shadowBlur = 0;
+        ctx.fillStyle = "rgba(64, 64, 64, 1)";
       }
       ctx.fill();
 
-      ctx.strokeStyle =
-        isHovered || isSelected
-          ? "rgba(147, 197, 253, 1)"
-          : "rgba(82, 82, 82, 0.8)";
-      ctx.lineWidth = (isHovered || isSelected ? 2.5 : 1.5) * zoom;
-      ctx.stroke();
-
       if (isHovered || isSelected) {
-        ctx.shadowColor = "transparent";
-        ctx.shadowBlur = 0;
-        ctx.fillStyle = "rgba(255, 255, 255, 0.95)";
+        ctx.fillStyle = "rgba(255, 255, 255, 1)";
         ctx.font = `${Math.max(
           10,
-          12 * zoom
+          11 * zoom
         )}px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`;
         ctx.textAlign = "center";
         ctx.textBaseline = "top";
 
         const text = node.node.text;
-        const metrics = ctx.measureText(text);
-        const textWidth = metrics.width;
-        const textHeight = 14 * zoom;
-        const padding = 6 * zoom;
-
-        const boxX = transformed.x - textWidth / 2 - padding;
-        const boxY = transformed.y + radius + 8 * zoom;
-
-        ctx.fillStyle = "rgba(38, 38, 38, 0.95)";
-        ctx.strokeStyle = "rgba(82, 82, 82, 0.8)";
-        ctx.lineWidth = 1 * zoom;
-        ctx.beginPath();
-        ctx.roundRect(
-          boxX,
-          boxY,
-          textWidth + padding * 2,
-          textHeight + padding * 2,
-          4 * zoom
-        );
-        ctx.fill();
-        ctx.stroke();
-
-        ctx.fillStyle = "rgba(255, 255, 255, 0.95)";
-        ctx.fillText(text, transformed.x, boxY + padding);
+        ctx.fillText(text, transformed.x, transformed.y + radius + 6 * zoom);
       }
     }
 
@@ -535,7 +496,7 @@ function KnowledgeGraphChart({
         const dx = inverted.x - pos.x;
         const dy = inverted.y - pos.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance <= HOVER_NODE_RADIUS) {
+        if (distance <= NODE_RADIUS * 2) {
           return node.id;
         }
       }
