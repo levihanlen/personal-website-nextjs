@@ -301,7 +301,7 @@ function GuideProgress({
       <div className="text-sm text-dark">
         {readCount}/{totalChapters} done
       </div>
-      <div className="w-full h-2 bg-light lh-round overflow-hidden">
+      <div className="w-full h-2 bg-light lh-round overflow-hidden backdrop-blur-sm">
         <div
           className="h-full bg-darkest transition-all duration-300"
           style={{ width: `${progress}%` }}

@@ -16,22 +16,6 @@ export default function Home() {
     age--;
   }
 
-  // const articleDir = "guides";
-  // const files = fs.readdirSync(path.join(articleDir));
-  // const articles = files.map((filename) => {
-  //   const fileContent = fs.readFileSync(
-  //     path.join(articleDir, filename),
-  //     "utf-8"
-  //   );
-  //   const { data: frontMatter } = matter(fileContent);
-  //   return {
-  //     meta: frontMatter,
-  //     slug: filename.replace(".mdx", ""),
-  //   };
-  // }) as GuideType[];
-
-  // const imageUrl = "/header-images/neuron.jpg";
-  // const background = `linear-gradient(hsla(120, 0%, 0%, 0.8), hsla(120, 0%, 0%, 0.8)), url(${imageUrl})`;
   return (
     <PageLayout>
       <Article className={`mt-12`}>
