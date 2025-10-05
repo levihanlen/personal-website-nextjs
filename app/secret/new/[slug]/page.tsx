@@ -4,6 +4,7 @@ import { gradient } from "@/app/utils/utils";
 import { ebGaramond } from "@/app/utils/fonts";
 import { Metadata } from "next";
 import Link from "next/link";
+import { GuideProgress } from "../comp";
 
 export function generateMetadata({
   params,
@@ -43,13 +44,32 @@ function Page({ params }: { params: { slug: string } }) {
           <h1 className="text-3xl md:text-4xl lh-bold tracking-tight text-darkest">
             {guide.title}
           </h1>
-          <p className="text-dark">{guide.desc}</p>
+          {/* <p className="text-dark">{guide.desc}</p> */}
           <div className="flex gap-4 items-center flex-wrap">
             <span>{guide.chapters.length} chapters</span>
             <span>{guide.citations.length} citations</span>
           </div>
+
+          <div className="w-full">
+            <GuideProgress
+              guideSlug={guide.slug}
+              totalChapters={guide.chapters.length}
+            />
+          </div>
         </div>
+        {/* <div className="p-4">
+          <GuideProgress
+            guideSlug={guide.slug}
+            totalChapters={guide.chapters.length}
+          />
+        </div> */}
       </div>
+      {/* <div className="p-4 w-full">
+        <GuideProgress
+          guideSlug={guide.slug}
+          totalChapters={guide.chapters.length}
+        />
+      </div> */}
 
       <h2 className="text-2xl lh-bold text-darkest">Chapters</h2>
       <div className="w-full flex flex-col divide-y-pt divide-light">

@@ -257,10 +257,65 @@ function MarkAsReadButton({
   );
 }
 
+function GuideProgress({
+  guideSlug,
+  totalChapters,
+}: {
+  guideSlug: string;
+  totalChapters: number;
+}) {
+  const [readCount, setReadCount] = useState(0);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const stored = localStorage.getItem("readChapters");
+    if (stored) {
+      const chapters = JSON.parse(stored) as string[];
+      const readForThisGuide = chapters.filter((c) =>
+        c.startsWith(`${guideSlug}/`)
+      ).length;
+      setReadCount(readForThisGuide);
+    }
+
+    function handleStorageChange() {
+      const stored = localStorage.getItem("readChapters");
+      if (stored) {
+        const chapters = JSON.parse(stored) as string[];
+        const readForThisGuide = chapters.filter((c) =>
+          c.startsWith(`${guideSlug}/`)
+        ).length;
+        setReadCount(readForThisGuide);
+      } else {
+        setReadCount(0);
+      }
+    }
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, [guideSlug]);
+
+  const progress = totalChapters > 0 ? (readCount / totalChapters) * 100 : 0;
+
+  return (
+    <div className="flex flex-col gap-2">
+      <div className="text-sm text-dark">
+        {readCount}/{totalChapters} done
+      </div>
+      <div className="w-full h-2 bg-light lh-round overflow-hidden">
+        <div
+          className="h-full bg-darkest transition-all duration-300"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
+    </div>
+  );
+}
+
 export {
   ParsedNodeCluster,
   BulletList,
   GuideSidebar,
   hasChapterBeenRead,
   MarkAsReadButton,
+  GuideProgress,
 };
