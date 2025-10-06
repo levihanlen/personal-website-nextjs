@@ -33,16 +33,17 @@ export default function Home() {
           <li>
             I love reading so much that I used to do it for eight hours daily
           </li>
-          <li>I only drink water</li>
+          {/* COMMENTED OUT THAT BECAUSE I"M APPLYING TO JOBS */}
+          {/* <li>I only drink water</li> */}
           {/* <li>I&apos;m celibate by choice</li> */}
           <li>I&apos;m writing down every memory I&apos;ve ever had</li>
           <li>Almost everything I own is black, white, or gray</li>
 
           <li>I was Valedictorian of my high school class</li>
-          <li>
+          {/* <li>
             I chose not to attend college and am instead pursuing
             entrepreneurship
-          </li>
+          </li> */}
           <li>
             I&apos;m madly in love with{" "}
             <a href="https://apps.ankiweb.net/" target="_blank">
