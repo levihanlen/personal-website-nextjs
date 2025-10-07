@@ -2,16 +2,16 @@
 # physics
 
 - rayleigh scattering is how photons are scattered by molecules much smaller than the wavelength of the photon
-  - the sky is blue because of a phenonmenom called {{rayleigh scattering}}
-    - shadows outside are {{blue-ish}} because of {{rayleigh scattering}}
+  - the sky is blue because of a phenonmenom called {{c1::rayleigh scattering}} ^id:1759805974389
+    - shadows outside are {{c1::blue-ish}} because of {{c2::rayleigh scattering}} ^id:1759805974413
   - n: this is a note
-  - rayleigh scattering equation is "{{intensity of scattering}} is {{proportional to}} {{(frequency ^ 4)}}"
-    - if you {{half the}} wavelength, the rayleigh scattering {{increases by a factor of 16 (2^4)}}
-    - if you {{double}} the wavelength, the rayleigh scattering {{decreases by a factor of 16 (2^4)}}
-  - in the atmosphere, violet light is scattered {{more}} than blue light
-  - the sky is blue and not purple because {{the sun emits less violet than blue light}} and {{our eyes are more sensitive to blue than violet}}
-  - the {{atmosphere}} is full of mostly {{nitrogen}} and {{oxygen}} particles
-  - nitrogen and oxygen molecules are {{much smaller::size}} than the wavelength of visibile light
-  - the sun can appear yellow because {{some of the blue has been scattered away (rayleigh scattering)}}
-  - if you turned off the sun and shined a bright white narrow light into the sky, it would {{look blue}} because {{of rayleigh scattering}}
-  - sunrise/sunset appears red because {{light must travel through hundreds of more miles of atmosphere to reach you, scattering it more}}
+  - rayleigh scattering equation is "{{c1::intensity of scattering}} is {{c2::proportional to}} {{c3::(frequency ^ 4)}}" ^id:1759809096912
+    - if you {{c1::half the}} wavelength, the rayleigh scattering {{c2::increases by a factor of 16 (2^4)}} ^id:1759809101164
+    - if you {{c1::double}} the wavelength, the rayleigh scattering {{c2::decreases by a factor of 16 (2^4)}} ^id:1759809103517
+  - in the atmosphere, violet light is scattered {{c1::more}} than blue light ^id:1759809103570
+  - the sky is blue and not purple because {{c1::the sun emits less violet than blue light}} and {{c2::our eyes are more sensitive to blue than violet}} ^id:1759809104165
+  - the {{c1::atmosphere}} is full of mostly {{c2::nitrogen}} and {{c3::oxygen}} particles ^id:1759805974690
+  - nitrogen and oxygen molecules are {{c1::much smaller::size}} than the wavelength of visibile light ^id:1759809104371
+  - the sun can appear yellow because {{c1::some of the blue has been scattered away (rayleigh scattering)}} ^id:1759805974736
+  - if you turned off the sun and shined a bright white narrow light into the sky, it would {{c1::look blue}} because {{c2::of rayleigh scattering}} ^id:1759805974761
+  - sunrise/sunset appears red because {{c1::light must travel through hundreds of more miles of atmosphere to reach you, scattering it more}} ^id:1759809104568
