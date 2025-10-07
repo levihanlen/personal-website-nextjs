@@ -92,8 +92,6 @@ export default function AnkiTestPage() {
 
   return (
     <PageLayout>
-      <h1 className="text-2xl">Anki Cloze Card Test</h1>
-
       <input
         type="text"
         value={text}
@@ -106,15 +104,12 @@ export default function AnkiTestPage() {
           }
         }}
       />
-      <p className="text-sm text-medium">
-        Example: The capital of France is {"{{"} c1::Paris {"}}"}
-      </p>
 
       <div className="flex gap-4">
         <button
           onClick={handleAddCard}
           disabled={isLoading}
-          className="lh-btn-secondary"
+          className="lh-btn-primary"
         >
           {isLoading ? "Adding..." : "Add Cloze Card"}
         </button>
