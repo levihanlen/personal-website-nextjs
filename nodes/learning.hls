@@ -1,15 +1,15 @@
 
 # reading
 
-- the point of reading nonfiction is {{c1::to gain understanding of something from someone who understands what you dont}} ^id:1759805973863
+- the point of reading nonfiction is {{to gain understanding of something from someone who understands what you dont}} ^id:1759805973863
 
-- {{c1::summarizing}} things {{c2::makes you understand them}} ^id:1759805973888
-  - summarizing makes you understand because {{c1::you say it a way you understand. if you don't understand it, you can't say it}} ^id:1759805973912
-  - study: two groups taking notes on lecture, one by computer other by hand. {{c1::by hand}} understood much better ^id:1759805973938
-    - students who take notes on a lecture {{c1::slower}} understand {{c2::better}}, because {{c3::they had to summarize to keep up with the pace of the lecture}} ^id:1759805973960
-  - instead of highlighting a book, {{c1::summarize it in your own words}} ^id:1759805973988
-    - highlighting text is bad because {{c1::when you return to it later, you've lost context and some understanding}} ^id:1759805974017
-    - when you summarize text from a book, it should be {{c1::<= 1 paragraph::size}} ^id:1759805974040
+- {{summarizing}} things {{makes you understand them}} ^id:1759805973888
+  - summarizing makes you understand because {{you say it a way you understand. if you don't understand it, you can't say it}} ^id:1759805973912
+  - study: two groups taking notes on lecture, one by computer other by hand. {{by hand}} understood much better ^id:1759805973938
+    - students who take notes on a lecture {{slower}} understand {{better}}, because {{they had to summarize to keep up with the pace of the lecture}} ^id:1759805973960
+  - instead of highlighting a book, {{summarize it in your own words}} ^id:1759805973988
+    - highlighting text is bad because {{when you return to it later, you've lost context and some understanding}} ^id:1759805974017
+    - when you summarize text from a book, it should be {{<= 1 paragraph::size}} ^id:1759805974040
     - n: i used to highlight everything and never write notes. i've since changed my strategy
   - when you read without summarizing, it gives you a false sense of knowledge
     - seeing something again feels the same as recalling it again. this it makes it feel like you have strengthened the memory (via recall) but you have not 
@@ -23,15 +23,15 @@
 - writing shows the gaps in your knowledge
   - writing shows gaps in knowldege, because it forces you to write down the entire idea, and you can very easily see the issues
 
-- good learning requires {{c1::struggle}} ^id:1759805974061
+- good learning requires {{struggle}} ^id:1759805974061
   - to learn something, you either discover it yourself or have something else help you discover it. but you have to discover it regardless
-  - {{c1::good}} learning is often {{c2::hard in the short term}} ^id:1759805974090
-  - {{c1::bad}} learning is often {{c2::easy in the short term, but hard in the long term}} ^id:1759805974115
-  - its fine for learning to take a long time because {{c1::it's basically required for understanding}} ^id:1759805974135
-  - the more effort you put into recalling a difficult memory, {{c1::the more it's strengthened}} ^id:1759805974163
+  - {{good}} learning is often {{hard in the short term}} ^id:1759805974090
+  - {{bad}} learning is often {{easy in the short term, but hard in the long term}} ^id:1759805974115
+  - its fine for learning to take a long time because {{it's basically required for understanding}} ^id:1759805974135
+  - the more effort you put into recalling a difficult memory, {{the more it's strengthened}} ^id:1759805974163
   - ex: if reading a book in another language, instead of passively reading it, write your own sentences that use the words you learn
 
-- trying to answer something you don't know {{c1::makes it easier to learn when you learn it, even if you fail}} ^id:1759805974190
+- trying to answer something you don't know {{makes it easier to learn when you learn it, even if you fail}} ^id:1759805974190
   - you must then look through your existing knowledeg, and try to guess an answer
   - before learning why the sky is blue, ask yourself why you think the sky is blue
   - before asking for an answer, genuinely try to come to the answer yourself
@@ -41,13 +41,13 @@
   - n: analogy: a concept is like a forest, you must find the gold in the forest, yuo can either have someone tell you where the gold is, nad you follow the path to it. or you can travel all the paths yourself and see which ones are incorrect. thus you gain a greater understandin gof the forest
 
 
-- stress makes learning {{c1::worse}} ^id:1759805974213
+- stress makes learning {{worse}} ^id:1759805974213
   - stress releases cortisol in the brain
-    - {{c1::cortisol}} inhibits {{c2::the ability to create long-term memories::learning}} ^id:1759805974239
-  - stress harms learning because it {{c1::consumes mental resources}} and {{c2::releases cortisol}} ^id:1759805974260
-  - exercise helps you memorize things, because {{c1::it reduces stress}} ^id:1759805974290
+    - {{cortisol}} inhibits {{the ability to create long-term memories::learning}} ^id:1759805974239
+  - stress harms learning because it {{consumes mental resources}} and {{releases cortisol}} ^id:1759805974260
+  - exercise helps you memorize things, because {{it reduces stress}} ^id:1759805974290
 
-- {{c1::to understand}}, {{c2::translate it into your own understanding}}, {{c3::analyze it on a deeper level}}, and {{c4::connect it to examples and other concepts}} ^id:1759805974313
+- {{to understand}}, {{translate it into your own understanding}}, {{analyze it on a deeper level}}, and {{connect it to examples and other concepts}} ^id:1759805974313
   - when learning, ask how, why, and give examples
   - to build a web of knowledge, think about how one piece of knowledge relates to other pieces of knowledge
     - to connect ideas to ther ideas, you must first remove the idea from the context it was found in. (find the fundamental truth not specific to one context)
@@ -73,7 +73,7 @@
 
 # flashcards
 
-- each flashcard should represent {{c1::one atomic idea and be simple}} ^id:1759805974340
-  - in a flashcard, if you have to use >1 sentence, parenthesis, or em-dash, {{c1::usually split into two cards}} ^id:1759805974365
+- each flashcard should represent {{one atomic idea and be simple}} ^id:1759805974340
+  - in a flashcard, if you have to use >1 sentence, parenthesis, or em-dash, {{usually split into two cards}} ^id:1759805974365
 
 - in cloze, "why" cards are best expressed as "X is Y because Z"
